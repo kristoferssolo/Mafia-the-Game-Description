@@ -1,0 +1,78 @@
+\subsubsection{Funkciju sadalījums moduļos}
+
+\begin{tabularx}{\linewidth}{|p{2cm}|X|p{2.7cm}|X|}
+	\caption{Funkciju sadalījums pa moduļiem} \label{tab:function_modules}                                                                                                                 \\
+	\hline
+	\textbf{Modulis}                              & \textbf{Funkcija}                        & \textbf{Identifikators}            & \textbf{Lietotāja kategorija}                          \\
+	\hline
+	\endfirsthead
+
+	\multicolumn{4}{c}%
+	\raggedright{{\textit{\thetable{} \tablename} \textbf{turpinājums no iepriekšējās lapas}}}                                                                                             \\
+	\hline
+	\textbf{Modulis}                              & \textbf{Funkcija}                        & \textbf{Identifikators}            & \textbf{Lietotāja kategorija}                          \\
+	\hline
+	\endhead
+
+	\hline \multicolumn{4}{|r|}{{Turpinājums nākamajā lapā}}                                                                                                                               \\ \hline
+	\endfoot
+
+	\hline
+	\endlastfoot
+
+	% Table data here
+	\setcounter{rownum}{0}
+	\multirow{10}{2cm}{Lietotāja modulis}         & Lietotāja pieteikšanās                   & \stepcounter{rownum}LMF\therownum  & Reģistrēts lietotājs                                   \\ \cline{2-4}
+	                                              & Lietotāja konta apstiprināšana           & \stepcounter{rownum}LMF\therownum  & Reģistrēts lietotājs                                   \\ \cline{2-4}
+	                                              & Lietotāja reģistrācija                   & \stepcounter{rownum}LMF\therownum  & Nereģistrēts lietotājs                                 \\ \cline{2-4}
+	                                              & Lietotāja konta rediģēšana               & \stepcounter{rownum}LMF\therownum  & Reģistrēts lietotājs, Maksas lietotājs, Administrātors \\ \cline{2-4}
+	                                              & Lietotāja konta rediģēšana               & \stepcounter{rownum}LMF\therownum  & Administrātors                                         \\ \cline{2-4}
+	                                              & Lietotāja konta bloķēšana                & \stepcounter{rownum}LMF\therownum  & Reģistrēts lietotājs                                   \\ \cline{2-4}
+	                                              & Lietotāja konta atteikšanās              & \stepcounter{rownum}LMF\therownum  & Reģistrēts lietotājs                                   \\ \cline{2-4}
+	                                              & Sava lietotāja konta datu pārskats       & \stepcounter{rownum}LMF\therownum  & Reģistrēts lietotājs, Maksas lietotājs, Administrators \\ \cline{2-4}
+	                                              & Lietotāja datu pārskats                  & \stepcounter{rownum}LMF\therownum  & Administrators                                         \\ \cline{2-4}
+	                                              & Lietotāja konta dzēšāna                  & \stepcounter{rownum}LMF\therownum  & Administrators                                         \\ \hline
+	\setcounter{rownum}{0}
+	\multirow{4}{2cm}{Maksas abonamentu modulis}  & Maksas par abonementu pieteikuma izveide & \stepcounter{rownum}MAMF\therownum & Reģistrēts lietotājs                                   \\ \cline{2-4}
+	                                              & Maksas abonementu uzskaite               & \stepcounter{rownum}MAMF\therownum & Maksas lietotājs                                       \\ \cline{2-4}
+	                                              & Maksas abonementa detaļu ieguve          & \stepcounter{rownum}MAMF\therownum & Maksas lietotājs                                       \\ \cline{2-4}
+	                                              & Maksas abonementa atcelšana              & \stepcounter{rownum}MAMF\therownum & Maksas lietotājs                                       \\ \hline
+	\setcounter{rownum}{0}
+	\multirow{5}{2cm}{Tērzētavas modulis}         & Jaunas īsziņas izveidošana               & \stepcounter{rownum}TMF\therownum  & Reģistrēts lietotājs                                   \\ \cline{2-4}
+	                                              & Īsziņas izdzēšana                        & \stepcounter{rownum}TMF\therownum  & Reģistrēts lietotājs                                   \\ \cline{2-4}
+	                                              & Īsziņu uzskaite                          & \stepcounter{rownum}TMF\therownum  & Reģistrēts lietotājs                                   \\ \cline{2-4}
+	                                              & Savu īsziņu redigēšana                   & \stepcounter{rownum}TMF\therownum  & Reģistrēts lietotājs                                   \\ \cline{2-4}
+	                                              & Īsziņu dzēšana                           & \stepcounter{rownum}TMF\therownum  & Administrators                                         \\ \hline
+	\setcounter{rownum}{0}
+	\multirow{14}{2cm}{Spēles istabas modulis}    & Jaunas spēles istabas izveide            & \stepcounter{rownum}SMF\therownum  & Maksas lietotājs                                       \\ \cline{2-4}
+	                                              & Spēles sākuma pieteikums                 & \stepcounter{rownum}SMF\therownum  & Maksas lietotājs, Administrators                       \\ \cline{2-4}
+	                                              & Spēles darbības veikšana                 & \stepcounter{rownum}SMF\therownum  & Reģistrēts lietotājs                                   \\ \cline{2-4}
+	                                              & Virtuālās istabas stāvokļa maiņa         & \stepcounter{rownum}SMF\therownum  & Administrators                                         \\ \cline{2-4}
+	                                              & Spēlētāja izslēgšana                     & \stepcounter{rownum}SMF\therownum  & Administrators                                         \\ \cline{2-4}
+	                                              & Spēles stāvokļa iegūšana                 & \stepcounter{rownum}SMF\therownum  & Sistēma, Administrators                                \\ \cline{2-4}
+	                                              & Virtuālās istabas spēlētāju iegūšana     & \stepcounter{rownum}SMF\therownum  & Administrators                                         \\ \cline{2-4}
+	                                              & Nākamā spēles stāvokļa noteikšana        & \stepcounter{rownum}SMF\therownum  & Reģistrēts lietotājs                                   \\ \cline{2-4}
+	                                              & Spēlētāja pievienošana                   & \stepcounter{rownum}SMF\therownum  & Administrators                                         \\ \cline{2-4}
+	                                              & Spēlētāja lomas iegūšana                 & \stepcounter{rownum}SMF\therownum  & Sistēma                                                \\ \cline{2-4}
+	                                              & Spēlētāja stāvokļa iegūšana              & \stepcounter{rownum}SMF\therownum  & Sistēma                                                \\ \hline
+	\setcounter{rownum}{0}
+	\multirow{9}{2cm}{Spēles uzstādījumu modulis} & Jaunas lomas izveidošana                 & \stepcounter{rownum}SUMF\therownum & Maksas lietotājs, Administrators                       \\ \cline{2-4}
+	                                              & Lomu uzskaite                            & \stepcounter{rownum}SUMF\therownum & Reģistrēts lietotājs, Adminitrators                    \\ \cline{2-4}
+	                                              & Lomas darbību uzskaite                   & \stepcounter{rownum}SUMF\therownum & Reģistrēts lietotājs                                   \\ \cline{2-4}
+	                                              & Lomas rediģēšana                         & \stepcounter{rownum}SUMF\therownum & Maksas lietotājs, Adminitrators                        \\ \cline{2-4}
+	                                              & Lomas dzēšana                            & \stepcounter{rownum}SUMF\therownum & Maksas lietotājs, Adminitrators                        \\ \cline{2-4}
+	                                              & Jauna spēles uzstādījuma izveidošana     & \stepcounter{rownum}SUMF\therownum & Maksas lietotājs, Adminitrators                        \\ \cline{2-4}
+	                                              & Spēles uzstādījuma dzēšana               & \stepcounter{rownum}SUMF\therownum & Adminitrators                                          \\ \cline{2-4}
+	                                              & Spēles uzstādījuma deaktivizēšana        & \stepcounter{rownum}SUMF\therownum & Maksas lietotājs, Adminitrators                        \\ \cline{2-4}
+	                                              & Spēles uzstādījuma lomu iegūšana         & \stepcounter{rownum}SUMF\therownum & Maksas lietotājs                                       \\ \hline
+	\setcounter{rownum}{0}
+	\parbox{2cm}{Saziņas modulis}                 & Apstiprinājuma ziņas izsūtīšana          & \stepcounter{rownum}[ID]\therownum & Sistēma                                                \\ \hline
+	% ... continue for each row
+\end{tabularx}
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\linewidth]{./src/requirements/img/DPD_1.png}
+	\caption{1. līmeņa DPD}
+	\label{fig:dpd_1}
+\end{figure}

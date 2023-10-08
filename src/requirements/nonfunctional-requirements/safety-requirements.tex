@@ -1,0 +1,73 @@
+\subsubsection{Drošības prasības}
+\begin{enumerate}
+	\item Autentifikācija
+	      \begin{itemize}
+		      \item Jāizmanto daudzfaktoru autentifikāciju (MFA).
+		      \item Paroles tiek glabātas šifrētā formātā, pirms šifrēšanas, tām  pievieno sāli.
+		      \item Jāizmanto drošus paroles atiestatīšanas procesus.
+	      \end{itemize}
+	\item Pilnvarošana
+	      \begin{itemize}
+		      \item Uz lomu bāzēta piekļuve.
+		      \item Pilnvaru pārbaude gan priekšgala saskarnē, gan aizmugursistēmā.
+	      \end{itemize}
+	\item Datu aizsardzība
+	      \begin{itemize}
+		      \item Datu šifrēšana glabājot un sūtot.
+		      \item Sistēmai nav jāglabā dati, kas nav nepieciešami sistēmas darbībai.
+	      \end{itemize}
+	\item Sesiju pārvalde
+	      \begin{itemize}
+		      \item \textit{Izmanto tikai HTTP sīkdatnes.}
+		      \item \textit{Use secure and http-only cookies.}
+		      \item Seisijas noildzes izmantošana.
+	      \end{itemize}
+	\item Input Validation \& Sanitization
+	      \begin{itemize}
+		      \item SQL injekciju, komandu injekciju un citu injekciju aizsardzība.
+		      \item \textit{Protect against SQL injection, command injection, and other injection attacks.}
+		      \item \textit{Implement proper validation for all user inputs and any data received from external systems.}
+	      \end{itemize}
+	\item Izvades iekodēšana
+	      \begin{itemize}
+		      \item Aizsardzība pret starpvietņu-skriptošanas (XSS) uzbrukumiem.
+	      \end{itemize}
+	\item Starpvietņu pieprasījumu (CSRF) aizsardzība
+	      \begin{itemize}
+		      \item Kļūdu paziņojumi neatklāj sensitīvu informāciju.
+		      \item Kļūdu paziņojumi, kas ir pielāgoti lietotāju grupai.
+	      \end{itemize}
+	\item Error Handling
+	      \begin{itemize}
+		      \item CSRF marķiera izmantošana.
+	      \end{itemize}
+	\item Server \& Infrastructure Security
+	      \begin{itemize}
+		      \item Vides \textit{(environment)} izolēšana.
+	      \end{itemize}
+	\item API Security
+	      \begin{itemize}
+		      \item API marķieru izmantošana.
+		      \item API pieprasījumu ierobežojums.
+		      \item API pieprasījumu ievades validācija un sanitizēšana.
+	      \end{itemize}
+	\item Datņu augšuplādēšana
+	      \begin{itemize}
+		      \item \textit{Ensure uploaded files are scanned for malware.}
+		      \item \textit{Validate and sanitize the file type and content.}
+		      \item \textit{Store files in a secure manner, avoiding direct execution paths.}
+	      \end{itemize}
+	\item Backup and Disaster Recovery
+	      \begin{itemize}
+		      \item \textit{The system shall support regular data backups.}
+		      \item \textit{There should be a procedure for disaster recovery.}
+
+	      \end{itemize}
+	\item Monitoring \& Logging
+	      \begin{itemize}
+		      \item \textit{Implement real-time monitoring and alerting for suspicious activities - implement a canary bird.}
+		      \item \textit{Maintain logs securely and regularly review them.}
+		      \item \textit{Save log backups on a remote server.}
+		      \item \textit{Ensure logs don't store sensitive information.}
+	      \end{itemize}
+\end{enumerate}

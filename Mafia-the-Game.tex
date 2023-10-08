@@ -10,6 +10,7 @@
 \usepackage{hyperref}
 \usepackage{indentfirst}
 \usepackage{multicol}
+\usepackage{multirow}
 \usepackage{ragged2e}
 \usepackage{secdot}
 \usepackage{tabularx}
@@ -18,7 +19,9 @@
 \usepackage{listings}
 \usepackage{tocloft}
 \usepackage{caption}
-\usepackage{lipsum} % TODO: Remove
+\usepackage{fmtcount}
+\usepackage{ltablex}
+\usepackage{chngcntr}
 \usetikzlibrary{positioning}
 
 \hypersetup{
@@ -29,12 +32,36 @@
 
 \urlstyle{rm}
 
+
 \titlespacing*{\section}{0pt}{2em}{2em}
 \titlespacing*{\subsection}{0pt}{2em}{2em}
 \titlespacing*{\subsubsection}{0pt}{2em}{2em}
+\titlespacing*{\paragraph}{0pt}{2em}{2em}
+\titlespacing*{\subparagraph}{0pt}{2em}{2em}
+
 \titleformat{\section}{\large\bfseries\centering\vfill\eject\MakeUppercase}{\thesection}{1em}{} % section formatting
 \titleformat{\subsection}{\large\bfseries\centering}{\thesubsection}{1em}{} % subsection formatting
 \titleformat{\subsubsection}{\large\bfseries\centering}{\thesubsubsection}{1em}{} % subsubsection formatting
+\titleformat{\paragraph}{\large\bfseries\centering}{\theparagraph}{1em}{} % paragraph formatting
+\titleformat{\subparagraph}{\large\bfseries\centering}{\thesubparagraph}{1em}{} % subparagraph formatting
+
+
+% Modify caption style
+\DeclareCaptionFormat{format}{\textit{#1} \textbf{#3}}
+\captionsetup{format=format}
+
+\DeclareCaptionLabelFormat{image}{#2 att.}
+\captionsetup[figure]{labelformat=image, labelsep=period}
+
+\counterwithin{figure}{section} % Reset figure counter within each section
+\renewcommand{\thefigure}{\thesection\arabic{figure}.} % Redefine figure numbering
+\counterwithin{table}{section} % Reset table counter within each section
+\renewcommand{\thetable}{\thesection\arabic{table}.} % Redefine table numbering
+
+\captionsetup[table]{justification=raggedleft,singlelinecheck=off} % Align table caption text to the left
+\captionsetup[figure]{justification=raggedright,singlelinecheck=off} % Align figure caption text to the right
+
+
 
 \geometry{a4paper, left=30mm, right=20mm, top=20mm, bottom=20mm}
 
@@ -47,11 +74,12 @@
 \setlength{\parindent}{1cm}
 \setlength{\parskip}{0pt}
 
-\setcounter{secnumdepth}{3} % Numering for subsubsections
+\setcounter{secnumdepth}{5} % Numering for subsubsections
 \setcounter{tocdepth}{3} % Add subsubsections in ToC
 
 
 % ToC config
+% TODO: section in uppercase
 \renewcommand{\cftsecfont}{\MakeUppercase}
 \renewcommand{\cfttoctitlefont}{\hfill\large\bfseries\MakeUppercase}
 \renewcommand{\cftaftertoctitle}{\hfill}
@@ -62,17 +90,20 @@
 % 	\renewcommand{\contentsname}{Satura rādītājs}
 % }
 
-% TODO: configure table 
-% TODO: configure image
 
-% Table config
+
+\newcounter{rownum}
+\renewcommand{\therownum}{\padzeroes[2]{\decimal{rownum}}}
 
 
 \begin{document}
 \input{./src/title-page.tex}
 \input{./src/abstract.tex}
+\pagebreak
 \tableofcontents
-\input{./src/introduction.tex}
-\input{./src/example.tex}
+\input{./src/introduction/index.tex}
+\input{./src/legends.tex}
+\input{./src/description/index.tex}
+\input{./src/requirements/index.tex}
 
 \end{document}
