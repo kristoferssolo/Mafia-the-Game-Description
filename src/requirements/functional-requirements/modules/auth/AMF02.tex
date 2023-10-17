@@ -1,0 +1,44 @@
+\moduleFunctionTable
+{Apstiprinājuma ziņas atkārtotās izsūtīšanas pieteikums}
+{mod-func-auth-app}
+{Apstiprinājuma ziņas atkārtotās izsūtīšanas pieteikums}
+{AMF02}
+{
+	Funckijas mērķis ir izsūtīt e-pasta apstiprinājumu atkārtoti lietotājam, kas jau veica reģistrāciju
+}
+{
+	Ievades dati tiek iegūti no veidlapas datiem, kas tiek aizpildīta automātiski, ja lietotājs veic reģistrācijas procesu.
+
+	Obligātie parametri:
+	\begin{enumerate}
+		\item Lietotāja identifikators - sistēmā izmantots lietotāja identifikators - vesels pozitīvs skaitlis skaitlis, kas atbilst datubāzē glabājamā skaitliska identifikatora diapazonam.
+	\end{enumerate}
+}
+{
+	\begin{enumerate}
+		\item Pārbauda, vai identifikators atbilst paredzētajam datu tipam.
+		      Ja neatbilst parāda 1. paziņojumu.
+		\item Meklē lietotāju datubāzē pēc ievades datu identifikatora parametra.
+		      Ja tāds lietotājs neeksistē, parāda 1. paziņojumu.
+		\item Iegūst no datubāzes atrastā lietotāja tā e-pasta adresi.
+		\item Iegūst atrastā lietotāja tā e-pasta adresi.
+		\item Ģenerē e-pasta apstiprinājuma marķieri.
+		      Izveido saiti apstiprinājumam, iekļaujot e-pasta apstiprinājuma marķieri.
+		\item Sagatavo e-pasta ziņas saturu no šablona, ievietojot tajā apstiprinājuma saiti.
+		\item Pieprasa e-pasta aizsūtīšanu.
+		      Ja tā netiek apstiprināta, parāda 1. paziņojumu.
+		\item Ja e-pasta ziņas aizsūtīšana ir apstiprināta, parāda 2. paziņojumu.
+	\end{enumerate}
+}
+{
+	Izvades datu mērķis ir noteikt, vai lietotājs tiks pāradresēts un kurā lapā lietotājs tiks pāradresēts.
+	\begin{enumerate}
+		\item E-pasta apstiprinājuma ziņas izsūtīšanas stāvoklis - kods ar noteiktu stāvokli.
+	\end{enumerate}
+}
+{
+	\begin{enumerate}
+		\item Sistēmas iekšējā kļūda! Mēģiniet pārlādēt lapu vai mēģiniet vēlāk!
+		\item Apstiprinājuma ziņa tiks izsūtīta 1-10 minūšu laikā.
+	\end{enumerate}
+}

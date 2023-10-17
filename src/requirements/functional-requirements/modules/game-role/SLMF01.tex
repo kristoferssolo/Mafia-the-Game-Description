@@ -1,0 +1,41 @@
+\moduleFunctionTable
+{Lomas detaļu pārskats}
+{mod-func-role-details}
+{Lomas detaļu pārskats}
+{SLMF01}
+{
+	Funkcijas mērķis ir izvadīt specificētās lomas pārskatu.
+}
+{
+	Obligātie parametri:
+	\begin{enumerate}
+		\item Spēles lomas identifikators - pozitīvs skaitlis.
+	\end{enumerate}
+}
+{
+	\begin{enumerate}
+		\item Pārbauda vai lietotājs ir reģistrēts.
+		      Ja nav, izvada 1. paziņojumu.
+		\item Sagatavo datubāzes pieprasījumu no spēles lomas tabulas.
+		\item Pieprasījumam pievieno atlasīšanu pēc spēles lomas identifikatora.
+		\item Sagatavo pieprasījuma lauku sarakstu.
+		      Saraksta pamatā ir nosaukums, apraksts, maksimāli pieļaujamais skaits spēlē, vai var tikt mafijas noslepkavots, vai ir lietotāja izveidots.
+		\item Veic sagatavoto pieprasījumu, pieprasot iepriekš sagatavoto lauku sarakstu.
+		      Ja pieprasījums neizdotas, parāda 2. paziņojumu.
+		      Ja spēles loma netika atrasta, parāda 3. paziņojumu.
+	\end{enumerate}
+}
+{
+	Izvades datu mērķis ir spēles lomas datu izvadīšana.
+	\begin{enumerate}
+		\item Vārdnīca - nosaukums - simbolu virkne, apraksts - simbolu virkne, maksimāli pieļaujamais
+		      skaits spēlē - nenegatīvs skaitlis, vai var tikt mafijas noslepkavots - karodziņš, vai ir lietotāja izveidots - karodziņš.
+	\end{enumerate}
+}
+{
+	\begin{enumerate}
+		\item Darbība nav autorizēta!
+		\item Notika sistēmas iekšēja kļūda! Mēģiniet vēlreiz!
+		\item Tāda spēles lomas nav atrasta! Mēģiniet vēlreiz!
+	\end{enumerate}
+}

@@ -1,0 +1,41 @@
+\moduleFunctionTable
+{Atslēgšanās no spēles istabas pieteikums}
+{mod-func-room-disconnect}
+{Atslēgšanās no spēles istabas pieteikums}
+{SIMF03}
+{
+	Funkcijas mērķis ir ļaut reģistrētiem lietotājiem atslēgties no pašreizējās spēles istabas.
+}
+{
+	Obligātie parametri:
+	\begin{enumerate}
+		\item Lietotāja identifikators - vesels pozitīvs skaitlis.
+		\item Spēles istabas identifikators - vesels pozitīvs skaitlis.
+	\end{enumerate}
+}
+{
+	\begin{enumerate}
+		\item Meklē spēles istabas ierakstu datubāzē, izmantojot identifikatoru.
+		      Ja to neatrod, parāda 1. paziņojumu.
+		\item Meklē spēlētāja ierakstu datubāzē.
+		      Ja to neatrod, parāda 2. paziņojumu.
+		\item Lietotāja aktīvuma karogs tiek nomainīts uz nepatiesu.
+		      Ja ierakstīšana neizdodas, parāda 4. paziņojumu.
+		\item Ja atslēgšanās ir veiksmīga, parāda 3. paziņojumu.
+	\end{enumerate}
+}
+{
+	Izvades mērķis ir noteikt vai lietotājs tiks pāradresēts.
+	\begin{enumerate}
+		\item Atslēgšanās stāvoklis - skaitlisks kods.
+	\end{enumerate}
+}
+{
+	\begin{enumerate}
+		\item Spēles istaba nav atrasta! Mēģiniet vēlreiz.
+		\item Spēlētājs nav atrasts! Mēģiniet vēlreiz.
+		\item Sistēmas kļūda! Mēģiniet vēlreiz!
+		\item Veiksmīgi atslēgts no istabas.
+		\item Tehniskas problēmas, mēģiniet vēlāk.
+	\end{enumerate}
+}

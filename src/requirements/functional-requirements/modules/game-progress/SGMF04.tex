@@ -1,0 +1,49 @@
+\moduleFunctionTable
+{Spēles stāvokļa pārskats}
+{mod-func-progress-state-overview}
+{Spēles stāvokļa pārskats}
+{SGMF04}
+{
+	Funkcijas mērķis par spēles tagadējo stāvokli, kas ietver spēlētāju stāvokli, nakts numuru un atļautās darbības.
+}
+{
+	Paslēptā informācija nosaka, vai izvade saturēs lomu datus par spēlētājiem.
+	Obligātie parametri:
+	Spēles istabas identifikators - vesels pozitīvs skaitlis.
+	Paslēptā informācija - karodziņš.
+
+}
+{
+	\begin{enumerate}
+		\item Meklē spēles istabu attiecīgā tabulā, izmantojot darbības identifikatoru.
+		      Ja spēles istaba netiek atrasta parāda 1. paziņojumu.
+		\item Iesāk vārdnīcas gatavošanu ar noteiktu informāciju.
+		\item Vārdnīcai pievieno spēles stāvokli un nakts numuru.
+		\item Ja paslēptās informācijas karodziņš ir patiesība, katram spēlētājam sameklē datubāzē attiecīgo lomu.
+		      Ja loma netika atrasta, parāda 2. paziņojumu ar attiecīgajiem spēlētāju identifikatoriem.
+		      Pievieno vārdnīcai spēlētāju vārdnīcu sarakstu, katram pievienojot lomas identifikatoru, dzīvības stāvokli un sakaru redzamības mainīgos.
+	\end{enumerate}
+}
+{
+	Izvades mērķis ir nepieciešamās informācijas apkopošana vārdnīcā.
+	Ja tiek izvadīta paslēptā informācija, vārdnīca sastāvēs no atribūtiem:
+	\begin{enumerate}
+		\item Spēles stāvoklis - skaitlisks kods.
+		\item Nakts numurs - vesels pozitīvs skaitlis.
+		\item Spēlētāju vārdnīcu saraksts. Katra spēlētāja vārdnīca, kā atslēgas ir:
+		      \begin{enumerate}
+			      \item Lomas identifikators - veselu pozitīvu skaitli;
+			      \item Dzīvības stāvoklis - karodziņš;
+			      \item Mafijas sakaru redzamība - karodziņš;
+			      \item Vispārīgo sakaru redzamība - karodziņš;
+		      \end{enumerate}
+
+	\end{enumerate}
+	Ja paslēptā informācija izvadīta netiks, tad spēlētāju vārdnīca sastāvēs tikai no lomas identifikatora.
+}
+{
+	\begin{enumerate}
+		\item Spēles istaba ar identifikatoru [istabas identifikators] netika atrasta!
+		\item Spēlētāju ar identifikatoru: [spēlētāju identifikatori] netika atrasti!
+	\end{enumerate}
+}

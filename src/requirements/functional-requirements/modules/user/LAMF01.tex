@@ -1,0 +1,48 @@
+\moduleFunctionTable
+{Lietotāju profilu pārskats}
+{mod-func-user-profiles}
+{Lietotāju profilu pārskats}
+{LAMF01}
+{
+	Funkcijas mērķis ir lietotājiem rādīt citu lietotāju profilu publisku informāciju (profilu).
+	Funkcijas ietvaros var tikt veikta neobligāta meklēšana pēc noteiktiem lietotāja profilu atribūtiem.
+}
+{
+	Ievades datus iegūst no veicamās darbības.
+
+	Neobligātie parametri:
+	\begin{enumerate}
+		\item Meklēšanas uzvedne - simbolu virkne ar garumu līdz 50 simboliem bez atļauto simbolu ierobežojumiem.
+	\end{enumerate}
+}
+{
+	\begin{enumerate}
+		\item Sagatavo datubāzes pieprasījumu no lietotāju tabulas.
+		\item Ja meklēšanas uzvedne nav tukša simbolu virkne, tad pieprasījumam pievieno meklēšanas nosacījumu meklēšanai pēc pilna vārda, segvārda un biogrāfijas.
+		\item Pieprasa ierakstu saskaitīšanu, izmantojot sagatavoto pieprasījumu.
+		      Ja rezultātu skaits ir $0$, tad parāda 1. paziņojumu.
+		\item Aprēķina lappušu skaitu ar formulu: $L = ceil(Q / Q_l)$, $Q$ - rezultātu skaits, $Q_l$ - ierakstu skaits vienā lappusē.
+		\item Ja ievaddatos nav lappuses numurs vai tā pārsniedz aprēķināto lappušu skaitu, tad turpmāk lappuses numurs būs 1.
+		\item Aprēķina ierakstu nobīdi ar formulu: $O = (N - 1) * Q_l$, kur $O$ - nobīde; $N$ - lappuses numurs, $Q_l$ - ierakstu skaits vienā lappusē.
+		\item Pievieno pieprasījumam nobīdi pēc aprēķinātās lappuses.
+		\item Veic sagatavoto pieprasījumu, iegūstot abonementa segvārdu, izveidošanas laiku (lietotāja pievienošanās laiku), attēla datnes adreses.
+		      Ja pieprasījums neizdodas, parāda 2. paziņojumu.
+		\item Ja attēls datnes adrese neeksistē, tad iegūst noklusētā attēla datnes adresi.
+	\end{enumerate}
+}
+{
+	Izvades datu mērķis ir parādīt pārskata, ņemot meklēšanas uzvedni, ja tā tukša.
+
+	Izvades dati:
+	\begin{enumerate}
+		\item Pārskata ieraksta dati: vairāki ieraksti, kas sastāv no segvārda, lietotāja konta izveidošanas laika (lietotāja pievienošanās laiku).
+		\item Lapu skaits - pozitīvs skaitlis.
+		\item Tekošā lappuse - pozitīvs skaitlis, kas ir mazāks vai vienāds par lapu skaitu.
+	\end{enumerate}
+}
+{
+	\begin{enumerate}
+		\item Pēc jūsu meklēšanas uzvednes netika atrasts neviens lietotājs!
+		\item Notika sistēmas iekšējā kļūda! Mēģiniet vēlreiz vēlāk!
+	\end{enumerate}
+}

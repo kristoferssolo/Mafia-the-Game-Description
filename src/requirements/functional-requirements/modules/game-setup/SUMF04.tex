@@ -1,0 +1,65 @@
+\moduleFunctionTable
+{Spēles uzstādījuma rediģēšana}
+{mod-func-setup-edit}
+{Spēles uzstādījuma rediģēšana}
+{SUMF04}
+{
+	Funkcijas mērķis ir rediģēt spēles virtuālās istabas uzstādījumus.
+}
+{
+	Ievades dati tiek saņemti no maksas lietotājiem un administratoriem pieejamās veidlapas.
+
+	Obligātie parametri:
+	\begin{enumerate}
+		\item Spēles uzstādījumu identifikators - pozitīvs skaitlis.
+		      Noklusētā vērtība - no konteksta spēles uzstādījumu, kas tiek rediģēts, iegūtais identifikators.
+		\item Nosaukums - simbolu virkne ar garumu līdz 128 simboliem, kas var saturēt burtciparu simbolus, skaitļus, defises, pasvītras, apostrofus.
+		\item Apraksts - simbolu virkne ar garumu līdz 2048 simboliem.
+	\end{enumerate}
+
+	Administratoram specifiskie ievaddati:
+	\begin{enumerate}
+		\item Vai ir pamata - karodziņš, noklusētā vērtība - nepatiess.
+		\item Izveidošanas laiks - datums formatēts kā simbolu virkne, noklusētā vērtība - tagadējais laiks.
+	\end{enumerate}
+}
+{
+	\begin{enumerate}
+		\item Ja lietotājs nav administrators vai lietotāja identifikators, nesakrīt ar nesakrīt ar lietotāja identifikatoru, kurš izveidoja doto spēles uzstādījumu, parādīt 6. paziņojumu.
+		\item Veido izmainīto datu sarakstu pēc turpmāk izmainītajiem laukiem.
+		\item Pārbauda, vai visi obligātie lauki ir iesniegti.
+		      Ja nav, iegūst sarakstu ar neaizpildītajiem laukiem un parāda 1. paziņojumu.
+		\item Pārbauda, vai nosaukums un darbības nosaukums, ja ievadīts, satur tikai pieļaujamos simbolus.
+		      Ja nesatur, tad iegūst izmantotos neatļautos simbolus, tad parāda 9. paziņojumu ar attiecīgi laukiem un simboliem.
+		\item Pārbauda, vai nosaukums un apraksts nepārsniedz noteikto garumu.
+		      Ja pārsniedz, tad iegūst pārsniegto garumu parametru sarakstu un parāda 2. paziņojumu ar attiecīgajiem laukiem un garumiem.
+		\item Ja tika iesniegts atšķirīgs nosaukums, mēģina sameklēt datubāzē uzstādījumus ar ievadīto nosaukumu.
+		      Ja tāds pastāv, tad parāda 3. paziņojumu.
+		\item Iepriekš izmainītos laukus pievieno izmainīto lauku sarakstam.
+		\item Ja lietotājs ir administrators, pārbauda, vai datumam ir korekts formāts.
+		      Ja nav, parāda 7. paziņojumu. Pārbauda, vai datums ir pagātnē vai tagad.
+		      Ja datums ir nākotnē, parāda 8. paziņojumu.
+		      Sagatavotiem datiem pievieno administratoriem specifiskās.
+		\item Spēles uzstādījumu sagatavotie dati - lauki, kas ir rediģēto lauku sarakstā, tiek ierakstīti datubāzē.
+		      Ja ierakstīšana nenotiek, parādīt 5. paziņojumu.
+	\end{enumerate}
+}
+{
+	Izvades datu mērķis ir noteikt spēles uzstādījumu rediģēšanas stāvokli.
+	\begin{enumerate}
+		\item Spēles uzstādījumu rediģēšanas apstiprinājuma stāvoklis - kods ar noteiktu stāvokli.
+	\end{enumerate}
+}
+{
+	\begin{enumerate}
+		\item Lauks: [neaizpildīto lauku saraksts] netika aizpildīts (/-i)!
+		\item {}[Parametra nosaukums] nedrīkst pārsniegt [noteikto parametra maksimālo simbolu skaits]!
+		\item Uzstādījumi ar tādu nosaukumu jau eksistē! Samainiet nosaukumu un mēģiniet vēlreiz!
+		\item Uzstādījumi veiksmīgi saglabāti!
+		\item Spēles uzstādījumu rediģēšana nav veiksmīga!
+		\item Darbība nav autorizēta!
+		\item Nekorekts datums! Datuma formāts: [nepieciešamais datuma formāts].
+		\item Izveidošanas datums nedrīkst būt nākotnē!
+		\item {}[Parametra nosaukums] nedrīkst saturēt: [izmantoto parametra neatļauto simbolu saraksts]!
+	\end{enumerate}
+}

@@ -1,0 +1,35 @@
+\moduleFunctionTable
+{Spēlētāju pārskata iegūšana}
+{mod-func-room-player-overview}
+{Spēlētāju pārskata iegūšana}
+{SIMF07}
+{
+	Funkcija ļauj administratoram iegūt pārskatu par visiem spēlētājiem noteiktā virtuālā istabā.
+}
+{
+	Obligātie parametri:
+	\begin{enumerate}
+		\item Spēles identifikators - pozitīvs skaitlis.
+	\end{enumerate}
+}
+{
+	\begin{enumerate}
+		\item Pārbauda, vai lietotājs ir autorizēts. Ja nē, parāda 1. paziņojumu.
+		\item Iegūst spēlētāju sarakstu no datubāzes.
+		\item Ja sistēmas lietotājs: veic notikumu aprēķinus un pārbauda uzvaras nosacījumus.
+		\item Ja administrators: sagatavo datu sarakstu ar iespēju atsaukties uz konkrētu lietotāju.
+		\item Ja reģistrēts lietotājs vai maksas lietotājs, tad sagatavo un atgriež identificētās istabas spēlētāju sarakstu
+	\end{enumerate}
+}
+{
+	\begin{enumerate}
+		\item Ja reģistrēts lietotājs vai maksas lietotājs, tad saskarne ar spēlētāju sarakstu
+	\end{enumerate}
+}
+{
+	\begin{enumerate}
+		\item Darbība nav autorizēta!
+		\item Neizdevās iegūt spēlētāju sarakstu. Mēģiniet vēlreiz!
+		\item Sistēmas iekšēja kļūda. Mēģiniet vēlreiz!
+	\end{enumerate}
+}

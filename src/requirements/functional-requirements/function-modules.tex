@@ -1,78 +1,98 @@
 \subsubsection{Funkciju sadalījums moduļos}
+Funkciju sadalījums moduļos ir aprakstīts tabulā (skat. \ref{tab:function_modules} tabula).
+Lietotāju kategorija apzīmē specifisku lietotāju grupu, kam funkcija piemīt.
+Jebkurš maksas lietotājs un administrators ir uzskatāms par reģistrētu lietotāju.
+Maksas lietotājs un administrators ir norādīts kā lietotāja kategorija, ja tā ir funckijas izmantošana ir domāta tikai šai grupai vai funkcijas darbība atšķiras šīm kategorijām.
 
-\begin{tabularx}{\linewidth}{|p{2cm}|X|p{2.7cm}|X|}
-	\caption{Funkciju sadalījums pa moduļiem} \label{tab:function_modules}                                                                                                                 \\
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=\linewidth]{./src/img/1LīmeņaDPDSpēlesDatubāze.png}
+	\caption{1. līmeņa spēles DPD}
+	\label{fig:dpd-1-game}
+\end{figure}
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=\linewidth]{./src/img/1LīmeņaDPDLietotājuDatubāze.png}
+	\caption{1. līmeņa lietotāju DPD}
+	\label{fig:dpd-1-user}
+\end{figure}
+\eject
+
+
+\begin{tabularx}{\linewidth}{|p{2.1cm}|X|p{2.7cm}|X|}
+	\caption{Funkciju sadalījums pa moduļiem} \label{tab:function_modules}                                                                                                                                                                                    \\ \hline
+
 	\hline
-	\textbf{Modulis}                              & \textbf{Funkcija}                        & \textbf{Identifikators}            & \textbf{Lietotāja kategorija}                          \\
-	\hline
+	\textbf{Modulis}                                           & \textbf{Funkcija}                                      & \textbf{Identifikators}                                                             & \textbf{Lietotāja kategorija}                 \\ \hline
 	\endfirsthead
 
-	\multicolumn{4}{c}%
-	\raggedright{{\textit{\thetable{} \tablename} \textbf{turpinājums no iepriekšējās lapas}}}                                                                                             \\
-	\hline
-	\textbf{Modulis}                              & \textbf{Funkcija}                        & \textbf{Identifikators}            & \textbf{Lietotāja kategorija}                          \\
-	\hline
+	\hline \multicolumn{4}{r}{Turpinājums no iepriekšējās lapas}                                                                                                                                                                                              \\ \hline
+	\textbf{Modulis}                                           & \textbf{Funkcija}                                      & \textbf{Identifikators}                                                             & \textbf{Lietotāja kategorija}                 \\ \hline
 	\endhead
 
-	\hline \multicolumn{4}{|r|}{{Turpinājums nākamajā lapā}}                                                                                                                               \\ \hline
+	\hline \multicolumn{4}{r}{Turpinājums nākamajā lapā}                                                                                                                                                                                                      \\ \hline
 	\endfoot
 
 	\hline
 	\endlastfoot
 
+
 	% Table data here
 	\setcounter{rownum}{0}
-	\multirow{10}{2cm}{Lietotāja modulis}         & Lietotāja pieteikšanās                   & \stepcounter{rownum}LMF\therownum  & Reģistrēts lietotājs                                   \\ \cline{2-4}
-	                                              & Lietotāja konta apstiprināšana           & \stepcounter{rownum}LMF\therownum  & Reģistrēts lietotājs                                   \\ \cline{2-4}
-	                                              & Lietotāja reģistrācija                   & \stepcounter{rownum}LMF\therownum  & Nereģistrēts lietotājs                                 \\ \cline{2-4}
-	                                              & Lietotāja konta rediģēšana               & \stepcounter{rownum}LMF\therownum  & Reģistrēts lietotājs, Maksas lietotājs, Administrātors \\ \cline{2-4}
-	                                              & Lietotāja konta rediģēšana               & \stepcounter{rownum}LMF\therownum  & Administrātors                                         \\ \cline{2-4}
-	                                              & Lietotāja konta bloķēšana                & \stepcounter{rownum}LMF\therownum  & Reģistrēts lietotājs                                   \\ \cline{2-4}
-	                                              & Lietotāja konta atteikšanās              & \stepcounter{rownum}LMF\therownum  & Reģistrēts lietotājs                                   \\ \cline{2-4}
-	                                              & Sava lietotāja konta datu pārskats       & \stepcounter{rownum}LMF\therownum  & Reģistrēts lietotājs, Maksas lietotājs, Administrators \\ \cline{2-4}
-	                                              & Lietotāja datu pārskats                  & \stepcounter{rownum}LMF\therownum  & Administrators                                         \\ \cline{2-4}
-	                                              & Lietotāja konta dzēšāna                  & \stepcounter{rownum}LMF\therownum  & Administrators                                         \\ \hline
+	\multirow{1}{2.1cm}{Reģistrācijas un pieteikšanās modulis} & Lietotāja reģistrācija                                 & \hyperref[tab:mod-func-auth-reg]{\stepcounter{rownum}AMF\therownum}                 & Nereģistrēts lietotājs                        \\ \cline{2-4}
+	                                                           & Apstiprinājuma ziņas atkārtotās izsūtīšanas pieteikums & \hyperref[tab:mod-func-auth-app]{\stepcounter{rownum}AMF\therownum}                 & Nereģistrēts lietotājs, Reģistrēts lietotājs  \\ \cline{2-4}
+	                                                           & Paroles atjaunošanas pieteikums                        & \hyperref[tab:mod-func-auth-pass-restore]{\stepcounter{rownum}AMF\therownum}        & Reģistrēts lietotājs                          \\ \cline{2-4}
+	                                                           & Paroles atjaunošana                                    & \hyperref[tab:]{\stepcounter{rownum}AMF\therownum}                                  & Reģistrēts lietotājs                          \\ \cline{2-4}
+	                                                           & Lietotāja pieteikšanās                                 & \hyperref[tab:mod-func-auth-login]{\stepcounter{rownum}AMF\therownum}               & Reģistrēts lietotājs                          \\ \cline{2-4}
+	                                                           & Lietotāja atteikšanās                                  & \hyperref[tab:mod-func-auth-logout]{\stepcounter{rownum}AMF\therownum}              & Reģistrēts lietotājs                          \\ \cline{2-4}
+	                                                           & Lietotāja konta apstiprināšana                         & \hyperref[tab:mod-func-auth-email-confirm]{\stepcounter{rownum}AMF\therownum}       & Reģistrēts lietotājs                          \\ \hline
+
 	\setcounter{rownum}{0}
-	\multirow{4}{2cm}{Maksas abonamentu modulis}  & Maksas par abonementu pieteikuma izveide & \stepcounter{rownum}MAMF\therownum & Reģistrēts lietotājs                                   \\ \cline{2-4}
-	                                              & Maksas abonementu uzskaite               & \stepcounter{rownum}MAMF\therownum & Maksas lietotājs                                       \\ \cline{2-4}
-	                                              & Maksas abonementa detaļu ieguve          & \stepcounter{rownum}MAMF\therownum & Maksas lietotājs                                       \\ \cline{2-4}
-	                                              & Maksas abonementa atcelšana              & \stepcounter{rownum}MAMF\therownum & Maksas lietotājs                                       \\ \hline
+	\multirow{1}{2.1cm}{Lietotāju kontu modulis}               & Lietotāju profilu pārskats                             & \hyperref[tab:mod-func-user-profiles]{\stepcounter{rownum}LAM\therownum}            & Reģistrēts lietotājs, Administrators          \\ \cline{2-4}
+	                                                           & Lietotāja konta datu pārskats                          & \hyperref[tab:mod-func-user-profile-data]{\stepcounter{rownum}LAM\therownum}        & Reģistrēts lietotājs, Administrators          \\ \cline{2-4}
+	                                                           & Lietotāja konta bloķēšana                              & \hyperref[tab:mod-func-user-block]{\stepcounter{rownum}LAM\therownum}               & Administrators                                \\ \cline{2-4}
+	                                                           & Lietotāja konta rediģēšana                             & \hyperref[tab:mod-func-user-edit]{\stepcounter{rownum}LAM\therownum}                & Reģistrēts lietotājs, Administrators          \\ \cline{2-4}
+	                                                           & Lietotāja konta dzēšāna                                & \hyperref[tab:mod-func-user-delete]{\stepcounter{rownum}LAM\therownum}              & Reģistrēts lietotājs, Administrators          \\ \hline
 	\setcounter{rownum}{0}
-	\multirow{5}{2cm}{Tērzētavas modulis}         & Jaunas īsziņas izveidošana               & \stepcounter{rownum}TMF\therownum  & Reģistrēts lietotājs                                   \\ \cline{2-4}
-	                                              & Īsziņas izdzēšana                        & \stepcounter{rownum}TMF\therownum  & Reģistrēts lietotājs                                   \\ \cline{2-4}
-	                                              & Īsziņu uzskaite                          & \stepcounter{rownum}TMF\therownum  & Reģistrēts lietotājs                                   \\ \cline{2-4}
-	                                              & Savu īsziņu redigēšana                   & \stepcounter{rownum}TMF\therownum  & Reģistrēts lietotājs                                   \\ \cline{2-4}
-	                                              & Īsziņu dzēšana                           & \stepcounter{rownum}TMF\therownum  & Administrators                                         \\ \hline
+	\multirow{1}{2.1cm}{Maksas abonamentu modulis}             & Abonementa pieteikums                                  & \hyperref[tab:mod-func-premium-app]{\stepcounter{rownum}MAMF\therownum}             & Reģistrēts lietotājs                          \\ \cline{2-4}
+	                                                           & Abonementu pārskats                                    & \hyperref[tab:mod-func-premium-overview]{\stepcounter{rownum}MAMF\therownum}        & Reģistrēts lietotājs, Maksas lietotājs        \\ \cline{2-4}
+	                                                           & Abonementa atcelšana                                   & \hyperref[tab:mod-func-premium-cancel]{\stepcounter{rownum}MAMF\therownum}          & Maksas lietotājs, Administrators              \\ \hline
+
 	\setcounter{rownum}{0}
-	\multirow{14}{2cm}{Spēles istabas modulis}    & Jaunas spēles istabas izveide            & \stepcounter{rownum}SMF\therownum  & Maksas lietotājs                                       \\ \cline{2-4}
-	                                              & Spēles sākuma pieteikums                 & \stepcounter{rownum}SMF\therownum  & Maksas lietotājs, Administrators                       \\ \cline{2-4}
-	                                              & Spēles darbības veikšana                 & \stepcounter{rownum}SMF\therownum  & Reģistrēts lietotājs                                   \\ \cline{2-4}
-	                                              & Virtuālās istabas stāvokļa maiņa         & \stepcounter{rownum}SMF\therownum  & Administrators                                         \\ \cline{2-4}
-	                                              & Spēlētāja izslēgšana                     & \stepcounter{rownum}SMF\therownum  & Administrators                                         \\ \cline{2-4}
-	                                              & Spēles stāvokļa iegūšana                 & \stepcounter{rownum}SMF\therownum  & Sistēma, Administrators                                \\ \cline{2-4}
-	                                              & Virtuālās istabas spēlētāju iegūšana     & \stepcounter{rownum}SMF\therownum  & Administrators                                         \\ \cline{2-4}
-	                                              & Nākamā spēles stāvokļa noteikšana        & \stepcounter{rownum}SMF\therownum  & Reģistrēts lietotājs                                   \\ \cline{2-4}
-	                                              & Spēlētāja pievienošana                   & \stepcounter{rownum}SMF\therownum  & Administrators                                         \\ \cline{2-4}
-	                                              & Spēlētāja lomas iegūšana                 & \stepcounter{rownum}SMF\therownum  & Sistēma                                                \\ \cline{2-4}
-	                                              & Spēlētāja stāvokļa iegūšana              & \stepcounter{rownum}SMF\therownum  & Sistēma                                                \\ \hline
+	\multirow{1}{2.1cm}{Cenu modulis}                          & Cenas pievienošana                                     & \hyperref[tab:mod-func-price-add]{\stepcounter{rownum}CMF\therownum}                & Administrators                                \\ \cline{2-4}
+	                                                           & Cenas rediģēšana                                       & \hyperref[tab:mod-func-price-edit]{\stepcounter{rownum}CMF\therownum}               & Administrators                                \\ \cline{2-4}
+	                                                           & Cenu pārskats                                          & \hyperref[tab:mod-func-price-overview]{\stepcounter{rownum}CMF\therownum}           & Administrators                                \\ \hline
 	\setcounter{rownum}{0}
-	\multirow{9}{2cm}{Spēles uzstādījumu modulis} & Jaunas lomas izveidošana                 & \stepcounter{rownum}SUMF\therownum & Maksas lietotājs, Administrators                       \\ \cline{2-4}
-	                                              & Lomu uzskaite                            & \stepcounter{rownum}SUMF\therownum & Reģistrēts lietotājs, Adminitrators                    \\ \cline{2-4}
-	                                              & Lomas darbību uzskaite                   & \stepcounter{rownum}SUMF\therownum & Reģistrēts lietotājs                                   \\ \cline{2-4}
-	                                              & Lomas rediģēšana                         & \stepcounter{rownum}SUMF\therownum & Maksas lietotājs, Adminitrators                        \\ \cline{2-4}
-	                                              & Lomas dzēšana                            & \stepcounter{rownum}SUMF\therownum & Maksas lietotājs, Adminitrators                        \\ \cline{2-4}
-	                                              & Jauna spēles uzstādījuma izveidošana     & \stepcounter{rownum}SUMF\therownum & Maksas lietotājs, Adminitrators                        \\ \cline{2-4}
-	                                              & Spēles uzstādījuma dzēšana               & \stepcounter{rownum}SUMF\therownum & Adminitrators                                          \\ \cline{2-4}
-	                                              & Spēles uzstādījuma deaktivizēšana        & \stepcounter{rownum}SUMF\therownum & Maksas lietotājs, Adminitrators                        \\ \cline{2-4}
-	                                              & Spēles uzstādījuma lomu iegūšana         & \stepcounter{rownum}SUMF\therownum & Maksas lietotājs                                       \\ \hline
+	\multirow{1}{2.1cm}{Tērzēšanas modulis}                    & Jaunas īsziņas izveidošana                             & \hyperref[tab:mod-func-chat-create]{\stepcounter{rownum}TMF\therownum}              & Reģistrēts lietotājs                          \\ \cline{2-4}
+	                                                           & Īsziņas dzēšana                                        & \hyperref[tab:mod-func-chat-delete]{\stepcounter{rownum}TMF\therownum}              & Reģistrēts lietotājs                          \\ \cline{2-4}
+	                                                           & Īsziņu uzskaite                                        & \hyperref[tab:mod-func-chat-overview]{\stepcounter{rownum}TMF\therownum}            & Reģistrēts lietotājs                          \\ \cline{2-4}
+	                                                           & Īsziņu rediģēšana                                      & \hyperref[tab:mod-func-chat-edit]{\stepcounter{rownum}TMF\therownum}                & Reģistrēts lietotājs                          \\ \hline
 	\setcounter{rownum}{0}
-	\parbox{2cm}{Saziņas modulis}                 & Apstiprinājuma ziņas izsūtīšana          & \stepcounter{rownum}[ID]\therownum & Sistēma                                                \\ \hline
+	\multirow{1}{2.1cm}{Spēles istabas modulis}                & Pieejamo pieslēgšanās spēles istabu pārskats           & \hyperref[tab:mod-func-room-overview]{\stepcounter{rownum}SIMF\therownum}           & Reģistrēts lietotājs                          \\ \cline{2-4}
+	                                                           & Pieslēgšanās spēles istabai                            & \hyperref[tab:mod-func-room-connect]{\stepcounter{rownum}SIMF\therownum}            & Reģistrēts lietotājs                          \\ \cline{2-4}
+	                                                           & Atslēgšanās no spēles istabas pieteikums               & \hyperref[tab:mod-func-room-disconnect]{\stepcounter{rownum}SIMF\therownum}         & Reģistrēts lietotājs                          \\ \cline{2-4}
+	                                                           & Jaunas spēles istabas izveide                          & \hyperref[tab:mod-func-room-create]{\stepcounter{rownum}SIMF\therownum}             & Maksas lietotājs, Administrators              \\ \cline{2-4}
+	                                                           & Spēles sākuma pieteikums                               & \hyperref[tab:mod-func-room-app]{\stepcounter{rownum}SIMF\therownum}                & Maksas lietotājs                              \\ \cline{2-4}
+	                                                           & Spēlētāja izslēgšana                                   & \hyperref[tab:mod-func-room-kill]{\stepcounter{rownum}SIMF\therownum}               & Administrators                                \\ \cline{2-4}
+	                                                           & Spēlētāju pārskata iegūšana                            & \hyperref[tab:mod-func-room-player-overview]{\stepcounter{rownum}SIMF\therownum}    & Sistēma, Reģistrēts lietotājs, Administrators \\ \hline
+	\setcounter{rownum}{0}
+	\multirow{1}{2.1cm}{Spēles gaitas modulis}                 & Spēles darbības veikšana                               & \hyperref[tab:mod-func-progress-action]{\stepcounter{rownum}SGMF\therownum}         & Reģistrēts lietotājs                          \\ \cline{2-4}
+	                                                           & Spēles notikuma izveidošana                            & \hyperref[tab:mod-func-progress-create]{\stepcounter{rownum}SGMF\therownum}         & Sistēma                                       \\ \cline{2-4}
+	                                                           & Spēles notikumu pārskats                               & \hyperref[tab:mod-func-progress-overview]{\stepcounter{rownum}SGMF\therownum}       & Sistēma, Reģistrēts lietotājs                 \\ \cline{2-4}
+	                                                           & Spēles stāvokļa pārskats                               & \hyperref[tab:mod-func-progress-state-overview]{\stepcounter{rownum}SGMF\therownum} & Sistēma, Reģistrēts lietotājs                 \\ \hline
+	\setcounter{rownum}{0}
+	\multirow{1}{2.1cm}{Spēles lomu uzstādījumu modulis}       & Lomas detaļu pārskats                                  & \hyperref[tab:mod-func-role-details]{\stepcounter{rownum}SLMF\therownum}            & Reģistrēts lietotājs                          \\ \cline{2-4}
+	                                                           & Lomu pārskats                                          & \hyperref[tab:mod-func-role-overview]{\stepcounter{rownum}SLMF\therownum}           & Reģistrēts lietotājs                          \\ \cline{2-4}
+	                                                           & Lomas darbību pārskats                                 & \hyperref[tab:mod-func-role-action-overview]{\stepcounter{rownum}SLMF\therownum}    & Reģistrēts lietotājs                          \\ \cline{2-4}
+	                                                           & Jaunas lomas izveidošana                               & \hyperref[tab:mod-func-role-create]{\stepcounter{rownum}SLMF\therownum}             & Maksas lietotājs, Administrators              \\ \cline{2-4}
+	                                                           & Lomas rediģēšana                                       & \hyperref[tab:mod-func-role-edit]{\stepcounter{rownum}SLMF\therownum}               & Maksas lietotājs, Administrators              \\ \cline{2-4}
+	                                                           & Lomas dzēšana                                          & \hyperref[tab:mod-func-role-delete]{\stepcounter{rownum}SLMF\therownum}             & Maksas lietotājs, Administrators              \\ \hline
+	\setcounter{rownum}{0}
+	\multirow{1}{2.1cm}{Spēles uzstādījumu modulis}            & Spēles uzstādījumu pārskats                            & \hyperref[tab:mod-func-setup-overview]{\stepcounter{rownum}SUMF\therownum}          & Reģistrēts lietotājs                          \\ \cline{2-4}
+	                                                           & Spēles uzstādījumu lomu pārskats                       & \hyperref[tab:mod-func-setup-role-overview]{\stepcounter{rownum}SUMF\therownum}     & Reģistrēts lietotājs, Sistēma                 \\ \cline{2-4}
+	                                                           & Jaunas spēles uzstādījuma izveidošana                  & \hyperref[tab:mod-func-setup-new]{\stepcounter{rownum}SUMF\therownum}               & Maksas lietotājs, Administrators              \\ \cline{2-4}
+	                                                           & Spēles uzstādījuma rediģēšana                          & \hyperref[tab:mod-func-setup-edit]{\stepcounter{rownum}SUMF\therownum}              & Maksas lietotājs, Administrators              \\ \cline{2-4}
+	                                                           & Spēles uzstādījuma dzēšana                             & \hyperref[tab:mod-func-setup-delete]{\stepcounter{rownum}SUMF\therownum}            & Maksas lietotājs, Administrators              \\ \hline
 	% ... continue for each row
 \end{tabularx}
-
-\begin{figure}[h]
-	\centering
-	\includegraphics[width=\linewidth]{./src/requirements/img/DPD_1.png}
-	\caption{1. līmeņa DPD}
-	\label{fig:dpd_1}
-\end{figure}

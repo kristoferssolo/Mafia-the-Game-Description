@@ -1,0 +1,37 @@
+\moduleFunctionTable
+{Cenas rediģēšana}
+{mod-func-price-edit}
+{Cenas rediģēšana}
+{CMF02}
+{
+	Funkcija nodrošina iespēju rediģēt jau esošu produktu cenas.
+}
+{
+	Ievades datus iegūst no cenas rediģēšanas veidlapas.
+
+	Obligāti parametri:
+	\begin{enumerate}
+		\item Cena - pozitīvs decimālskaitlis;
+		\item Sākuma laiks - datums simbola virknes formātā.
+	\end{enumerate}
+}
+{
+	\begin{enumerate}
+		\item Pārbauda vai lietotājam ir administratora tiesības.
+		\item Rediģējot jau esošu cenu un izmaina tās vērtību.
+		\item Notiek rediģētās vērtības validācija un pārbaude.
+		\item Ja validācija ir apstiprināta, tad rediģētā cena tiek saglabāta un aizstāj veco cenu, kas tiek dzēsta.
+	\end{enumerate}
+}
+{
+	\begin{enumerate}
+		\item Cenas izveidošanas stāvokļa kods - skaitlisks kods.
+	\end{enumerate}
+}
+{
+	\begin{enumerate}
+		\item Cena ir saglabāta.
+		\item Cena nav saglabāta.
+		\item Nav notikusi sinhronizācija ar naudas kontu.
+	\end{enumerate}
+}

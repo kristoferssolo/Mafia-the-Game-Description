@@ -1,0 +1,45 @@
+\moduleFunctionTable
+{Lietotāja konta apstiprināšana}
+{mod-func-auth-email-confirm}
+{Lietotāja konta apstiprināšana}
+{AMF07}
+{
+	Funkcijas mērķis ir apstiprināt lietotāja konta e-pasta adrese, i.e., apstiprināt to, ka lietotājam pieder tā norādītā e-pasta adrese.
+}
+{
+	Ievaddati tiek iegūti no apstiprinājuma vietrādes parametriem, ar kuras lietotājs piekļūst sistēmas funkcijai.
+
+	Obligātie parametri:
+	\begin{enumerate}
+		\item E-pasta apstiprinājuma marķieris - 16 simbolu gara virkne, kas tiek iegūta no saites parametriem.
+	\end{enumerate}
+
+}
+{
+	\begin{enumerate}
+		\item Pārbauda, vai ievades datos ir e-pasta apstiprinājuma marķieris.
+		      Ja tā nav, tad parāda 1. paziņojumu.
+		\item Pārbauda, vai e-pasta adreses apstiprinājuma marķieris atbilst sagaidāmam garumam.
+		      Ja neatbilst, parāda 2. paziņojumu.
+		\item Meklē datubāzē lietotājus ar iesniegto marķieri.
+		      Ja tāds lietotājs netiek atrasts, parāda 3. paziņojumu.
+		      Ja datubāzē atrastā lietotāja e-pasta apstiprināšanas karodziņš apzīmē apstiprinātu e-pastu, parāda 4. paziņojumu.
+		\item Attiecīgā datubāzes ierakstam pamaina karodziņa stāvokli uz apstiprinātu.
+	\end{enumerate}
+}
+{
+	Izvades datu mērķis ir noteikt, vai lietotājs tiks pāradresēts.
+
+	\begin{enumerate}
+		\item E-pasta adreses apstiprinājuma stāvoklis - kods ar noteiktu stāvokli.
+	\end{enumerate}
+
+}
+{
+	\begin{enumerate}
+		\item Apstiprināšanas saite nav korekta: marķieris nav norādīts! Mēģiniet vēlreiz vai pieprasiet atkārtotu apstiprinājuma ziņas izsūtīšanu!
+		\item Apstiprināšanas saite nav korekta: marķieris nav korekts! Mēģiniet vēlreiz vai pieprasiet atkārtotu apstiprinājuma ziņas izsūtīšanu!
+		\item Marķieris nav aktuāls vai nav korekts! Mēģiniet vēlreiz vai pieprasiet atkārtotu apstiprinājuma ziņas izsūtīšanu!
+		\item E-pasts jau ir apstiprināts!
+	\end{enumerate}
+}

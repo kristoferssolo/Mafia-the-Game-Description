@@ -1,0 +1,60 @@
+\moduleFunctionTable
+{Jaunas lomas izveidošana}
+{mod-func-role-create}
+{Jaunas lomas izveidošana}
+{SLMF04}
+{
+	Funkcijas mērķis ir izveidot spēles lomu.
+	Ievades dati tiek saņemti no maksas lietotājiem un administratoriem pieejamās veidlapas.
+
+}
+{
+	Obligātie parametri:
+	\begin{enumerate}
+		\item Nosaukums - simbolu virkne ar garumu līdz 64 simboliem, kas var saturēt burtciparu simbolus, skaitļus, defises.
+		\item Apraksts - simbolu virkne ar garumu līdz 2048 simboliem.
+		\item Neobligātie parametri:
+		\item Maksimāli pieļaujamais skaits spēlē - nenegatīvs skaitlis, noklusētā vērtība - 1.
+		\item Vai var tikt mafijas noslepkavots - karodziņš, noklusētā vērtība - patiess.
+		\item Lomas darbības nosaukums - virkne -  simbolu virkne ar garumu līdz 64 simboliem, kas var saturēt burtciparu simbolus, skaitļus, defises.
+		\item Vai lomas darbība ir tūlītēja - virkne -  karodziņš, noklusētā vērtība - nepatiess.
+	\end{enumerate}
+	Administratoram specifiskie ievaddati:
+	\begin{enumerate}
+		\item Vai ir lietotāju izveidota - karodziņš, noklusētā vērtība - patiess.
+	\end{enumerate}
+}
+{
+	\begin{enumerate}
+		\item Pārbauda, vai visi obligātie lauki ir iesniegti.
+		      Ja nav, iegūst sarakstu ar neaizpildītajiem laukiem un parāda 1. paziņojumu.
+		\item Pārbauda, vai nosaukums un darbības nosaukums, ja ievadīts, satur tikai pieļaujamos simbolus.
+		      Ja nesatur, tad iegūst izmantotos neatļautos simbolus, tad parāda 7. paziņojumu ar attiecīgi laukiem un simboliem.
+		\item Pārbauda, vai nosaukums, apraksts un darbības nosaukums, ja ievadīts, nepārsniedz noteikto garumu.
+		      Ja pārsniedz, tad iegūst pārsniegto garumu parametru sarakstu un parāda 2. paziņojumu ar attiecīgajiem laukiem un garumiem.
+		\item Ja ir ievadīts maksimāli pieļaujamais skaits spēlē parametrs, pārbauda, vai skaitlis ir nenegatīvs, citādi parāda 6. paziņojumu.
+		\item Ja ir ievadīts(/-i) lomas darbības nosaukums(/-i), tad izveidot daudz pret daudz attiecību tabulu starp spēles lomas un lomas darbības tabulām.
+		\item Ja lietotājs nav administrators, iestatīt noklusēto vērtību ``vai ir lietotāju izveidota'' uz patiess.
+		\item Mēģina sameklēt datubāzē spēles lomu ar ievadīto nosaukumu.
+		      Ja tāds pastāv, tad parāda 3. paziņojumu.
+		\item Jaunas spēles lomas dati tiek ierakstīti datubāzē.
+		      Ja ierakstīšana notiek, parādīt 4. paziņojumu, citādi parādīt 5. paziņojumu.
+	\end{enumerate}
+}
+{
+	Izvades datu mērķis ir noteikt, vai spēles loma ir veiksmīgi saglabāta.
+	\begin{enumerate}
+		\item Lomas izveidošanas stāvoklis - kods ar noteiktu stāvokli.
+	\end{enumerate}
+}
+{
+	\begin{enumerate}
+		\item Lauks: [neaizpildīto lauku saraksts] netika aizpildīts (/-i)!
+		\item {}[Parametra nosaukums] nedrīkst pārsniegt [noteikto parametra maksimālo simbolu skaits]!
+		\item Uzstādījumi ar tādu nosaukumu jau eksistē! Samainiet nosaukumu un mēģiniet vēlreiz!
+		\item Uzstādījumi veiksmīgi saglabāti!
+		\item Sistēmas iekšēja kļūda! Mēģiniet vēlreiz!
+		\item Skaitlim jābūt nenegatīvam! Mēģiniet vēlreiz!
+		\item {}[Parametra nosaukums] nedrīkst saturēt: [izmantoto parametra neatļauto simbolu saraksts]!
+	\end{enumerate}
+}

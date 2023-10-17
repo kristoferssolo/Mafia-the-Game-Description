@@ -1,0 +1,66 @@
+\moduleFunctionTable
+{Spēles darbības veikšana}
+{mod-func-progress-action}
+{Spēles darbības veikšana}
+{SGMF01}
+{
+	Funkcijas mērķis ir veikt spēles darbību lietotājiem, kas atrodas spēles istabā, saglabājot darbībau kā notikuma ierakstu.
+}
+{
+	Ievade tiek iegūta no darbības spēles laikā.
+
+	Obligātie parametri:
+	\begin{enumerate}
+		\item Darbības identifikators - vesels pozitīvs skaitlis.
+		\item Spelētāja identifikators - vesels pozitīvs skaitlis.
+		\item Veicēja lietotāja identifikators - vesels pozitīvs skaitlis.
+		\item Spēles istabas identifikators - vesels pozitīvs skaitlis.
+	\end{enumerate}
+
+	Neobligātie parametri:
+	\begin{enumerate}
+		\item Mērķa spēlētāju identifikatori - veselu pozitīvu skaitļu saraksts.
+		      Noklusētā vērtība: tukšs saraksts.
+	\end{enumerate}
+}
+{
+	\begin{enumerate}
+		\item Meklē spēles istabu attiecīgā tabulā, izmantojot darbības identifikatoru.
+		      Ja spēles istaba netiek atrasta parāda 1. paziņojumu.
+		      Ja speles istabas stāvoklis neatbilst stāvoklim spēlei procesā, tad parāda 2. paziņojumu.
+		\item Meklē spēles darbību attiecīgā tabulā, izmantojot darbības identifikatoru.
+		      Ja darbība netiek atrasta parāda 2. paziņojumu.
+		\item Ja mērķa spēlētāju saraksts nav tukšs, meklē spēlētāju attiecīgajā tabulā, izmantot spēlētāja identifikatorus.
+		      Ja viens no mērķa spēlētājiem netiek atrasts parāda 2. paziņojumu.
+		\item Meklē mērķa spēlētājus attiecīgajā tabulā, izmantot spēlētāja identifikatoru.
+		      Ja darbība netiek atrasta parāda 3. paziņojumu.
+		\item Iegūst lietotāja identifikatoru no atrastā ieraksta.
+		      Pārbauda vai lietotāja identifikators sakrīt ar spēlētāja identifikatoru.
+		      Ja nesakrīt, parāda 2. paziņojumu.
+		\item Iegūst lomas identifikatoru no atrastā ieraksta.
+		      Meklē lomu, izmantojot identifikatoru.
+		      Ja loma netiek atrasta, parāda 2. paziņojumu.
+		\item Pārbauda, vai darbība ir ar lomu saistīta darbība.
+		      Ja tā nav, parāda 3. paziņojumu.
+		\item Meklēt spēles notikumus datubāzē, noskaidro vai pēdējais pēc izveidošanas notikums aizliedz darbību vai to atļauj.
+		      Ja pēdējais nav atļaujošais notikums, parāda 2. paziņojumu.
+		\item Izveido jaunu ierakstu darbību.
+		      Ja ieraksta veikšana neizdevās.
+		      Parāda 2. paziņojumu.
+	\end{enumerate}
+}
+{
+	Izvades mērķis ir parādīt ar izpildīto darbību saistīto informāciju.
+	\begin{enumerate}
+		\item Darbības veikšanas apstiprinājuma teksts - simbolu virkne.
+		\item Darbības stāvokļa kods - skaitlisks kods.
+	\end{enumerate}
+}
+{
+	\begin{enumerate}
+		\item Spēle ir beigusies, nevar veikt darbību!
+		\item Sistēmas kļūda! Mēģiniet vēlreiz.
+		\item Darbība nav atļauta jūsu lomai!
+		\item Darbība nav atļauta šajā spēles fāzē!
+	\end{enumerate}
+}

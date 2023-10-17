@@ -1,22 +1,23 @@
 \subsection{Sistēmas lietotāji}
+
+
 Nereģistrēts lietotājs (viesis) lietotāju grupas lietotāji nav reģistrēti datubāzē, i.e., viesis ir jebkurš lietotājs, kas nav pieteicies autentifikācijai vai kuram nav konta.
 Tas var reģistrēties vai atjaunot savu lietotāja profilu;
 
 Kopš lietotājs ir pieteicies un tika autentificēts, tam ir pieejamas registrēta lietotāja grupas darbības, kas as spēli, profilu, kontu saistītās darbības.
-Lielākā daļa lietotāju piederēs šij lietotāju grupai.
+Lielākā daļa lietotāju piederēs šaj lietotāju grupai.
 Papildus reģistrētiem lietotājiem, par kuru kļūst jebkurš reģistrējies lietotājs, daļai no lietotāji maksas lietotāja grupā, kam ir pieejama papildus uz noteiktu laiku periodu pieejamā funkcionalitāte, kā veidot jaunas virtuālās istabas, spēļu uzstādījumu, jaunas lomas u.c.
 Reģistrēta lietotāja un maksas lietotāja grupu apvieno spēles funkcionalitāte, kas ir vajadzīga pamata sistēmas mērķa realizēšanai - spēles procesam.
 
-Vadības lietotāju grupas mērķis ir uzturēt un regulēt istabas, lietotājus un ar noteiktus spēles procesu saistītus sistēmas atribūtus sai ar darbībām, kā blokēšana, stāvokļa regulēšana, konta informācijas izmaiņa vai lomu redigēšana u.c.
-Administrātoru lietotāju papildus pamata vadības funkcionalitātei piemīt paplašinātsas darbības saistībā ar noteikto kritisku spēles sistēmas atribūtu izmaiņas, kā, piemēram, lietotāju lietotāju grupas maiņa.
+Administratoru grupas mērķis ir uzturēt un regulēt istabas un lietotājus ar darbībām, kā bloķēšana, spēles istabas un lietoāju stāvokļa izmainīšana, konta informācijas izmaiņa, lomu uzstādījumu un spēles uzstādījumu rediģēšana.
+Lietotājs ``Sistēma'' veic noteiktas ar spēles gaitu saistītas darbības, kas notiek automātiski un nav citu lietotāju grupu veicamas tiešā veidā.
 
-Maksājumu apstrādātājs tiks izmantots, lai nodrošinātu maksāšanas apstrādāšanu ārpus sistēmas. Tādējādi sistēma uzglabā minimālu informāciju par transakcijām, to realizēšanu uzticot arējam pakalpojumu sniedzējam.
+Ar lietotājiem saistītās datu plūsmas ir attēlotas sistēmas nultā līmeņa DPD (\ref{fig:dpd-0} attēls).
 
-Iepriekš aprakstītās datu plūsmas ir attēlotas sistēmas nultā līmeņa DPD (\ref{fig:dpd_0} attēls).
 
-\begin{figure}[h]
+\begin{figure}[htbp]
 	\centering
-	\includegraphics[width=\linewidth]{./src/description/img/DPD_0.png}
+	\includegraphics[width=\linewidth]{./src/img/0tāLīmeņaDPD.png}
 	\caption{0-tā līmeņa DPD}
-	\label{fig:dpd_0}
+	\label{fig:dpd-0}
 \end{figure}

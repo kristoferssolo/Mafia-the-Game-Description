@@ -1,0 +1,50 @@
+% \newcommand{\moduleFunctionTable}[9]{
+% 	\begin{tabularx}{\linewidth}{|X|}
+% 		\caption{#1}\label{tab:#2}                                   \\ \hline
+% 		\endfirsthead
+%
+% 		\hline \multicolumn{1}{r}{Turpinājums no iepriekšējās lapas} \\ \hline
+% 		\endhead
+%
+% 		\hline \multicolumn{1}{r}{Turpinājums nākamajā lapā}         \\ \hline
+% 		\endfoot
+%
+% 		\hline
+% 		\endlastfoot
+%
+% 		\textbf{Funkcijas nosaukums}                                 \\ \hline
+% 		#3                                                           \\ \hline
+% 		\textbf{Funkcijas identifikators}                            \\ \hline
+% 		#4                                                           \\ \hline
+% 		\textbf{Ievads}                                              \\ \hline
+% 		#5                                                           \\ \hline
+% 		\textbf{Ievade}                                              \\ \hline
+% 		#6                                                           \\ \hline
+% 		\textbf{Apstrāde}                                            \\ \hline
+% 		#7                                                           \\ \hline
+% 		\textbf{Izvade}                                              \\ \hline
+% 		#8                                                           \\ \hline
+% 		\textbf{Paziņojumi}                                          \\ \hline
+% 		#9                                                           \\ \hline
+% 	\end{tabularx}
+% }
+
+
+\newcommand{\moduleFunctionTable}[9]{
+	\subparagraph{#1} \label{tab:#2}
+	\textbf{Funkcijas nosaukums}: #3
+
+	\textbf{Funkcijas identifikators}: #4
+
+	\textbf{Ievads}: #5
+
+	\textbf{Ievade}:
+
+	#6
+
+	\textbf{Apstrāde}: #7
+
+	\textbf{Izvade}: #8
+
+	\textbf{Paziņojumi}: #9
+}

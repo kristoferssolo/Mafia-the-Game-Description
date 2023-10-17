@@ -1,26 +1,23 @@
 \subsection{Konceptuālais datu bāzes apraksts}
-Konceptuālajā modelī redzamās entītijas no konceptuālā ER modeļa (\ref{fig:conceptual_model} attēls):
+Konceptuālajā modelī redzamās entītātes no konceptuālā ER modeļa (\ref{fig:conceptual-model} attēls):
 \begin{itemize}
 	\item Lietotājs - reģistrēts lietotājs, kas pieder noteiktai grupai;
-	\item Lietotāju grupa - grupa ar saistītp atļauto darbību kopo;
-	\item Lietotāju grupas darbība - noteikta darbību sistēmā;
 	\item Attēls - datnes metadati un tās adrese, kas ir saistīta ar lietotāju vai spēles lomu;
-	\item Maksas abonements - lietotāju maksas abonementa dati. Taču abonementa stāvokļa datu uzglabāšanu atbild maksājuma procesors, no kura ir iegūstama informācija, kā nākamās norēķina datums un vai abonements ir aktīvs.
+	\item Maksas abonements - lietotāju maksas abonementa dati.
+	\item Abonementa cena - cena par abonementu, kas darbojas noteiktā laika periodā.
 	\item Spēles uzstādījums - vairāku spēles lomu kopa, kas ir izveidojamas arī publiski (maksas spēlētājiem)
-	\item Spēles loma - spēlē izmantojamaās lomas apraksts, katrai lomai obligāti piemī trūkumi un darbības. Tā var tikt izveidota publiski (analoģiski spēles uzstādījumiem);
+	\item Spēles loma - spēlē izmantojamās lomas apraksts, katrai lomai obligāti piemīt trūkumi un darbības. Tā var tikt izveidota publiski (analoģiski spēles uzstādījumiem);
 	\item Lomas darbība - vienai vai vairākām spēles lomas piemītošās spēles darbības apraksts un spēlei specifiskie atribūti(/-s);
 	\item Lomas trūkums - vienai vai vairākām spēles lomas piemītošā trūkuma apraksts;
 	\item Spēlētājs - vienai virtuālai spēles istabai piederošais spēlētājs. Tam piemīt viena spēles loma un var būt vairākas spēles gaitā veiktās lomai atbilstošās darbības;
-	\item Īsziņa - virtuālās istabas terzēšanā izveidotā īsziņa, kas tiek saistīta ar vienu spēlētāju un var atbildēt uz citu īsziņu izveides laikā;
+	\item Īsziņa - virtuālās istabas terzēšanā izveidotā īsziņa, kas tiek saistīta ar vienu spēlētāju  un var atbildēt uz citu īsziņu izveides laikā;
 	\item Spēles notikums - spēlē notiekošie notikumi, kā spēles fāzes maiņa, izbalsošanas, slepkavības u.c. .
-	\item Spēles vituāla istaba - vienas gaidāmas, tekošās vai pagātnē notikušas spēles, kam piemīt spēlētāji, spēles uzstādījumi, spēles notiukumi, izveidotājs (lietotājs maskas lietotāja grupā);
-	\item Paziņojums - universāla (izmantojama iekš un ārpus spēles istabas) paziņojuma dati;
+	\item Spēles virtuāla istaba - vienas gaidāmas, tekošās vai pagātnē notikušas spēles, kam piemīt spēlētāji, spēles uzstādījumi, spēles notikumi, izveidotājs (lietotājs maskas lietotāja grupā);
 \end{itemize}
 
-
-\begin{figure}[h]
+\begin{figure}[htbp]
 	\centering
-	\includegraphics[width=\linewidth]{./src/requirements/img/conceptual_model.png}
+	\includegraphics[width=\linewidth]{./src/img/KonceptualaisERModelis.png}
 	\caption{Datu bāzes konceptuālais ER modelis}
-	\label{fig:conceptual_model}
+	\label{fig:conceptual-model}
 \end{figure}

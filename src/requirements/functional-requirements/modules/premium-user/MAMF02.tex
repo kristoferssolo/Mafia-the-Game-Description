@@ -1,0 +1,50 @@
+\moduleFunctionTable
+{Abonementu pārskats}
+{mod-func-premium-overview}
+{Abonementu pārskats}
+{MAMF02}
+{
+	Funkcijas mērķis ir lietotājiem rādīt informāciju par maskas esošiem un bijušiem maksas abonementiem. Šī pārskata dati tiek kārtoti un filtrēti neobligātā kārtā.
+}
+{
+	Ievades dati tiek saņemti no vietrāža parametriem.
+	Neobligātie parametri:
+	Lappuses numurs - pozitīvs skaitlis.
+	Stāvokļa filtra opcija  (kods) - skaitlis, kas pieņem vairākas vērtības: 0 - filtru nepielietot, pārējie iespējamie abonementa stāvokļi.
+	Kārtošanas opcija (kods) - skaitlis, kas pieņem 2 vērtības: 0 - rezultātus nekārtot, 1 -  rezultātus kārtot augoši.
+}
+{
+	\begin{enumerate}
+		\item Sagatavo datubāzes pieprasījumu no maksas abonementiem.
+		\item Ja pastāv stāvokļa filtra opcija, kā vērtība nav nulle, pievieno pieprasījumam nosacījumu atlasīšanai pēc stāvokļa.
+		\item Ja pastāv kārtošanas opcija un tā nav 0, pieprasījumam pievieno rezultātu kārtošanas nosacījumu.
+		\item Iegūst lietotāja lomu sistēmā.
+		      Ja lietotājs nav administrators, pieprasījumam pievieno nosacījumu, ka abonementa ierakstiem jābūt saistītiem ar lietotāju.
+		\item Pieprasa ierakstu saskaitīšanu, izmantojot sagatavoto pieprasījumu.
+		      Ja rezultātu skaits ir 0, tad parāda 1. paziņojumu.
+		\item Aprēķina lappušu skaitu ar formulu: $L = ceil(Q / Q_l)$, $Q$ - rezultātu skaits, $Q_l$ - ierakstu skaits vienā lappusē.
+		\item Ja ievaddatos nav lappuses numurs vai tā pārsniedz aprēķināto lappušu skaitu, tad turpmāk lappuses numurs būs 1.
+		\item Aprēķina ierakstu nobīdi ar formulu: $O = (N - 1) * Q_l$, kur $O$ - nobīde; $N$ - lappuses numurs, $Q_l$ - ierakstu skaits vienā lappusē.
+		\item Pievieno pieprasījumam nobīdi pēc aprēķinātās lappuses.
+		\item Veic sagatavoto pieprasījumu, iegūstot abonementa sākuma laiku, beigu laiku, stāvokli, nākamā maksājuma laiku, maksājumu atstrādāja klienta identifikators.
+		      Ja pieprasījums neizdodas, parāda 2. paziņojumu.
+	\end{enumerate}
+}
+{
+	Izvades datu mērķis ir parādīt pārskata, ņemot vērā filtrus un kārtošanu, ja tas tika pieprasīts.
+	Kā arī dot informāciju abonementa abonementa atcelšanai.
+
+	Izvades dati:
+	\begin{enumerate}
+		\item Pārskata ieraksta dati: vairāki ieraksti, kas sastāv no 2 datumiem - sākuma un beigu laiks (kas varētu neeksistēt),
+		      abonementa stāvoklis - skaitlisks kods, kas apzīmē tekošo stāvokli abonementam, maksājumu atstrādāja klienta identifikators - skaitlis.
+		\item Lapu skaits - pozitīvs skaitlis.
+		\item Tekošā lappuse - pozitīvs skaitlis, kas ir mazāks vai vienāds par lapu skaitu.
+	\end{enumerate}
+}
+{
+	\begin{enumerate}
+		\item Netika atrasts neviens abonements!
+		\item Notika sistēmas iekšējā kļūda! Mēģiniet vēlreiz vēlāk!
+	\end{enumerate}
+}

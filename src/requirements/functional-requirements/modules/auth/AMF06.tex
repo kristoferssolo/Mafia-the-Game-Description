@@ -1,0 +1,31 @@
+\moduleFunctionTable
+{Lietotāja atteikšanās}
+{mod-func-auth-logout}
+{Lietotāja atteikšanās}
+{AMF06}
+{
+	Funkcijas mērķis ir beigt lietotāja pārlūkprogrammas asociāciju ar noteiktu lietotāju kontu.
+}
+{
+	Ievades dati tiek saņemti no lietotāja pārlūkprogrammas.
+
+	Obligātie parametri:
+	\begin{enumerate}
+		\item Lietotāja sesijas marķieris - 16 simbolu gara virkne, kas tiek glabāta lietotāja pārlūkprogrammā.
+	\end{enumerate}
+
+}
+{
+	\begin{enumerate}
+		\item No lietotāja pārlūkprogrammas tiek iegūts sesijas marķieris.
+		\item Ja sesijas marķieris eksistē, tas tiek izdzēsts.
+		      Lietotājs tiek pāradresēts uz mājaslapas sākuma lapu.
+	\end{enumerate}
+}
+{
+	Izvades datu mērķis ir noteikt, vai lietotājs tiks pāradresēts un kurā lapā lietotājs tiks pāradresēts.
+	\begin{enumerate}
+		\item Atteikšanās apstiprinājuma stāvoklis - kods ar noteiktu stāvokli.
+	\end{enumerate}
+}
+{}

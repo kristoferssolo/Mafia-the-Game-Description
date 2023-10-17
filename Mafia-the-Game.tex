@@ -22,7 +22,10 @@
 \usepackage{fmtcount}
 \usepackage{ltablex}
 \usepackage{chngcntr}
+\usepackage{longtable}
+\usepackage{ifthen}
 \usetikzlibrary{positioning}
+
 
 \hypersetup{
 	colorlinks=true,
@@ -95,6 +98,10 @@
 \newcounter{rownum}
 \renewcommand{\therownum}{\padzeroes[2]{\decimal{rownum}}}
 
+\keepXColumns
+
+\input{./src/utils/index.tex}
+
 
 \begin{document}
 \input{./src/title-page.tex}
@@ -105,5 +112,6 @@
 \input{./src/legends.tex}
 \input{./src/description/index.tex}
 \input{./src/requirements/index.tex}
+% \input{./src/test.tex}
 
 \end{document}

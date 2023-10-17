@@ -1,0 +1,41 @@
+\moduleFunctionTable
+{Lomas dzēšana}
+{mod-func-role-delete}
+{Lomas dzēšana}
+{SLMF06}
+{
+	Funkcijas mērķis ir neatgriezeniski dzēst spēles lomu.
+}
+{
+	Ievades dati tiek saņemti no maksas lietotājiem un administratoriem pieejamās veidlapas.
+	Obligātie parametri:
+	\begin{enumerate}
+		\item Spēles lomas identifikators - pozitīvs skaitlis.
+	\end{enumerate}
+}
+{
+	\begin{enumerate}
+		\item Ja lietotājs nav administrators vai lietotājs, kurš izveidoja doto lomu, parādīt 1. paziņojumu.
+		\item Pārbauda, vai loma ar tādu identifikatoru eksistē.
+		      Ja neeksistē, parāda 2. paziņojumu.
+		\item Visas spēles lomas un lomas darbības daudz pret daudz starptabulas izdzēš.
+		      Ja izdzēšāna nav veiksmīga, parāda 4. paziņojumu.
+		\item Spēles lomas ierakstu izdzēš.
+		      Ja izdzēšana ir veiksmīga, parāda 3. paziņojumu.
+		      Ja izdzēšāna nav veiksmīga, parāda 4. paziņojumu.
+	\end{enumerate}
+}
+{
+	Izvades datu mērķis ir noteikt spēles lomas dzēšanas stāvokli.
+	\begin{enumerate}
+		\item Spēles lomas dzēšanas stāvoklis - kods ar noteiktu stāvokli.
+	\end{enumerate}
+}
+{
+	\begin{enumerate}
+		\item Darbība nav autorizēta!
+		\item Tāda spēles loma nav atrasta! Mēģiniet vēlreiz!
+		\item Spēles loma ir veiksmīgi izdzēsta!
+		\item Sistēmas iekšēja kļūda! Mēģiniet vēlreiz!
+	\end{enumerate}
+}

@@ -1,0 +1,40 @@
+\moduleFunctionTable
+{Spēles uzstādījumu pārskats}
+{mod-func-setup-overview}
+{Spēles uzstādījumu pārskats}
+{SUMF01}
+{
+	Funkcijas mērķis ir sniegt pārskatu par spēles uzstādījumiem.
+}
+{
+	Obligātie parametri:
+	\begin{enumerate}
+		\item Spēles uzstādījumu identifikators - pozitīvs skaitlis.
+	\end{enumerate}
+}
+{
+	\begin{enumerate}
+		\item Pārbauda, vai lietotājs ir reģistrēts.
+		      Ja nav, izvada 1. paziņojumu.
+		\item Sagatavo datubāzes pieprasījumu no spēles uzstādījumu tabulas.
+		\item Pieprasījumam pievieno atlasīšanu pēc spēles uzstādījuma identifikatora.
+		\item Sagatavo pieprasījumu lauku sarakstu.
+		      Saraksta pamatā ir nosaukums, apraksts, vai ir pamata, vai ir aktīvs, izveidošanas laiks.
+		\item Veic sagatavoto pieprasījumu, pieprasot iepriekš sagatavoto lauku sarakstu.
+		      Ja pieprasījums neizdodas, parāda 2. paziņojumu.
+		      Ja spēles uzstādījums netika atrasts, parāda 3. paziņojumu.
+	\end{enumerate}
+}
+{
+	Izvades datu mērķis ir spēles virtuālās istabas uzstādījumu datu izvadīšana.
+	\begin{enumerate}
+		\item Vārdnīca - nosaukums - simbolu virkne, apraksts - simbolu virkne, ir pamata - karodziņš, ir aktīvs - karodziņš, izveidošanas laiks - datums formatēts kā simbolu virkne
+	\end{enumerate}
+}
+{
+	\begin{enumerate}
+		\item Darbība nav autorizēta!
+		\item Notika sistēmas iekšējā kļūda! Mēģiniet vēlreiz!
+		\item Tāds spēles uzstādījums nav atrasts! Mēģiniet vēlreiz!
+	\end{enumerate}
+}

@@ -1,0 +1,41 @@
+\moduleFunctionTable
+{Spēles notikumu pārskats}
+{mod-func-progress-overview}
+{Spēles notikumu pārskats}
+{SGMF03}
+{
+	Funkcijas mērķis ir iegūt informāciju par spēles notikumiem.
+}
+{
+	Obligātie parametri:
+	\begin{enumerate}
+		\item Spēles istabas identifikators - vesels pozitīvs skaitlis.
+		\item Paslēptā informācija - karodziņš.
+	\end{enumerate}
+}
+{
+	\begin{enumerate}
+		\item Meklē spēles istabu attiecīgā tabulā, izmantojot darbības identifikatoru.
+		      Ja spēles istaba netiek atrasta parāda 1. paziņojumu.
+		\item Ja pieprasītājs nav sistēma un ir pieprasīta paslēptā informācija un spēles istabas stāvoklis neapzīmē pabeigtu spēli, parāda 2. paziņojumu.
+		\item Sāk veidot sarakstu ar notikumu vārdnīcām.
+		\item No datubāzes iegūst spēles notikumu ierakstus.
+		      Katram notikumam iegūst veidu.
+		\item Ja notikuma redzamības spēles procesā ir patiess, tad pievieno attiecīgo vārdnīcu sarakstam.
+	\end{enumerate}
+}
+{
+	Izvades mērķis ir par notikumiem nepieciešamās informācijas apkopošana vārdnīcā atkarībā no paslēptās informācijas ievades karodziņa.
+	Ja tiek izvadīta paslēptā informācija, saraksts sastāvēs no vārdnīcām, kas sastāv no:
+	\begin{enumerate}
+		\item Notikuma veids - skaitlisks kods;
+		\item Ietekmēto spēlētāju saraksts - veselu pozitīvu skaitļu saraksts.
+	\end{enumerate}
+	Ja paslēptā informācija izvadīta netiks, tad spēlētāju vārdnīca sastāvēs tikai no lomas identifikatora.
+}
+{
+	\begin{enumerate}
+		\item Spēles istaba ar identifikatoru [istabas identifikators] netika atrasta!
+		\item Notikumu detalizēts pārskats nav pieejams spēles laikā!
+	\end{enumerate}
+}

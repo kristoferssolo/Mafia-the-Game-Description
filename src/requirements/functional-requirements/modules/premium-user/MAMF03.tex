@@ -1,0 +1,36 @@
+\moduleFunctionTable
+{Abonementa atcelšana}
+{mod-func-premium-cancel}
+{Abonementa atcelšana}
+{MAMF03}
+{
+	Funkcijas mērķis ir atcelt lietotājam, kam ir aktīvs maksas abonementi.
+	Maksājuma procesora abonements tiks atcelts, kā rezultātā no lietotāja vairs nebūs iekasēti maksājumi.
+	Abonementa stāvoklis sistēmā būs apzīmēts kā atcelts.
+}
+{
+	Ievades dati tiek iegūti no darbības abonementu pārskatā.
+	Obligātie parametri:
+	Maksājuma procesora klienta identifikators - pozitīvs skaitlis.
+}
+{
+	\begin{enumerate}
+		\item Sameklē datubāzē maksas abonementa ierakstu, pēc maksas apstrādātāja klienta identifikatora.
+		      Ja tāds neeksistē, parāda 1. paziņojumu.
+		\item Izmantojot maksājumu apstrādātāja klienta numuru, pieprasa abonementa atcelšanu, izmantojot maksājuma procesora \emph{API}.
+		      Ja maksājuma procesora atbilde norāda, ka atcelšana neizdevusies, parāda 2. paziņojumu.
+		\item Ja maksājuma procesora atbilde norāda, ka abonementa atcelšana ir veiksmīga, attiecīgā datubāzes ieraksta stāvokli nomaina uz stāvokli, kas apzīmē atceltu abonementu.
+	\end{enumerate}
+}
+{
+	Izvades datu mērķis ir noteikt, vai atcelšana bija veiksmīga.
+	\begin{enumerate}
+		\item Abonementa atcelšanas stāvoklis - kods ar noteiktu stāvokli.
+	\end{enumerate}
+}
+{
+	\begin{enumerate}
+		\item Maksas apstrādātāja klienta identifikators neeksistē!
+		\item Neizdevās atcelt abonementu! Mēģiniet vēlreiz vēlāk vai sazinieties ar tehniskās palīdzības specialistu.
+	\end{enumerate}
+}

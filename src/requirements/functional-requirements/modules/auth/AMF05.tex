@@ -1,0 +1,48 @@
+\moduleFunctionTable
+{Lietotāja pieteikšanās}
+{mod-func-auth-login}
+{Lietotāja pieteikšanās}
+{AMF05}
+{
+	Autentificēt lietotāju, lai sistēma to uztver kā lietotāju ar konkrēto sistēmas lomu un atļauj turpmākās sistēmas lomas darbības sistēmā.
+}
+{
+	Ievades dati tiek saņemti no pieteikšanās veidlapas.
+
+	Obligātie parametri:
+	\begin{enumerate}
+		\item E-pasta adrese vai segvārds - simbolu virkne, kas tiek pārbaudīta uz atbilstību e-pasta adreses formātam, kam jāatbilst ``RFC 2822: Interneta ziņu formāts'' standarta prasībām.
+		      Ja tā neabilst, tad tai jāatbilst sekojošām prasībām: simbolu virkne ar garumu no 6 līdz 20 simboliem, kas var saturēt burtciparu simbolus, skaitļus, defises, pasvītras, apostrofus.
+		\item Parole - simbolu virkne ar garumu no 8 līdz 128 simboliem, kas var saturēt burtciparu simbolus, skaitļus, atstarpi, speciālos simbolus:
+		      izsaukuma zīmi, dubultpēdiņas, skaitļa zīmi, dolāra zīmi, procenta zīmi, ampersandu, pēdiņas, iekavas, figūriekavas,
+		      zvaigznīti, plusu, komatu, mīnusu, punktu, slīpsvītru, kolu, semikolu, salīdzinājuma zīmes, vienādības zīmi, jautājuma zīmi, ``at'' zīmi, slīpsvītru, pasvītru, vertikālo joslu, tildi.
+	\end{enumerate}
+}
+{
+	\begin{enumerate}
+		\item Pārbauda, vai e-pasta adrese vai segvārds un parole satur tikai pieļaujamos simbolus.
+		      Ja nesatur, tad iegūst izmantotos neatļautos simbolus, tad parāda 1. paziņojumu ar laukiem un simboliem.
+		\item Pārbauda, vai e-pasta adrese vai un parole nepārsniedz noteikto garumu.
+		      Ja satur, tad iegūst pārsniegto garumu parametru sarakstu un parāda 2. paziņojumu ar laukiem un garumiem.
+		\item Iegūst lietotāja autorizācijas datus no datubāzes, meklējot lietotājus pēc segvārda vai e-pasta adreses.
+		      Ja tāds lietotājs netika atrasts, parāda 3. paziņojumu.
+		\item Pievieno ievades datu parolei datubāzē glabājamāi sāls simbolu virkni.
+		\item Pārbauda, vai lietotāja sniegtā paroles jaucējfunkcijas rezultāts sakrīt ar datubāzē glabātu vērtību.
+		      Ja paroles jaucējfunkcijas rezultāts nesakrīt ar datubāzē glabāto vērtību, parāda 4. paziņojumu.
+		\item Ja sakrīt, ģenerē lietotāja sesijas marķieri.
+	\end{enumerate}
+}
+{
+	Izvades datu mērķis ir noteikt, vai lietotājs tiks pāradresēts un kurā lapā lietotājs tiks pāradresēts, un ierakstīt sesijas marķieri lietotāja pārlūkprogrammas datu krātuvē.
+	\begin{enumerate}
+		\item Reģistrācijas apstiprinājuma stāvoklis - kods ar noteiktu stāvokli.
+		\item Lietotāja sesijas marķieris.
+	\end{enumerate}
+}
+{
+	\begin{enumerate}
+		\item {}[Parametra nosaukums] nedrīkst saturēt: [izmantoto parametra neatļauto simbolu saraksts]!
+		\item {}[Parametra nosaukums] nedrīkst pārsniegt [noteikto parametra maksimālo simbolu skaits]!
+		\item {}Lietotājs ar šādu segvārdu vai e-pastu netika atrasts vai parole nav pareiza!
+	\end{enumerate}
+}

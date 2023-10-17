@@ -1,0 +1,52 @@
+\moduleFunctionTable
+{Pieslegšanās spēles istabai}
+{mod-func-room-connect}
+{Pieslegšanās spēles istabai}
+{SIMF02}
+{
+	Funkcijas mērķis ir ļaut reģistrētiem lietotājiem pievienoties izvēlētajai spēles istabai.
+}
+{
+	Obligātie parametri:
+	\begin{enumerate}
+		\item Istabas identifikācijas kodu
+	\end{enumerate}
+	Neobligātie parametri:
+	\begin{enumerate}
+		\item Istabas piekļuves parole - simbolu virkne no 6 - 12 simboliem [prasības].
+	\end{enumerate}
+}
+{
+	\begin{enumerate}
+		\item Tiek veikts pieprasījums Spēles istabu datubāzei ar Spēles istabas identifikācijas datiem.
+		      \begin{enumerate}
+			      \item Ja istaba ir atrasta un ja tās piekļuves kritēriji ietver paroli, tad tiek atgriezts dialogs piekļuves paroles iesniegšanai, kas tiek pievienoti pieprasījumam.
+			            \begin{enumerate}
+				            \item Ja piekļuves parole nesakrīt ar istabas kritērijiem, tad tiek atgriezts 3. paziņojums.
+			            \end{enumerate}
+			      \item Ja istabas lietotāju skaits ir sasniedzis maksimālo lietotāju skaitu, tad tiek atgriezts 2. paziņojums.
+		      \end{enumerate}
+		\item Spēles istabas datubāze atbild ar Spēles istabu spēlētāju datiem un Spēlētāju stāvokļu datiem.
+		      \begin{enumerate}
+			      \item Ja atbilde netiek saņemta, tad tiek atgriezts 4. paziņojums.
+		      \end{enumerate}
+		\item Atgrieztie dati tiek sakārtoti Spēles istabas pārskata izkārtojumā un lietotājs tiek pāradresēts uz attiecīgās istabas saiti. Tiek atgriezts 1. paziņojums.
+		      \begin{enumerate}
+			      \item Ja pāradresācijas procesā rodas kļūda, tad tiek atgriezts 4. paziņojums.
+		      \end{enumerate}
+	\end{enumerate}
+}
+{
+	Izvades mērķis ir noteikt vai lietotājs tiks pāradresēts.
+	\begin{enumerate}
+		\item Pieslēgšanās stāvoklis - skaitlisks kods.
+	\end{enumerate}
+}
+{
+	\begin{enumerate}
+		\item ``Pievienošanās istabai ir veiksmīga!'' - Apstiprinošs paziņojums
+		\item ``Istabā nav brīvu vietu!'' - Brīdinājums par Spēles istabas stāvokli
+		\item ``Nepareiza piekļuves parole!'' - Brīdinājums par piekļuves mēģinājumu
+		\item ``Tehniskas problēmas'' - Brīdinājums par sistēmas stāvokli
+	\end{enumerate}
+}

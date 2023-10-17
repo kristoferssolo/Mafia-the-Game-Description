@@ -1,0 +1,42 @@
+\moduleFunctionTable
+{Spēles uzstādījuma lomu pārskats}
+{mod-func-setup-role-overview}
+{Spēles uzstādījuma lomu pārskats}
+{SUMF02}
+{
+	Funkcijas mērķis ir sniegt pārskatu par spēles uzstādījumu lomām.
+}
+{
+	Obligātie parametri:
+	\begin{enumerate}
+		\item Spēles uzstādījumu identifikators - pozitīvs skaitlis.
+	\end{enumerate}
+}
+{
+	\begin{enumerate}
+		\item Pārbauda, vai lietotājs ir rēģistrēts. Ja nav, izvada 1. paziņojumu.
+		\item Sagatavo datubāzes pieprasījumu no spēles uzstādījumu tabulas.
+		\item Pieprasījumam pievieno atlasīšanu pēc spēles uzstādījuma identifikatora.
+		\item Sagatavo pieprasījumu lauku sarakstu. Saraksta pamatā ir spēles uzstādījumu lomu nosaukumi.
+		\item Pieprasa ierakstu saskaitīšanu, izmantojot sagatavoto pieprasījumu.
+		      Ja rezultātu skaits ir $0$, tad parāda 4. paziņojumu.
+		\item Aprēķina lappušu skaitu ar formulu: $L = ceil(Q / Q_l)$, $Q$ - rezultātu skaits, $Q_l$ - ierakstu skaits vienā lappusē.
+		\item Ja ievaddatos nav lappuses numurs vai tā pārsniedz aprēķināto lappušu skaitu, tad turpmāk lappuses numurs būs 1.
+		\item Aprēķina ierakstu nobīdi ar formulu: $O = (N - 1) * Q_l$, kur $O$ - nobīde; $N$ - lappuses numurs, $Q_l$ - ierakstu skaits vienā lappusē.
+		\item Pievieno pieprasījumam nobīdi pēc aprēķinātās lappuses.
+		\item Veic sagatavoto pieprasījumu, pieprasot iepriekš sagatavoto lauku sarakstu. Ja pieprasījums neizdodas, parāda 2. paziņojumu. Ja spēles uzstādījums netika atrasts, parāda 3. paziņojumu.
+	\end{enumerate}
+}
+{
+	Izvades datu mērķis ir spēles virtuālās istabas uzstādījumu datu izvadīšana.
+	\begin{enumerate}
+		\item Vārdnīca - lomas nosaukums - simbolu virkne.
+	\end{enumerate}
+}
+{
+	\begin{enumerate}
+		\item Darbība nav autorizēta!
+		\item Notika sistēmas iekšējā kļūda! Mēģiniet vēlreiz vēlāk!
+		\item Tads spēles uzstādījums nav atrasts! Mēģiniet vēlreiz
+	\end{enumerate}
+}
