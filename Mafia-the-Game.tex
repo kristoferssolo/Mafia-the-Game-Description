@@ -42,6 +42,17 @@
 \titlespacing*{\paragraph}{0pt}{2em}{2em}
 \titlespacing*{\subparagraph}{0pt}{2em}{2em}
 
+
+
+% Configure the chapter / paragraph numbering (it only works this way when I compile)
+\renewcommand{\thechapter}{\arabic{chapter}.}
+\renewcommand{\thesection}{\arabic{section}.}
+\renewcommand{\thesubsection}{\thesection\arabic{subsection}.}
+\renewcommand{\thesubsubsection}{\thesubsection\arabic{subsubsection}.}
+\renewcommand{\theparagraph}{\thesubsubsection\arabic{paragraph}.}
+\renewcommand{\thesubparagraph}{\theparagraph\arabic{subparagraph}.}
+
+
 \titleformat{\section}{\large\bfseries\centering\vfill\eject\MakeUppercase}{\thesection}{1em}{} % section formatting
 \titleformat{\subsection}{\large\bfseries\centering}{\thesubsection}{1em}{} % subsection formatting
 \titleformat{\subsubsection}{\large\bfseries\centering}{\thesubsubsection}{1em}{} % subsubsection formatting
