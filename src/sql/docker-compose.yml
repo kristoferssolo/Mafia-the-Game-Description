@@ -1,0 +1,11 @@
+version: "3"
+services:
+  app:
+    image: postgres:latest
+    container_name: Mafia
+    environment:
+      POSTGRES_USER: mafia
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: Mafia
+    ports:
+      - "5432:5432"
