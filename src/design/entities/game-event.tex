@@ -1,6 +1,6 @@
 \begin{entityTable}{SpelesNotikums}{entity-game-event}
 	\entityTableRow{nosaukums}{varchar(255)}{unique, not null}{Notikuma nosaukums}
-	\entityTableRow{nakts\_pk}{int2}{default 0, not null, check (nakts\_pk >= 0)}{Spēles nakts pēc kārtas} % FIX: 
+	\entityTableRow{nakts\_pk}{int2}{default 0, not null, check (\lowercase{nakts\_pk} >= 0)}{Spēles nakts pēc kārtas}
 	\entityTableRow{ir\_redzams}{bool}{default false, not null}{Vai notikums ir redzams spēlētājiem procesa laikā?}
 	\entityTableRow{izveidosanas\_laiks}{timestamp}{not null, default current\_timestamp}{Laiks, kad dotais spēles notikums tika izveidots/saglabāts datubāzē}
 \end{entityTable}

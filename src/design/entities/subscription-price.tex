@@ -1,5 +1,5 @@
 \begin{entityTable}{AbonementaCena}{entity-subscription-price}
-	\entityTableRow{cena}{decimal(16,2)}{default 0, not null, check (cena >= 0)}{Abonementa cena, kuras garums var būt līdz 16 simboliem un tiek noapaļots līdz 2 cipariem aiz komata} % FIX: `cena` should be in lowercase
+	\entityTableRow{cena}{decimal(16,2)}{default 0, not null, check (\lowercase{cena} >= 0)}{Abonementa cena, kuras garums var būt līdz 16 simboliem un tiek noapaļots līdz 2 cipariem aiz komata}
 	\entityTableRow{pievienosanas\_laiks}{timestamp}{default current\_timestamp, not null}{Laiks, kad tika izveidots/saglabāts dotā cena datubāzē}
-	\entityTableRow{aktivizesanas\_laiks}{timestamp}{not null, check (aktivizesanas\_laiks >= pievienosanas\_laiks)}{Laiks, no kura ši cena ir aktīva} % FIX: should be in lowercase
+	\entityTableRow{aktivizesanas\_laiks}{timestamp}{not null, check (\lowercase{aktivizesanas\_ laiks} >= \lowercase{pievienosanas\_ laiks})}{Laiks, no kura ši cena ir aktīva}
 \end{entityTable}
