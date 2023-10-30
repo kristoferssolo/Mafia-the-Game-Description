@@ -50,3 +50,28 @@
 	\specificationTableItem{Izvade}{#8}
 	\specificationTableItem{Paziņojumi}{#9}
 }
+
+\newcommand{\parameterTable}[7]{
+	\paragraph{#1}
+	\begin{table}[h]
+		\caption{#1}\label{tab:#2}
+	\end{table}
+	\specificationTableItem{Parametra nosaukums}{#3}
+	\specificationTableItem{Parametra identifikators}{#4}
+	\specificationTableItem{Parametra apraksts}{#5}
+	\specificationTableItem{Parametra prasības}{#6}
+	\specificationTableItem{Parametra piemērs}{#7}
+}
+
+\newcommand{\procedureTable}[8]{
+	\paragraph{#1}
+	\begin{table}[h]
+		\caption{#1}\label{tab:#2}
+	\end{table}
+	\specificationTableItem{Procedūras nosaukums}{#3}
+	\specificationTableItem{Procedūras identifikators}{#4}
+	\specificationTableItem{Procedūras apraksts}{#5}
+	\specificationTableItem{Ievade}{#6}
+	\specificationTableItem{Apstrāde}{#7}
+	\specificationTableItem{Izvade}{#8}
+}
