@@ -93,7 +93,7 @@ CREATE TABLE
   );
 
 CREATE TABLE
-  "SpelesUzstadijums" (
+  "SpelesKonfiguracija" (
     "id" SERIAL8 PRIMARY KEY NOT NULL,
     "nosaukums" VARCHAR(255) UNIQUE NOT NULL,
     "apraksts" TEXT DEFAULT '' NOT NULL,
@@ -113,9 +113,9 @@ CREATE TABLE
     "piekluves_kods" CHAR(6) UNIQUE,
     "vai_rada_miruso_lomu" BOOL DEFAULT FALSE NOT NULL,
     "izveidosanas_laiks" TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
-    "speles_uzstadijums" INT8 NOT NULL,
+    "speles_konfiguracija" INT8 NOT NULL,
     FOREIGN KEY ("stavoklis") REFERENCES "IstabasStavoklis" ("id"),
-    FOREIGN KEY ("speles_uzstadijums") REFERENCES "SpelesUzstadijums" ("id")
+    FOREIGN KEY ("speles_konfiguracija") REFERENCES "SpelesKonfiguracija" ("id")
   );
 
 CREATE TABLE
@@ -189,10 +189,10 @@ CREATE TABLE
 
 CREATE TABLE
   "SpelesUzstatijumuLomas" (
-    "speles_uzstadijums" INT8 NOT NULL,
+    "speles_konfiguracija" INT8 NOT NULL,
     "speles_loma" INT8 NOT NULL,
-    PRIMARY KEY ("speles_uzstadijums", "speles_loma"),
-    FOREIGN KEY ("speles_uzstadijums") REFERENCES "SpelesUzstadijums" ("id"),
+    PRIMARY KEY ("speles_konfiguracija", "speles_loma"),
+    FOREIGN KEY ("speles_konfiguracija") REFERENCES "SpelesKonfiguracija" ("id"),
     FOREIGN KEY ("speles_loma") REFERENCES "SpelesLoma" ("id")
   );
 
