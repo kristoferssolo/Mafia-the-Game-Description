@@ -4,49 +4,61 @@
 {Lietotāja konta detaļas}
 {LAMF02}
 {
-	Funkcijas mērķis ir reģistrētiem lietotājiem iegūt konta savu informāciju, kas ietver gan publisko informāciju, gan privāto.
-	Administratoriem informācija ir iegūstamā par jebkuru lietotāju.
+	Funkcijas mērķis ir reģistrētiem lietotājiem saņemt savu informāciju, kas ietver gan publisko informāciju, gan privāto. Administratoriem informācija ir iegūstama par jebkuru lietotāju.
 }
 {
-	Ievades datus iegūst no vietrāža parametriem, caur kuru tiek piekļūts funkcijai.
-	Alternatīvi, dati tiek iegūti no konteksta.
+	Ievades datus iegūst no vietrāža parametriem, caur kuru tiek piekļūts funkcijai. Alternatīvi, dati (lietotāja identifikators) tiek iegūti no konteksta.
 
-	Obligātie parametri:
+	Neobligātie parametri:
 	\begin{enumerate}
-		\item Konta datu lietotāja identifikators - pozitīvs skaitlis.
-		      Noklusētā vērtība - no konteksta lietotāja (kas piekļūst funkciju) iegūtais identifikators.
+		\item Apskatāmo konta datu lietotāja identifikators - atbilst IIDP10. Noklusētā vērtība - no konteksta lietotāja (kas piekļūst funkciju) iegūtais identifikators.
 	\end{enumerate}
 }
 {
 	\begin{enumerate}
-		\item Sagatavo datubāzes pieprasījumu no lietotāju tabulas.
-		\item Iegūst lietotāja lomu sistēmā.
-		      Ja lietotājs nav administrators, pieprasījumam pievieno nosacījumu, ka abonementa ierakstiem jābūt saistītiem ar lietotāju.
-		\item Ja apskatāmo datu kontu lietotāja identifikators nesakrīt ar lietotāja identifikatoru, tad parāda 1. paziņojumu.
-		\item Pieprasījumam pievieno atlasīšanu pēc lietotāja identifikatora.
-		\item Sagatavo pieprasīto lauku sarakstu.
-		      Saraksta pamatā ir pilns vārds, segvārds, biogrāfijas informācija, konta izveidošanas laiks, attēls (datnes adrese).
-		      Ja pieprasītajā lietotājs ir administrators, tad pie šī saraksta pievieno arī e-pasta adresi, e-pasta apstiprinājuma informāciju, konta stāvokli.
-		\item Veic sagatavoto pieprasījumu, pieprasot iepriekš sagatavoto lauku sarakstu, attēla datnes adreses.
-		      Ja pieprasījums neizdodas, parāda 2. paziņojumu.
-		      Ja lietotājs netika atrasts, parāda 3. paziņojumu.
-		\item Ja attēls datnes adrese neeksistē, tad iegūst noklusētā attēla datnes adresi.
+		\item Sagatavo datubāzes pieprasījumu no lietotāju tabulas;
+		\item Iegūst lietotāja lomu sistēmā;
+		      \begin{enumerate}
+			      \item Ja lietotājs nav administrators, pieprasījumam pievieno nosacījumu, ka abonementa ierakstiem jābūt saistītiem ar lietotāju.
+		      \end{enumerate}
+		\item Ja apskatāmo datu kontu lietotāja identifikators sakrīt ar lietotāja identifikatoru, tad parāda X paziņojumu. Beidz apstrādi;
+		\item Pieprasījumam pievieno atlasīšanu pēc lietotāja identifikatora;
+		\item Sagatavo pieprasīto lauku sarakstu. Saraksta pamatā ir pilns vārds, segvārds, biogrāfijas informācija, konta izveidošanas laiks, attēls (datnes adrese);
+		      \begin{enumerate}
+			      \item Ja pieprasītājs lietotājs ir administrators, tad pie šī saraksta pievieno arī e-pasta adresi, e-pasta apstiprinājuma informāciju, konta stāvokli.
+		      \end{enumerate}
+		\item Veic sagatavoto pieprasījumu, pieprasot iepriekš sagatavoto lauku sarakstu, attēla datnes adreses;
+		      \begin{enumerate}
+			      \item Ja pieprasījums neizdodas, parāda 2. paziņojumu. Beidz apstrādi.
+			      \item Ja lietotājs netika atrasts, parāda 3. paziņojumu. Beidz apstrādi.
+		      \end{enumerate}
+		\item Ja attēla datnes adrese neeksistē, tad iegūst noklusētā attēla datnes adresi.
 	\end{enumerate}
 }
 {
-	Izvades datu mērķis ir lietotāja konta datu izvadīšana.
-	To saturs ir atkarīgs no pieprasītāja lietotāja lomas sistēmā.
-
+	Izvades datu mērķis ir lietotāja konta datu parādīšana.
+	Ja pieprasītājs lietotājs nav administrators:
 	\begin{enumerate}
-		\item Vārdnīca - pilns vārds - simbolu virkne, segvārds - simbolu virkne, biogrāfijas informācija - simbolu virkne, konta izveidošanas laiks - datums simbolu virknes formātā, attēls - datnes adrese.
-		      Ja pieprasītais lietotājs ir administrators, tad vārdnīca ir arī e-pasta adrese - simbolu virkne, e-pasta apstiprinājuma stāvoklis - simbolu virkne, konta stāvoklis - simbolu virkne.
+		\item Vārdnīca:
+		      \begin{enumerate}
+			      \item pilns vārds - simbolu virkne;
+			      \item segvārds - simbolu virkne;
+			      \item biogrāfijas informācija - simbolu virkne;
+			      \item konta izveidošanas laiks - datums simbolu virknes formātā;
+			      \item attēls - datnes adrese
+		      \end{enumerate}
+		\item Papildus vārdnīcas dati, ja pieprasītājs lietotājs ir administrators:
+		      \begin{enumerate}
+			      \item e-pasta adrese - IIDP05;
+			      \item e-pasta apstiprinājuma stāvoklis - skaitlisks kods (0 - neapstiprināts; 1- apstiprinājuma vēstule ir aizsūtīta; 1 - apstiprināts );
+			      \item konta stāvoklis - IIDP10
+		      \end{enumerate}
 	\end{enumerate}
-
 }
 {
 	\begin{enumerate}
 		\item Darbība nav autorizēta!
-		\item Notika sistēmas iekšējā kļūda! Mēģiniet vēlreiz vēlāk!
+		\item Sistēmas iekšējā kļūda! Mēģiniet vēlreiz vēlāk!
 		\item Tāds lietotājs nav atrasts! Mēģiniet vēlreiz!
 	\end{enumerate}
 }
