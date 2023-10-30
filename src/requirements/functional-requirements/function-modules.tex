@@ -1,38 +1,40 @@
 \subsubsection{Funkciju sadalījums moduļos}
-Funkciju sadalījums moduļos ir aprakstīts tabulā (skat. \ref{tab:function_modules} tabula).
-Lietotāju kategorija apzīmē specifisku lietotāju grupu, kam funkcija piemīt.
-Jebkurš maksas lietotājs un administrators ir uzskatāms par reģistrētu lietotāju.
-Maksas lietotājs un administrators ir norādīts kā lietotāja kategorija, ja tā ir funckijas izmantošana ir domāta tikai šai grupai vai funkcijas darbība atšķiras šīm kategorijām.
+Funkciju sadalījums moduļos ir aprakstīts tabulā (\ref{tab:function-modules} tab.).
+Katrs maksas lietotājs un administrators ir uzskatāms par reģistrētu lietotāju.
+Administratora privilēģijas ir atvasinātas no maksas lietotāja privilēģijas.
+Sistēmas lietotājs nav ierobežots.
+Maksas lietotājs un administrators tiek norādīts pie lietotāja grupas tikai tad, ja, funkcijas rezultāts atšķiras no rezultāta, kuru atgrieztu reģistrētam lietotājam.
+Tiek pieņemts, ka lietotāja autentifikācija ir izpildīta, izmantojot funkcijas, kur apstrāde ir neatkarīga no lietotāju grupas.
 
-1.līmeņa DPD parāda detalizētākāku 1. līmeņa (konteksta) DPD  ar sistēmas
-sadalījumu pa moduļiem. Pārskatamības dēļ DPD tika sadalīta divās daļās (skat.
-\ref{fig:dpd-1} att. un \ref{fig:dpd-2}).
+2.līmeņa DPD parāda izvērstāku 1. līmeņa (jeb konteksta) DPD ar sistēmas sadalījumu pa moduļiem.
+Pārskatamības dēļ DPD tika sadalīta divās daļās (skat \ref{fig:dpd-1.1} att. un \ref{fig:dpd-1.2} att.).
+
 
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[width=\linewidth]{./src/img/1LīmeņaDPDSpēlesDatubāze.png}
-    \caption{1. līmeņa DPD (1)}
-	\label{fig:dpd-1}
+	\caption{1. līmeņa DPD (1)}
+	\label{fig:dpd-1.1}
 \end{figure}
 
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[width=\linewidth]{./src/img/1LīmeņaDPDLietotājuDatubāze.png}
-    \caption{1. līmeņa DPD (2)}
-	\label{fig:dpd-2}
+	\caption{1. līmeņa DPD (2)}
+	\label{fig:dpd-1.2}
 \end{figure}
 \eject
 
 
 \begin{tabularx}{\linewidth}{|p{2.1cm}|X|p{2.7cm}|X|}
-	\caption{Funkciju sadalījums pa moduļiem} \label{tab:function_modules}                                                                                                                                                                                    \\ \hline
+	\caption{Funkciju sadalījums pa moduļiem} \label{tab:function-modules}                                                                                                                                                                                    \\ \hline
 
 	\hline
-	\textbf{Modulis}                                           & \textbf{Funkcija}                                      & \textbf{Identifikators}                                                             & \textbf{Lietotāja kategorija}                 \\ \hline
+	\textbf{Modulis}                                           & \textbf{Funkcija}                                      & \textbf{Identifikators}                                                             & \textbf{Lietotāja grupa}                      \\ \hline
 	\endfirsthead
 
 	\hline \multicolumn{4}{r}{Turpinājums no iepriekšējās lapas}                                                                                                                                                                                              \\ \hline
-	\textbf{Modulis}                                           & \textbf{Funkcija}                                      & \textbf{Identifikators}                                                             & \textbf{Lietotāja kategorija}                 \\ \hline
+	\textbf{Modulis}                                           & \textbf{Funkcija}                                      & \textbf{Identifikators}                                                             & \textbf{Lietotāja grupa}                      \\ \hline
 	\endhead
 
 	\hline \multicolumn{4}{r}{Turpinājums nākamajā lapā}                                                                                                                                                                                                      \\ \hline
@@ -54,7 +56,7 @@ sadalījumu pa moduļiem. Pārskatamības dēļ DPD tika sadalīta divās daļā
 
 	\setcounter{rownum}{0}
 	\multirow{1}{2.1cm}{Lietotāju kontu modulis}               & Lietotāju profilu pārskats                             & \hyperref[tab:mod-func-user-profiles]{\stepcounter{rownum}LAM\therownum}            & Reģistrēts lietotājs, Administrators          \\ \cline{2-4}
-	                                                           & Lietotāja konta datu pārskats                          & \hyperref[tab:mod-func-user-profile-data]{\stepcounter{rownum}LAM\therownum}        & Reģistrēts lietotājs, Administrators          \\ \cline{2-4}
+	                                                           & Lietotāja konta detaļas                                & \hyperref[tab:mod-func-user-profile-data]{\stepcounter{rownum}LAM\therownum}        & Reģistrēts lietotājs, Administrators          \\ \cline{2-4}
 	                                                           & Lietotāja konta bloķēšana                              & \hyperref[tab:mod-func-user-block]{\stepcounter{rownum}LAM\therownum}               & Administrators                                \\ \cline{2-4}
 	                                                           & Lietotāja konta rediģēšana                             & \hyperref[tab:mod-func-user-edit]{\stepcounter{rownum}LAM\therownum}                & Reģistrēts lietotājs, Administrators          \\ \cline{2-4}
 	                                                           & Lietotāja konta dzēšāna                                & \hyperref[tab:mod-func-user-delete]{\stepcounter{rownum}LAM\therownum}              & Reģistrēts lietotājs, Administrators          \\ \hline
@@ -70,7 +72,7 @@ sadalījumu pa moduļiem. Pārskatamības dēļ DPD tika sadalīta divās daļā
 	\setcounter{rownum}{0}
 	\multirow{1}{2.1cm}{Tērzēšanas modulis}                    & Jaunas īsziņas izveidošana                             & \hyperref[tab:mod-func-chat-create]{\stepcounter{rownum}TMF\therownum}              & Reģistrēts lietotājs                          \\ \cline{2-4}
 	                                                           & Īsziņas dzēšana                                        & \hyperref[tab:mod-func-chat-delete]{\stepcounter{rownum}TMF\therownum}              & Reģistrēts lietotājs                          \\ \cline{2-4}
-	                                                           & Īsziņu uzskaite                                        & \hyperref[tab:mod-func-chat-overview]{\stepcounter{rownum}TMF\therownum}            & Reģistrēts lietotājs                          \\ \cline{2-4}
+	                                                           & Īsziņu pārskats                                        & \hyperref[tab:mod-func-chat-overview]{\stepcounter{rownum}TMF\therownum}            & Reģistrēts lietotājs                          \\ \cline{2-4}
 	                                                           & Īsziņu rediģēšana                                      & \hyperref[tab:mod-func-chat-edit]{\stepcounter{rownum}TMF\therownum}                & Reģistrēts lietotājs                          \\ \hline
 	\setcounter{rownum}{0}
 	\multirow{1}{2.1cm}{Spēles istabas modulis}                & Pieejamo pieslēgšanās spēles istabu pārskats           & \hyperref[tab:mod-func-room-overview]{\stepcounter{rownum}SIMF\therownum}           & Reģistrēts lietotājs                          \\ \cline{2-4}
@@ -84,9 +86,9 @@ sadalījumu pa moduļiem. Pārskatamības dēļ DPD tika sadalīta divās daļā
 	\multirow{1}{2.1cm}{Spēles gaitas modulis}                 & Spēles darbības veikšana                               & \hyperref[tab:mod-func-progress-action]{\stepcounter{rownum}SGMF\therownum}         & Reģistrēts lietotājs                          \\ \cline{2-4}
 	                                                           & Spēles notikuma izveidošana                            & \hyperref[tab:mod-func-progress-create]{\stepcounter{rownum}SGMF\therownum}         & Sistēma                                       \\ \cline{2-4}
 	                                                           & Spēles notikumu pārskats                               & \hyperref[tab:mod-func-progress-overview]{\stepcounter{rownum}SGMF\therownum}       & Sistēma, Reģistrēts lietotājs                 \\ \cline{2-4}
-	                                                           & Spēles stāvokļa pārskats                               & \hyperref[tab:mod-func-progress-state-overview]{\stepcounter{rownum}SGMF\therownum} & Sistēma, Reģistrēts lietotājs                 \\ \hline
+	                                                           & Spēles stāvokļa detaļas                                & \hyperref[tab:mod-func-progress-state-overview]{\stepcounter{rownum}SGMF\therownum} & Sistēma, Reģistrēts lietotājs                 \\ \hline
 	\setcounter{rownum}{0}
-	\multirow{1}{2.1cm}{Spēles lomu uzstādījumu modulis}       & Lomas detaļu pārskats                                  & \hyperref[tab:mod-func-role-details]{\stepcounter{rownum}SLMF\therownum}            & Reģistrēts lietotājs                          \\ \cline{2-4}
+	\multirow{1}{2.1cm}{Spēles lomu uzstādījumu modulis}       & Lomas detaļu detaļas                                   & \hyperref[tab:mod-func-role-details]{\stepcounter{rownum}SLMF\therownum}            & Reģistrēts lietotājs                          \\ \cline{2-4}
 	                                                           & Lomu pārskats                                          & \hyperref[tab:mod-func-role-overview]{\stepcounter{rownum}SLMF\therownum}           & Reģistrēts lietotājs                          \\ \cline{2-4}
 	                                                           & Lomas darbību pārskats                                 & \hyperref[tab:mod-func-role-action-overview]{\stepcounter{rownum}SLMF\therownum}    & Reģistrēts lietotājs                          \\ \cline{2-4}
 	                                                           & Jaunas lomas izveidošana                               & \hyperref[tab:mod-func-role-create]{\stepcounter{rownum}SLMF\therownum}             & Maksas lietotājs, Administrators              \\ \cline{2-4}
