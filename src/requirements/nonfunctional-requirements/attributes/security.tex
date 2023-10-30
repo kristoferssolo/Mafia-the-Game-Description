@@ -1,0 +1,75 @@
+\paragraph{Drošība}
+
+Sistēmas drošības atribūti ir kategorizēti sarakstā:
+\begin{itemize}
+	\item Autentifikācija:
+	      \begin{itemize}
+		      \item Paroles tiek glabātas šifrētā formātā, pirms šifrēšanas, tām pievieno sāli.
+		      \item Sāls tiek saglabāts teksta formātā pie lietotāja ieraksta.
+		      \item Paroles atiestatīšanai tiek izmantots marķieris ar derīguma termiņu, ģenerēts ar jaucējfunkciju.
+	      \end{itemize}
+
+	\item Autorizācija:
+	      \begin{itemize}
+		      \item Sistēmā ir jārealizē uz lomu bāzēta piekļuve, kas nosaka noteiktās darbības noteiktām sistēmas lietotāju grupām.
+		      \item Autorizācijas pārbaude gan priekšgala saskarnē, gan aizmugursistēmā.
+	      \end{itemize}
+
+	\item Datu aizsardzība:
+	      \begin{itemize}
+		      \item Paroles, maksājuma informācijas un citu ierobežotas piekļuves datu šifrēšana, tos glabājot un sūtot.
+		      \item Sistēmai nav jāglabā dati, kas nav nepieciešami sistēmas darbībai.
+	      \end{itemize}
+
+	\item Sesiju pārvalde:
+	      \begin{itemize}
+		      \item Izmanto tikai HTTP sīkdatnes.
+		      \item Sesijas noildzes izmantošana.
+		      \item Sesijas atpazīšana tiek realizēta, izmantojot sīkdatnes.
+	      \end{itemize}
+
+	\item Ievades pārbaude un dezinficēšana:
+	      \begin{itemize}
+		      \item Aizsardzība pret SQL injekcijām, komandu injekcijām un citiem injekciju veidiem.
+		      \item Visu ārējo pieprasījumu dati ir validēti un sanitizēti, ja nepieciešams.
+		      \item Ieviesiet pareizu validāciju visiem lietotāja ievadītajiem datiem un visiem datiem, kas saņemti no ārējām sistēmām.
+	      \end{itemize}
+
+	\item Aizsardzība pret tīmekļa apdraudējumiem:
+	      \begin{itemize}
+		      \item Aizsardzība pret CSRF) uzbrukumiem ar CSRF marķiera izmantošanu.
+		      \item Aizsardzība pret starpvietņu-skriptošanas (XSS) uzbrukumiem.
+	      \end{itemize}
+
+	\item Kļūdu apstrāde:
+	      \begin{itemize}
+		      \item Kļūdu paziņojumi neatklāj ierobežotas ierobežotas piekļuves informāciju.
+		      \item Kļūdu paziņojumi ir pielāgoti lietotāju grupai - sistēmas lietotāji, kas nepieder administratoru grupai, neredz ar sistēmas iekšējiem komponentiem saistīto informāciju, piemēram, datubāzes kļūmes.
+	      \end{itemize}
+
+	\item API:
+	      \begin{itemize}
+		      \item API marķieru izmantošana, izņemot publiski pieejamos API galapunktos.
+		      \item API pieprasījumu ierobežojums laikā (vienam lietotājam un vienai IP adresei).
+		      \item Visu API pieprasījumu ievades validācija un sanitizēšana, ja nepieciešams.
+	      \end{itemize}
+
+	\item Datņu augšuplādēšana:
+	      \begin{itemize}
+		      \item Datnes, kas tiek augšuplādētas, tiek analizētas pret ļaunatūru pirms uzglabāšanas.
+		      \item Datņu lielums un datu tips tiek validēts.
+	      \end{itemize}
+
+	\item Rezerves kopēšana:
+	      \begin{itemize}
+		      \item Rezerves kopijas izveidošanai jānotiek noteiktā laika periodā automātiski lokālā glabātuvē.
+		      \item Automatizēta procedūra sistēmas datu atjaunošanai, datu zaudēšanas vai bojājumu gadījumā.
+	      \end{itemize}
+
+	\item Darbību žurnāls:
+	      \begin{itemize}
+		      \item Darbību žurnāla uzturēšana.
+		      \item Darbību žurnāls nesatur ierobežotas piekļuves informāciju.
+		      \item Darbību žurnāla rezerves kopēšana atsevišķi no pamata rezerves kopijām.
+	      \end{itemize}
+\end{itemize}
