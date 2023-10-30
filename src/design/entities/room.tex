@@ -6,5 +6,5 @@
 	\entityTableRow{piekluves\_kods}{char(6)}{unique}{Unikāls istabas piekļuves kods, 6 lielie burtcipari}
 	\entityTableRow{vai\_rada\_miruso\_lomu}{bool}{default false, not null}{Vai pēc spēlētāja nāves var atklāt viņa lomu?}
 	\entityTableRow{izveidosanas\_laiks}{timestamp}{default current\_timestamp, not null}{Laiks, kad dotā spēles istaba tika izveidota/saglabāta datubāzē}
-	\entityTableRow{epeles\_konfiguracija}{int8}{not null}{Spēles uzstādījumi, kurus izmanto dotā istaba, \texttt{FOREING KEY} uz \hyperref[tab:entity-game-setup]{SpelesKonfiguracija} tabulas id kolonnu}
+	\entityTableRow{speles\_konfiguracija}{int8}{not null}{Spēles uzstādījumi, kurus izmanto dotā istaba, \texttt{FOREING KEY} uz \hyperref[tab:entity-game-setup]{SpelesKonfiguracija} tabulas id kolonnu}
 \end{entityTable}
