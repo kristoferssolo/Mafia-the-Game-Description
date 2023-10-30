@@ -1,6 +1,6 @@
 \begin{entityTable}{Iszina}{entity-message}
 	\entityTableRow{teksts}{text}{not null}{Īsziņas teksts}
 	\entityTableRow{if\_mafijas\_iszina}{bool}{default false, not null}{Vai īsziņas sūtītājs ir mafija?}
-	\entityTableRow{ir\_izmainita}{bool}{default false, not null}{Vai īsziņas staurs ir izmainīts?}
+	\entityTableRow{ir\_izmainita}{bool}{default false, not null}{Vai īsziņas saturs ir izmainīts?}
 	\entityTableRow{autors}{int8}{not null}{Īsziņas sūtītājs, \texttt{FOREING KEY} uz \hyperref[tab:entity-user]{Lietotajs} tabulas id kolonnu}
 \end{entityTable}
