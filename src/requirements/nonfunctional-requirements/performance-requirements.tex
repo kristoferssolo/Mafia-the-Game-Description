@@ -1,7 +1,18 @@
 \subsubsection{Veiktspējas prasības}
-\begin{itemize}
-	\item Sistēmai ir jānodrošina, ka 95\% no dienā veiktajiem pieprasījumiem tiek izpildīti uz servera ne ilgāk kā 5 sekundēs.
-	\item Jānodrošina normāla sistēmas darība vismaz 500 lietotājiem paralēli.
-	\item Datu saglabāšanai jāizpildās maksimums 3 sekunžu laikā.
-	\item Prasības neattiecas uz tīkla veiktspēju.
-\end{itemize}
+
+\paragraph{Statiskā veiktspēja}
+    Uz statisko veiktspēju ir sekojošas prasības:
+
+        \begin{enumerate}
+            \item Normāla sistēmas darbība vismaz 500 lietotājiem paralēli.
+            \item Normāla sistēmas darbība ar vismaz 40 paralēlām spēles instancēm.
+        \end{enumerate}
+\paragraph{Dinamiskā veiktspēja}
+    Uz dinamisko veiktspēju ir sekojošas prasības:
+
+        \begin{enumerate}
+            \item Sistēmai ir jānodrošina, ka 95\% no dienā veiktajiem pieprasījumiem tiek izpildīti uz servera ne ilgāk kā 5 sekundēs.
+            \item Darbībām spēles procesā jāizpildās ne ilgāk kā 3 sekundēs.
+            \item Darbspējas laiks ir vismaz 99,4\% no visa laika.
+        \end{enumerate}
+
