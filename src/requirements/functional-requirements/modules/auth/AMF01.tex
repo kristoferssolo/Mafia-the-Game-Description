@@ -4,83 +4,113 @@
 {Lietotāja reģistrācija}
 {AMF01}
 {
-	Funkcijas mērķis ir izveidot lietotāja kontu tā identifikācijai, turpmākās autentifikācijas un lietotāja darbību autentifikācijai un sistēmas lietotāja informācijas uzglabāšanai.
-	Apstrādes procesā ievades dati tiek pārbaudīti attiecīgi noteiktajām prasībām, lai tie būtu jēdzīgi sistēmas kontekstā un atbilstu datubāzes uzglabātajiem formātiem.
-	Paroles šifrēšanas procesā tiek izmantota jaucējfunkcija ar papildus drošības līdzekli - ``sāls pievienošanu'' - nejaušu simbolu virknes pievienošanu pirms šifrēšanas.
+	Funkcijas mērķis ir reģistrēt lietotāja kontu sistēmā, autentifikācijas
+	procesam un lietotāja darbību autorizācijai, un lietotāja informācijas
+	uzglabāšanai. Apstrādes procesā ievades dati tiek pārbaudīti attiecīgi
+	noteiktajām prasībām. Paroles šifrēšanas procesā tiek izmantota
+	jaucējfunkcija ar papildus drošības metodiku - ``sāls pievienošanu'' -
+	nejaušu simbolu virknes pievienošanu pirms šifrēšanas procesa uzsākšanas.
 }
 {
 	Ievades dati tiek saņemti no nereģistrētiem lietotājiem pieejamās veidlapas. \\
 
 	Obligātie parametri:
 	\begin{enumerate}
-		\item Pilns vārds - simbolu virkne ar garumu līdz 50 simboliem, kas var saturēt burtciparu simbolus, defises un atstarpes.
-		\item Segvārds - simbolu virkne ar garumu no 6 līdz 20 simboliem, kas var saturēt burtciparu simbolus, skaitļus, defises, pasvītras, apostrofus.
-		\item E-pasta adrese - simbolu virkne ar garumu līdz 320 simboliem. Pieļautajiem simboliem un pieļaujamam formātam jāatbilst ``RFC 2822: Interneta ziņu formāts'' standarta prasībām.
-		\item Dzimšanas datums - datums formatēts kā simbolu virkne.
-		\item Parole - simbolu virkne ar garumu no 8 līdz 128 simboliem, kas var saturēt burtciparu simbolus, skaitļus, atstarpi, speciālos simbolus:
-		      izsaukuma zīmi, dubultpēdiņas, skaitļa zīmi, dolāra zīmi, procenta zīmi, ampersandu, pēdiņas, iekavas, figūriekavas,
-		      zvaigznīti, plusu, komatu, mīnusu, punktu, slīpsvītru, kolu, semikolu, salīdzinājuma zīmes, vienādības zīmi,
-		      jautājuma zīmi, ``et'' zīmi, slīpsvītru, pasvītru, vertikālo joslu, tildi.
-		      Minimālās drošības prasības: parole satur vismaz vienu lielo un mazo burtu, vienu ciparu.
+		\item Vārds, uzvārds;
+		\item Segvārds;
+		\item E-pasta adrese;
+		\item Parole;
 		\item Paroles apstiprinājums - simbolu virkne. kas atbilst iepriekš minētās paroles prasībām.
 	\end{enumerate}
 
 	Neobligātie parametri:
 	\begin{enumerate}
-		\item Profila attēls - attēla datne, kura paplašinājums ir viens no: JPEG, JPG, GIF, PNG, WEBP un izmērs nepārsniedz 1MB.
-		\item Biogrāfiskā informācija - simbolu virkne garumā līdz 300 simboliem.
+		\item Profila attēls;
+		\item Biogrāfiskā informācija.
 	\end{enumerate}
 }
 {
 	\begin{enumerate}
-		\item Pārbauda, vai visi obligātie lauki ir iesniegti.
-		      Ja tie nav, iegūst sarakstu ar neazpildītajiem laukiem, parāda 1. paziņojumu.
-		\item Pārbauda, vai parole un paroles apstiprinājums sakrīt.
-		      Ja nesakrīt, tad parāda 2. paziņojumu.
-		\item Pārbauda, vai pilns vārds, segvārds, e-pasta adrese, parole satur tikai pieļaujamos simbolus.
-		      Ja nesatur, tad iegūst izmantotos neatļautos simbolus, tad parāda 3. paziņojumu ar attiecīgi laukiem un simboliem.
-		\item Pārbauda, vai pilns vārds, segvārds, e-pasta adrese, biografiskā informācija, parole nepārsniedz noteikto garumu.
-		      Ja pārsniedz, tad iegūst pārsniegto garumu parametru sarakstu un parāda 4. paziņojumu ar attiecīgajiem laukiem un garumiem.
-		\item Pārbauda, vai parole atbilst noteiktiem drošības prasībām.
-		      Ja tā tiem neatbilst, ta parāda 5. paziņojumu ar attiecīgām neizpildītajām prasībām.
-		\item Pārbauda, vai dzimšanas datums atbilst minimālam vecumam reģistrācijai.
-		      Ja neatbilst, parāda 6. paziņojumu.
-		\item Ja tika iesniegta biogrāfiskā informācija, aizvieto salīdzinājuma zīmes, ampersantu, dubultpēdiņas un pēdiņas ar ekvivalentu.
-		\item Ja tika iesniegts attēls, tad pārbauda, vai datne atbilst atļautajiem datnes paplašinājumiem.
-		      Ja neatbilst, parāda 7. paziņojumu ar atļautiem datnes paplašinājumiem.
-		\item Ja tika iesniegts attēls, tad pārbauda, vai datne nepārsniedz noteikto datnes lielumu.
-		      Ja pārsniedz, parāda 8. paziņojumu ar iesniegtās datnes lielumu un maksimāli atļauto datnes lielumu.
-		      Ja iesniegtā attēla paplašinājums nav PNG, tad datne tiek kovertēta šajā paplašinājumā.
-		\item Mēģina sameklēt datubāzē lietotājus ar ievadīto e-pastu vai segvārdu.
-		      Ja tāds (/-i) pastāv, tad parāda 9. paziņojumu ar attiecīgo aizņemto lauku.
-		\item Pievieno parolei nejauši noģenerēto simbolu virki, šifrē paroli ar jaucējfunkciju.
-		\item Jauna lietotāja sagatavotie dati tiek ierakstīti datubāzē.
-		      Ja ierakstīšana nenotiek, parādīt 10. paziņojumu.
-		\item Ģenerē e-pasta apstiprinājuma marķieri.
-		      Izveido saiti apstiprinājumam, iekļaujot e-pasta apstiprinājuma marķieri.
-		\item Sagatavo e-pasta ziņas saturu no šablona, ievietojot tajā apstiprinājuma saiti.
+		\item Pārbauda, vai visi obligātie lauki ir iesniegti;
+		      \begin{enumerate}
+			      \item Ja tie nav, iegūst sarakstu ar neaizpildītajiem laukiem, parāda
+			            1. paziņojumu. Beidz apstrādi.
+		      \end{enumerate}
+		\item Pārbauda, vai parole un paroles apstiprinājums sakrīt;
+		      \begin{enumerate}
+			      \item Ja nesakrīt, tad parāda 2. paziņojumu. Beidz apstrādi.
+		      \end{enumerate}
+		\item Pārbauda, vai pilns vārds, segvārds, e-pasta adrese, parole satur tikai pieļaujamos simbolus;
+		      \begin{enumerate}
+			      \item Ja nesatur, tad iegūst izmantotos neatļautos simbolus, tad parāda
+			            3. paziņojumu ar attiecīgi laukiem un simboliem. Beidz apstrādi.
+		      \end{enumerate}
+		\item Pārbauda, vai pilns vārds, segvārds, e-pasta adrese, biogrāfiskā informācija, parole nepārsniedz noteikto garumu;
+		      \begin{enumerate}
+			      \item Ja pārsniedz, tad iegūst pārsniegto garumu parametru sarakstu un
+			            parāda 4. paziņojumu ar attiecīgajiem laukiem un garumiem. Beidz
+			            apstrādi.
+		      \end{enumerate}
+		\item Pārbauda, vai parole atbilst noteiktiem drošības prasībām;
+		      \begin{enumerate}
+			      \item Ja tā tiem neatbilst, tad parāda 5. paziņojumu ar attiecīgām
+			            neizpildītajām prasībām. Beidz apstrādi.
+		      \end{enumerate}
+		\item Pārbauda, vai dzimšanas datums atbilst minimālam vecumam reģistrācijai;
+		      \begin{enumerate}
+			      \item Ja neatbilst, parāda 6. paziņojumu. Beidz apstrādi.
+			      \item Ja tika iesniegta biogrāfiskā informācija, tiek pielietota sanitizācija.
+			      \item Ja tika iesniegts attēls, tad pārbauda, vai datne atbilst pieļaujamajiem datnes paplašinājumiem;
+			      \item Ja neatbilst, parāda 7. paziņojumu ar atļautiem datnes paplašinājumiem. Beidz apstrādi.
+			      \item Ja tika iesniegts attēls, tad pārbauda, vai datne nepārsniedz noteikto datnes lielumu;
+			      \item Ja pārsniedz, parāda 8. paziņojumu ar iesniegtās datnes lielumu un maksimāli atļauto datnes lielumu. Beidz apstrādi.
+			      \item Ja iesniegtā attēla paplašinājums nav PNG, tad datne tiek konvertēta šajā paplašinājumā.
+		      \end{enumerate}
+		\item Meklē datubāzē lietotājus ar ievadīto e-pastu vai segvārdu;
+		      \begin{enumerate}
+			      \item Ja tāds (/-i) pastāv, tad parāda 9. paziņojumu ar attiecīgo
+			            aizņemto lauku. Beidz apstrādi.
+		      \end{enumerate}
+		\item Pievieno parolei nejauši ģenerēto simbolu virkni, šifrē paroli ar jaucējfunkciju;
+		      \begin{enumerate}
+			      \item Jauna lietotāja sagatavotie dati tiek ierakstīti datubāzē;
+			      \item Ja ierakstīšana nenotiek, parādīt 10. paziņojumu. Beidz apstrādi.
+		      \end{enumerate}
+		\item Ģenerē e-pasta apstiprinājuma marķieri. Sameklē lietotājus ar šo e-pasta apstiprinājuma marķieri;
+		      \begin{enumerate}
+			      \item Ja lietotājs tika atrasts, atkārto e-pasta apstiprinājuma ģenerēšanu un
+			            lietotāju meklēšanu līdz marķieris ir unikāls.
+		      \end{enumerate}
+		\item Izveido saiti apstiprinājumam, iekļaujot e-pasta apstiprinājuma marķieri;
+		\item Sagatavo e-pasta ziņas saturu no šablona, ievietojot tajā apstiprinājuma saiti;
 		\item Pieprasa e-pasta aizsūtīšanu.
-		      Ja tā netiek apstiprināta, parāda 11. paziņojumu.
+		      \begin{enumerate}
+			      \item Ja tā netiek apstiprināta, parāda 10. paziņojumu. Beidz apstrādi.
+		      \end{enumerate}
 	\end{enumerate}
 }
 {
-	Izvades datu mērķis ir noteikt, vai lietotājs tiks pāradresēts un kurā lapā lietotājs tiks pāradresēts.
+	Izvades datu mērķis ir noteikt, vai lietotājs tiks pāradresēts un uz kuru lapu lietotājs tiks pāradresēts.
+	Lietotāja saskarnē parādās 11. paziņojums ar instrukciju par e-pasta
+	apstiprināšanu.
 	\begin{enumerate}
 		\item Reģistrācijas apstiprinājuma stāvoklis - kods ar noteiktu stāvokli.
 	\end{enumerate}
 }
 {
 	\begin{enumerate}
-		\item Lauks: [neaizpildīto lauku saraksts] netika aizpildīts (/-i)!
-		\item Parole un paroles apstiprinājums nesakrīt!
-		\item {}[Parametra nosaukums] nedrīkst saturēt: [izmantoto parametra neatļauto simbolu saraksts]!
-		\item {}[Parametra nosaukums] nedrīkst pārsniegt [noteikto parametra maksimālo simbolu skaits]!
-		\item Parolei ir jāsatur: [neizpildīto paroles prasību saraksts]!
-		\item Minimālais vecums reģistrācijai: [noteitks minimālais vecums reģistrācijai].
-		\item Attēla datne ir aizliegts paplašinājums! Atļautie datnes paplašinājumi: [atļauto datnes paplašinājumu saraksts].
-		\item Attēļa datne pārsniedz maksimāli atļauto lielumu! Maksimāli atļautais lielums: [maksimāli atļautais lielums].
-		\item Lietotājs ar tādu [aizņemtā lauka nosaukums] jau eksistē!
-		\item Notika sistēmas iekšējā kļūda! Mēģiniet vēlreiz vēlāk!
-		\item Reģistrācija ir veiksmīga! Apstipriniet lietotāja kontu ar saiti, kas tiks aizsūtīta 1-10 minūšu laikā Jūsu norādītā e-pastā.
+		\item Lauks: [neaizpildīto lauku saraksts] netika aizpildīts (/-i)!;
+		\item Parole un paroles apstiprinājums nesakrīt!;
+		\item {}[Parametra nosaukums] nedrīkst saturēt: [izmantoto parametra neatļauto
+		      simbolu saraksts]!;
+		\item {}[Parametra nosaukums] nedrīkst pārsniegt [noteikto parametra maksimālo
+		      simbolu skaits]!;
+		\item Parolei ir jāsatur: [neizpildīto paroles prasību saraksts]!;
+		\item Minimālais vecums reģistrācijai: [noteikts minimālais vecums reģistrācijai];
+		\item Attēla datne ir aizliegts paplašinājums! Atļautie datnes paplašinājumi: [atļauto datnes paplašinājumu saraksts];
+		\item Attēla datne pārsniedz maksimāli atļauto lielumu! Maksimāli atļautais lielums: [maksimāli atļautais lielums];
+		\item Lietotājs ar tādu [aizņemtā lauka nosaukums] jau eksistē!;
+		\item Sistēmas iekšējā kļūda! Mēģiniet vēlreiz vēlāk!;
+		\item Reģistrācija ir veiksmīga! Apstipriniet lietotāja kontu ar saiti, kas tiks izsūtīta tuvākā laikā e-pastā.
 	\end{enumerate}
 }

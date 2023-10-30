@@ -4,41 +4,48 @@
 {Apstiprinājuma ziņas atkārtotās izsūtīšanas pieteikums}
 {AMF02}
 {
-	Funckijas mērķis ir izsūtīt e-pasta apstiprinājumu atkārtoti lietotājam, kas jau veica reģistrāciju
+	Funkcijas mērķis ir izsūtīt e-pasta apstiprinājumu atkārtoti lietotājam, kas jau veica reģistrāciju vai reģistrācijas laikā, vai pēc e-pasta izmaiņas lietotāja kontā.
 }
 {
-	Ievades dati tiek iegūti no veidlapas datiem, kas tiek aizpildīta automātiski, ja lietotājs veic reģistrācijas procesu.
+	Ievaddati tiek iegūti no darbības - klikšķis uz attiecīgo apstiprinājuma pieteikuma pogu reģistrācijas laikā vai lietotāja konta rediģēšanas lapā.
 
 	Obligātie parametri:
 	\begin{enumerate}
-		\item Lietotāja identifikators - sistēmā izmantots lietotāja identifikators - vesels pozitīvs skaitlis skaitlis, kas atbilst datubāzē glabājamā skaitliska identifikatora diapazonam.
+		\item Lietotāja identifikators - sistēmā izmantots lietotāja identifikators, kas atbilst IIDP10.
 	\end{enumerate}
 }
 {
 	\begin{enumerate}
-		\item Pārbauda, vai identifikators atbilst paredzētajam datu tipam.
-		      Ja neatbilst parāda 1. paziņojumu.
-		\item Meklē lietotāju datubāzē pēc ievades datu identifikatora parametra.
-		      Ja tāds lietotājs neeksistē, parāda 1. paziņojumu.
-		\item Iegūst no datubāzes atrastā lietotāja tā e-pasta adresi.
-		\item Iegūst atrastā lietotāja tā e-pasta adresi.
-		\item Ģenerē e-pasta apstiprinājuma marķieri.
-		      Izveido saiti apstiprinājumam, iekļaujot e-pasta apstiprinājuma marķieri.
-		\item Sagatavo e-pasta ziņas saturu no šablona, ievietojot tajā apstiprinājuma saiti.
-		\item Pieprasa e-pasta aizsūtīšanu.
-		      Ja tā netiek apstiprināta, parāda 1. paziņojumu.
-		\item Ja e-pasta ziņas aizsūtīšana ir apstiprināta, parāda 2. paziņojumu.
+		\item Pārbauda, vai identifikators atbilst paredzētajam datu tipam;
+		      \begin{enumerate}
+			      \item Ja neatbilst parāda 1. paziņojumu. Beidz apstrādi.
+		      \end{enumerate}
+		\item Meklē lietotāju datubāzē pēc ievades datu identifikatora parametra;
+		      \begin{enumerate}
+			      \item Ja tāds lietotājs neeksistē, parāda 1. paziņojumu. Beidz apstrādi.
+		      \end{enumerate}
+		\item Iegūst no datubāzes atrastā lietotāja tā e-pasta adresi;
+		\item Iegūst atrastā lietotāja tā e-pasta adresi;
+		\item Ģenerē e-pasta apstiprinājuma marķieri. Izveido saiti apstiprinājumam, iekļaujot e-pasta apstiprinājuma marķieri;
+		\item Sagatavo e-pasta ziņas saturu no šablona, ievietojot tajā apstiprinājuma saiti;
+		\item Pieprasa e-pasta aizsūtīšanu;
+		      \begin{enumerate}
+			      \item Ja tā netiek apstiprināta, parāda 1. paziņojumu. Beidz apstrādi.
+			      \item Ja e-pasta ziņas aizsūtīšana ir apstiprināta, parāda 2. paziņojumu. Beidz apstrādi.
+		      \end{enumerate}
 	\end{enumerate}
 }
 {
-	Izvades datu mērķis ir noteikt, vai lietotājs tiks pāradresēts un kurā lapā lietotājs tiks pāradresēts.
+	Izvades datu mērķis ir lietotāja informēšana par apstiprinājuma ziņojuma izsūtīšanas stāvokli.
+	Lietotāja saskarnē parādās 3. paziņojums ar instrukciju par e-pasta apstiprināšanu.
 	\begin{enumerate}
 		\item E-pasta apstiprinājuma ziņas izsūtīšanas stāvoklis - kods ar noteiktu stāvokli.
 	\end{enumerate}
 }
 {
 	\begin{enumerate}
-		\item Sistēmas iekšējā kļūda! Mēģiniet pārlādēt lapu vai mēģiniet vēlāk!
-		\item Apstiprinājuma ziņa tiks izsūtīta 1-10 minūšu laikā.
+		\item Sistēmas iekšējā kļūda! Mēģiniet pārlādēt lapu vai mēģiniet vēlāk!;
+		\item Apstiprinājuma ziņa tiks izsūtīta 1-10 minūšu laikā;
+		\item Apstiprinājuma ziņa ir izsūtīta! Apstipriniet lietotāja kontu ar saiti, kas tiks izsūtīta tuvākā laikā e-pastā.
 	\end{enumerate}
 }

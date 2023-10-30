@@ -4,10 +4,10 @@
 {Lietotāja konta apstiprināšana}
 {AMF07}
 {
-	Funkcijas mērķis ir apstiprināt lietotāja konta e-pasta adrese, i.e., apstiprināt to, ka lietotājam pieder tā norādītā e-pasta adrese.
+	Funkcijas mērķis ir apstiprināt lietotāja konta e-pasta adresi, i.e., apstiprināt to, ka lietotājam pieder norādītā e-pasta adrese.
 }
 {
-	Ievaddati tiek iegūti no apstiprinājuma vietrādes parametriem, ar kuras lietotājs piekļūst sistēmas funkcijai.
+	Ievaddati tiek iegūti no apstiprinājuma vietrādes parametriem, ar kuras lietotājs piekļūst funkcijai.
 
 	Obligātie parametri:
 	\begin{enumerate}
@@ -16,30 +16,32 @@
 
 }
 {
+	\item Pārbauda, vai ievades datos ir e-pasta apstiprinājuma marķieris;
 	\begin{enumerate}
-		\item Pārbauda, vai ievades datos ir e-pasta apstiprinājuma marķieris.
-		      Ja tā nav, tad parāda 1. paziņojumu.
-		\item Pārbauda, vai e-pasta adreses apstiprinājuma marķieris atbilst sagaidāmam garumam.
-		      Ja neatbilst, parāda 2. paziņojumu.
-		\item Meklē datubāzē lietotājus ar iesniegto marķieri.
-		      Ja tāds lietotājs netiek atrasts, parāda 3. paziņojumu.
-		      Ja datubāzē atrastā lietotāja e-pasta apstiprināšanas karodziņš apzīmē apstiprinātu e-pastu, parāda 4. paziņojumu.
-		\item Attiecīgā datubāzes ierakstam pamaina karodziņa stāvokli uz apstiprinātu.
+		\item Ja tā nav, tad parāda 1. paziņojumu. Beidz apstrādi.
 	\end{enumerate}
+	\item Pārbauda, vai e-pasta adreses apstiprinājuma marķieris atbilst sagaidāmam garumam;
+	\begin{enumerate}
+		\item Ja neatbilst, parāda 2. paziņojumu. Beidz apstrādi.
+	\end{enumerate}
+	\item Meklē datubāzē lietotājus ar iesniegto marķieri;
+	\begin{enumerate}
+		\item Ja tāds lietotājs netiek atrasts, parāda 2. paziņojumu. Beidz apstrādi;
+		\item Ja datubāzē atrastā lietotāja e-pasta apstiprināšanas karodziņš apzīmē apstiprinātu e-pastu, parāda 3. paziņojumu. Beidz apstrādi.
+	\end{enumerate}
+	\item Ierakstam pamaina karodziņa stāvokli uz kodu, kas atbilst apstiprinātam stāvoklim un rediģētu ierakstu ieraksta datubāzē.
 }
 {
-	Izvades datu mērķis ir noteikt, vai lietotājs tiks pāradresēts.
-
+	Izvades datu mērķis ir lietotāja informēšana par konta apstiprināšanas stāvokli. Lietotājam tiek parādīts 4. paziņojums.
 	\begin{enumerate}
 		\item E-pasta adreses apstiprinājuma stāvoklis - kods ar noteiktu stāvokli.
 	\end{enumerate}
-
 }
 {
 	\begin{enumerate}
-		\item Apstiprināšanas saite nav korekta: marķieris nav norādīts! Mēģiniet vēlreiz vai pieprasiet atkārtotu apstiprinājuma ziņas izsūtīšanu!
-		\item Apstiprināšanas saite nav korekta: marķieris nav korekts! Mēģiniet vēlreiz vai pieprasiet atkārtotu apstiprinājuma ziņas izsūtīšanu!
-		\item Marķieris nav aktuāls vai nav korekts! Mēģiniet vēlreiz vai pieprasiet atkārtotu apstiprinājuma ziņas izsūtīšanu!
-		\item E-pasts jau ir apstiprināts!
+		\item Apstiprināšanas saite nav korekta: marķieris nav norādīts! Mēģiniet vēlreiz vai pieprasiet atkārtotu apstiprinājuma ziņas izsūtīšanu!;
+		\item Marķieris nav aktuāls vai nav korekts! Mēģiniet vēlreiz vai pieprasiet atkārtotu apstiprinājuma ziņas izsūtīšanu!;
+		\item E-pasts jau ir apstiprināts!;
+		\item E-pasts ir veiksmīgi apstiprināts!
 	\end{enumerate}
 }
