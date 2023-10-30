@@ -30,14 +30,14 @@ CREATE TABLE
 CREATE TABLE
   "ParolesAtjaunosana" (
     "id" SERIAL8 PRIMARY KEY NOT NULL,
-    "markieris" VARCHAR(255) NOT NULL, -- TODO:
+    "markieris" VARCHAR(255) UNIQUE NOT NULL,
     "deriguma_termins" TIMESTAMP NOT NULL
   );
 
 CREATE TABLE
   "EpastaApstiprinajums" (
     "id" SERIAL8 PRIMARY KEY NOT NULL,
-    "markieris" VARCHAR(255) NOT NULL, -- TODO:
+    "markieris" VARCHAR(255) UNIQUE NOT NULL,
     "deriguma_termins" TIMESTAMP NOT NULL
   );
 
@@ -46,13 +46,27 @@ CREATE TABLE
     "id" SERIAL8 PRIMARY KEY NOT NULL,
     "nosaukums" VARCHAR(255) UNIQUE NOT NULL,
     "apraksts" TEXT DEFAULT '' NOT NULL,
-    "max_speletaju_skaits" INT DEFAULT 1 CHECK ("max_speletaju_skaits" > 0) NOT NULL,
+    "max_speletaju_skaits" INT4 DEFAULT 1 CHECK ("max_speletaju_skaits" > 0) NOT NULL,
+    "ir_pamata" BOOL DEFAULT FALSE NOT NULL,
+    "ir_mafija" BOOL DEFAULT FALSE NOT NULL,
     "attels" INT8,
     FOREIGN KEY ("attels") REFERENCES "Attels" ("id")
   );
 
 CREATE TABLE
-  "Statuss" (
+  "KontaStavoklis" (
+    "id" SERIAL8 PRIMARY KEY NOT NULL,
+    "teksts" VARCHAR(255) UNIQUE NOT NULL
+  );
+
+CREATE TABLE
+  "AbonementaStavoklis" (
+    "id" SERIAL8 PRIMARY KEY NOT NULL,
+    "teksts" VARCHAR(255) UNIQUE NOT NULL
+  );
+
+CREATE TABLE
+  "IstabasStavoklis" (
     "id" SERIAL8 PRIMARY KEY NOT NULL,
     "teksts" VARCHAR(255) UNIQUE NOT NULL
   );
@@ -63,16 +77,16 @@ CREATE TABLE
     "segvards" VARCHAR(255) UNIQUE NOT NULL,
     "epasts" VARCHAR(255) UNIQUE NOT NULL,
     "parole" VARCHAR(255) NOT NULL,
-    "vards" VARCHAR(255),
-    "uzvards" VARCHAR(255),
+    "vards" VARCHAR(255) DEFAULT '' NOT NULL,
+    "uzvards" VARCHAR(255) DEFAULT '' NOT NULL,
     "dzimsanas_datums" DATE,
-    "bio_info" TEXT DEFAULT '',
+    "bio_info" TEXT DEFAULT '' NOT NULL,
     "izveidosanas_laiks" TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
     "konta_stavoklis" INT8 NOT NULL,
     "attels" INT8,
     "epasta_apstiprinajums" INT8 UNIQUE,
     "paroles_atjaunosana" INT8 UNIQUE,
-    FOREIGN KEY ("konta_stavoklis") REFERENCES "Statuss" ("id"),
+    FOREIGN KEY ("konta_stavoklis") REFERENCES "KontaStavoklis" ("id"),
     FOREIGN KEY ("attels") REFERENCES "Attels" ("id"),
     FOREIGN KEY ("epasta_apstiprinajums") REFERENCES "EpastaApstiprinajums" ("id"),
     FOREIGN KEY ("paroles_atjaunosana") REFERENCES "ParolesAtjaunosana" ("id")
@@ -84,34 +98,36 @@ CREATE TABLE
     "nosaukums" VARCHAR(255) UNIQUE NOT NULL,
     "apraksts" TEXT DEFAULT '' NOT NULL,
     "ir_pamata" BOOL DEFAULT FALSE NOT NULL,
-    "ir_aktivs" BOOL DEFAULT TRUE NOT NULL,
     "izveidosanas_laiks" TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
     "autors" INT8 NOT NULL,
     FOREIGN KEY ("autors") REFERENCES "Lietotajs" ("id")
   );
 
 CREATE TABLE
-  "SpelesIstaba" (
+  "Istaba" (
     "id" SERIAL8 PRIMARY KEY NOT NULL,
+    "nosaukums" VARCHAR(255) UNIQUE NOT NULL,
     "speles_saksanas_laiks" TIMESTAMP,
+    "speles_beigsanas_laiks" TIMESTAMP,
     "stavoklis" INT8 NOT NULL,
     "piekluves_kods" CHAR(6) UNIQUE,
-    "pedejas_stadijas_izmaina" INT8,
     "vai_rada_miruso_lomu" BOOL DEFAULT FALSE NOT NULL,
     "izveidosanas_laiks" TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
     "speles_uzstadijums" INT8 NOT NULL,
-    FOREIGN KEY ("stavoklis") REFERENCES "Statuss" ("id"),
-    FOREIGN KEY ("pedejas_stadijas_izmaina") REFERENCES "Statuss" ("id"),
+    FOREIGN KEY ("stavoklis") REFERENCES "IstabasStavoklis" ("id"),
     FOREIGN KEY ("speles_uzstadijums") REFERENCES "SpelesUzstadijums" ("id")
   );
 
 CREATE TABLE
   "SpelesNotikums" (
     "id" SERIAL8 PRIMARY KEY NOT NULL,
+    "nosaukums" VARCHAR(255) UNIQUE NOT NULL,
     "nakts_pk" INT2 DEFAULT 0 NOT NULL,
     "veids" VARCHAR(255),
     "ir_redzams" BOOL DEFAULT FALSE NOT NULL,
-    "izveidosanas_laiks" TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL
+    "izveidosanas_laiks" TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
+    "lomas_darbiba" INT8 NOT NULL,
+    FOREIGN KEY ("lomas_darbiba") REFERENCES "LomasDarbiba" ("id")
   );
 
 CREATE TABLE
@@ -120,12 +136,11 @@ CREATE TABLE
     "ir_noslepkavots" BOOL DEFAULT FALSE NOT NULL,
     "ir_izbalsots" BOOL DEFAULT FALSE NOT NULL,
     "ir_izslegts" BOOL DEFAULT FALSE NOT NULL,
-    "redz_mafijas_sakarus" BOOL DEFAULT FALSE NOT NULL,
     "ir_aktivs" BOOL DEFAULT TRUE NOT NULL,
-    "redz_sakarus" BOOL DEFAULT TRUE NOT NULL,
-    "speles_istaba" INT8,
+    "redz_mafijas_sakarus" BOOL DEFAULT FALSE NOT NULL,
+    "istaba" INT8,
     "speles_loma" INT8 NOT NULL,
-    FOREIGN KEY ("speles_istaba") REFERENCES "SpelesIstaba" ("id"),
+    FOREIGN KEY ("istaba") REFERENCES "Istaba" ("id"),
     FOREIGN KEY ("speles_loma") REFERENCES "SpelesLoma" ("id")
   );
 
@@ -135,11 +150,11 @@ CREATE TABLE
     "stripe_id" VARCHAR(255) UNIQUE NOT NULL,
     "stavoklis" INT8 NOT NULL,
     "sakuma_laiks" TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
-    "termins" INTERVAL NOT NULL,
+    "periods" INTERVAL NOT NULL,
     "atteikuma_laiks" TIMESTAMP,
     "lietotajs" INT8 NOT NULL,
     "abonementa_cena" INT8 NOT NULL,
-    FOREIGN KEY ("stavoklis") REFERENCES "Statuss" ("id"),
+    FOREIGN KEY ("stavoklis") REFERENCES "AbonementaStavoklis" ("id"),
     FOREIGN KEY ("lietotajs") REFERENCES "Lietotajs" ("id"),
     FOREIGN KEY ("abonementa_cena") REFERENCES "AbonementaCena" ("id")
   );
@@ -182,9 +197,10 @@ CREATE TABLE
   );
 
 CREATE TABLE
-  "LomasAtlautieNotikumi" (
+  "LomasNotikumi" (
     "speles_loma" INT8 NOT NULL,
     "speles_notikums" INT8 NOT NULL,
+    "ir_atlauts" BOOL DEFAULT TRUE,
     PRIMARY KEY ("speles_loma", "speles_notikums"),
     FOREIGN KEY ("speles_loma") REFERENCES "SpelesLoma" ("id"),
     FOREIGN KEY ("speles_notikums") REFERENCES "SpelesNotikums" ("id")
