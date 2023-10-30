@@ -122,7 +122,7 @@ CREATE TABLE
   "SpelesNotikums" (
     "id" SERIAL8 PRIMARY KEY NOT NULL,
     "nosaukums" VARCHAR(255) UNIQUE NOT NULL,
-    "nakts_pk" INT2 DEFAULT 0 NOT NULL,
+    "nakts_pk" INT2 DEFAULT 0 NOT NULL CHECK ("nakts_pk" >= 0),
     "veids" VARCHAR(255),
     "ir_redzams" BOOL DEFAULT FALSE NOT NULL,
     "izveidosanas_laiks" TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
