@@ -1,0 +1,7 @@
+\begin{entityTable}{SpelesKonfiguracija}{entity-game-setup}
+	\entityTableRow{nosaukums}{varchar(255)}{unique, not null}{Konfigurācijas nosaukums}
+	\entityTableRow{apraksts}{text}{default '', not null}{Konfigurācijas apraksts}
+	\entityTableRow{ir\_pamata}{bool}{default false, not null}{Vai spēles konfigurācijas ir spēles pamatā vai lietotāju izveidots}
+	\entityTableRow{izveidosanas\_laiks}{timestamp}{not null, default current\_timestamp}{Laiks, kad dotais uzstādījums tika izveidots/saglabāts datubāzē}
+	\entityTableRow{autors}{int8}{not null}{Konfigurācijas autors, \texttt{FOREING KEY} uz \hyperref[tab:entity-user]{Lietotajs} tabulas id kolonnu}
+\end{entityTable}
