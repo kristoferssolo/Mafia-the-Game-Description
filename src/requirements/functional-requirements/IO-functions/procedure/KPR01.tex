@@ -1,0 +1,34 @@
+\procedureTable
+{Pārskata lappuses iegūšana}
+{KPR01}
+{
+	Aprēķina pārskata lappuses ierakstu nobīdi pēc kura atgriež lappuses ierakstus.
+}
+{
+	Obligātie parametri:
+	\begin{enumerate}
+		\item Lappuses numurs - vesels pozitīvs skaitlis;
+		\item Datubāzes pieprasījums, kas atbilst IIDP13;
+		\item Rezultātu skaits - vesels nenegatīvs skaitlis.
+	\end{enumerate}
+
+	Neobligātie parametri:
+	\begin{enumerate}
+		\item Ierakstu skaits lappusē - vesels pozitīvs skaitlis.
+	\end{enumerate}
+}
+{
+	\begin{enumerate}
+		\item Aprēķina lappušu skaitu ar formulu: $L = ceil(Q / Q_l)$, $Q$ - rezultātu skaits, $Q_l$ - ierakstu skaits vienā lappusē;
+		\item Ja lappuses numurs pārsniedz kopējo lappušu skaitu, tad turpmāk lappuses numurs ir 1;
+		\item Aprēķina ierakstu nobīdi ar formulu: $O = (N - 1) * Q_l$, kur $O$ - nobīde; $N$ - lappuses numurs, $Q_l$ - ierakstu skaits vienā lappusē;
+		\item Pievieno aprēķinātu nobīdi datubāzes pieprasījumam.
+	\end{enumerate}
+}
+{
+	\begin{enumerate}
+		\item Datubāzes pieprasījums, kas atbilst \hyperref[tab:IIDP13]{IIDP13};
+		\item Lappuses numurs - vesels pozitīvs skaitlis;
+		\item Kopējs lappušu skaits - vesels pozitīvs skaitlis.
+	\end{enumerate}
+}

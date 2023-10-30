@@ -1,0 +1,37 @@
+\procedureTable
+{Pieprasījuma filtru pievienošana}
+{KPR04}
+{
+	Pieprasījuma filtru pievienošana
+}
+{
+	Obligātie parametri:
+	\begin{enumerate}
+		\item Datubāzes pieprasījums, kas atbilst \hyperref[tab:IIDP13]{IIDP13};
+		\item Filtra atribūta nosaukums - datubāzes identifikators.
+	\end{enumerate}
+
+	Neobligātie parametri:
+	\begin{enumerate}
+		\item Entitātes identifikators - atbilst \hyperref[tab:IIDP10]{IIDP10}.
+	\end{enumerate}
+
+}
+{
+	\begin{enumerate}
+		\item Pārbauda, vai katrs atribūts no filtra atribūtu saraksta ar tādu nosaukumu eksistē;
+		      \begin{enumerate}
+			      \item Ja kāds no tiem neeksistē, beidz apstrādi.
+		      \end{enumerate}
+		\item Katram filtra atribūtam pievieno filtru datubāzes pieprasījumu;
+		      \begin{enumerate}
+			      \item Ja entitātes identifikators ir iesniegts, pievieno filtrēšanu pēc šī identifikatora.
+			      \item Ja nav, filtrē pēc karodziņa ``patiess''.
+		      \end{enumerate}
+	\end{enumerate}
+}
+{
+	\begin{enumerate}
+		\item Datubāzes pieprasījums, kas atbilst \hyperref[tab:IIDP13]{IIDP13}.
+	\end{enumerate}
+}
