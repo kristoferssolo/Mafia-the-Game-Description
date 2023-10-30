@@ -15,7 +15,7 @@ CREATE TABLE
 CREATE TABLE
   "Attels" (
     "id" SERIAL8 PRIMARY KEY NOT NULL,
-    "datnes_adrese" VARCHAR(255) UNIQUE,
+    "datnes_adrese" VARCHAR(255) UNIQUE NOT NULL,
     "pievienosanas_laiks" TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL
   );
 
