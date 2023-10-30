@@ -1,0 +1,37 @@
+\newcommand{\parameterTable}[7]{
+	% \paragraph{#1}
+	\begin{table}[h]
+		\caption{#1}\label{tab:#2}
+	\end{table}
+	\specificationTableItem{Parametra nosaukums}{#3}
+	\specificationTableItem{Parametra identifikators}{#4}
+	\specificationTableItem{Parametra apraksts}{#5}
+	\specificationTableItem{Parametra prasības}{#6}
+	\specificationTableItem{Parametra piemērs}{#7}
+}
+
+% \newcommand{\parameterTable}[7]{
+% 	\begin{tabularx}{\linewidth}{|X|}
+% 		\caption{#1} \label{tab:#2}                                  \\ \hline
+% 		\endfirsthead
+% 		\hline \multicolumn{1}{r}{Turpinājums no iepriekšējās lapas} \\ \hline
+% 		\endhead
+%
+% 		\hline \multicolumn{1}{r}{Turpinājums nākamajā lapā}         \\ \hline
+% 		\endfoot
+%
+% 		\hline
+% 		\endlastfoot
+%
+% 		\textbf{Parametra nosaukums}                                 \\ \hline
+% 		#3                                                           \\ \hline
+% 		\textbf{Parametra identifikators}                            \\ \hline
+% 		#4                                                           \\ \hline
+% 		\textbf{Parametra apraksts}                                  \\ \hline
+% 		#5                                                           \\ \hline
+% 		\textbf{Parametra prasības}                                  \\ \hline
+% 		#6                                                           \\ \hline
+% 		\textbf{Parametra piemērs}                                   \\ \hline
+% 		#7                                                           \\ \hline
+% 	\end{tabularx}
+% }
