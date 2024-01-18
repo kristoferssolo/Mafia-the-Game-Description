@@ -1,9 +1,0 @@
-\begin{entityTable}{MaksasAbonements}{entity-paid-subscription}
-	\entityTableRow{stripe\_id}{varchar(255)}{unique, not null}{Unikālais identifikators, kurš tiek iegūts no maksājuma procesora klienta - \href{https://stripe.com}{Stripe}}
-	\entityTableRow{stavoklis}{int8}{not null}{Abonementa stāvoklis, \texttt{FOREING KEY} uz \hyperref[tab:entity-subscription-status]{AbonementaStavoklis} tabulas id kolonnu}
-	\entityTableRow{sakuma\_laiks}{timestamp}{not null, default current\_timestamp}{Laiks, kad abonements ir aktivizēts}
-	\entityTableRow{periods}{interval}{not null}{Laika periods dienās, cik ilgi abonements ir aktīvs}
-	\entityTableRow{atteikums\_laiks}{timestamp}{}{Laiks, kad lietotājs atteicās no abonementa}
-	\entityTableRow{lietotajs}{int8}{not null}{Abonementa lietotājs, \texttt{FOREING KEY} uz \hyperref[tab:entity-user]{Lietotajs} tabulas id kolonnu}
-	\entityTableRow{abonementa\_cena}{int8}{not null}{Abonementa cena, \texttt{FOREING KEY} uz \hyperref[tab:entity-subscription-price]{AbonementaCena} tabulas id kolonnu}
-\end{entityTable}

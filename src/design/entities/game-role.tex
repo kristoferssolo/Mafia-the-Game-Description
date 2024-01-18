@@ -1,8 +1,0 @@
-\begin{entityTable}{SpelesLoma}{entity-game-role}
-	\entityTableRow{nosaukums}{varchar(255)}{unique, not null}{Lomas nosaukums}
-	\entityTableRow{apraksts}{text}{default '', not null}{Lomas apraksts}
-	\entityTableRow{max\_speletaju\_ skaits}{int4}{default 1, not null, check (\lowercase{max\_speletaju\_ skaits} > 0)}{Maksimālais spēlētāju skaits spēlē ar doto lomu}
-	\entityTableRow{ir\_pamata}{bool}{default false, not null}{Vai loma ir spēles pamatā vai lietotāju izveidots?}
-	\entityTableRow{ir\_mafija}{bool}{default false, not null}{Vai loma ir mafija?}
-	\entityTableRow{attels}{int8}{}{Lomas attēls, \texttt{FOREING KEY} uz \hyperref[tab:entity-image]{Attels} tabulas id kolonnu}
-\end{entityTable}
