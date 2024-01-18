@@ -769,7 +769,7 @@ Procedūras ir aprakstītas atsevišķās tabulās (skat.
       + Ja identifikators atbilst nulles vērtībai, izvada "nepatiess".
     + Pieprasa abonementu sarakstu no maksājumu apstrādātāja.
       + Ja pieprasījums neizdevās, izvada "nepatiess".
-    + Sameklē pēdējo abonementu pēc izveidošanas laika. 
+    + meklē pēdējo abonementu pēc izveidošanas laika. 
     + Ja atbildē nav abonementu, izvada "nepatiess". 
     + Ja pēdējais abonements ir aktīvs, izvada "patiess".
   ],
@@ -809,8 +809,8 @@ Procedūras ir aprakstītas atsevišķās tabulās (skat.
     + Lietotāja identifikators -- atbilst #link(<IIDP10>)[IIDP10]\.
   ],
   [
-    + Sameklē lietotāju, izmantojot lietotāja identifikatoru.
-      + Ja nesameklē, izvada kodu, kas atbilst neveiksmei. 
+    + Meklē lietotāju, izmantojot lietotāja identifikatoru.
+      + Ja neadrot, izvada kodu, kas atbilst neveiksmei. 
     + Ģenerē e-pasta apstiprinājuma marķieri, kas atbilst #link(<IIDP17>)[IIDP17].
     + Meklē lietotājus ar šo e-pasta apstiprinājuma marķieri;
       + Ja lietotājs tika atrasts, atkārto e-pasta apstiprinājuma ģenerēšanu un lietotāju meklēšanu līdz marķieris ir unikāls.
@@ -838,8 +838,8 @@ Procedūras ir aprakstītas atsevišķās tabulās (skat.
   ],
   [
     // https://stripe.com/docs/api/customers/create
-    + Sameklē lietotāju, izmantojot lietotāja identifikatoru.
-      + Ja nesameklē, izvada kodu, kas atbilst neveiksmei. 
+    + Meklē lietotāju, izmantojot lietotāja identifikatoru.
+      + Ja neatrod, izvada kodu, kas atbilst neveiksmei. 
     + Sagatavo datus pieprasījumam, kas iekļauj lietotāja vārdu, uzvārdu un e-pastu. Pārveido to maksājuma apstrādātāja pieprasītā formātā, izmantojot maksājuma apstrādātāja API.
     + Ģenerē lietotāja maksājumu apstrādātāja identifikatoru, sazinoties ar maksājumu apstrādātāju.
   ],
@@ -1060,7 +1060,7 @@ Funkcijas ir aprakstītas atsevišķās tabulās (skat.
   ],
   [
     + Ja lietotāja paroles identifikatora atjaunošanas marķieris nav iesniegts, parāda 1. paziņojumu. Beidz apstrādi;
-    + Sameklē lietotāja ierakstu datubāzē, meklējot to pēc atjaunošanas marķiera;
+    + Meklē lietotāja ierakstu datubāzē, meklējot to pēc atjaunošanas marķiera;
     + Ja lietotāja ieraksts netika atrasts, parāda 2. paziņojumu. Beidz apstrādi;
       + Pārbauda, vai saitē iekļautais marķieris ir derīgs un nav novecojis. Ja tas ir nederīgs vai novecojis, parāda 2. paziņojumu. Beidz apstrādi.
       + Pārbauda, vai parole un paroles apstiprinājums ir iesniegts;
@@ -1224,8 +1224,8 @@ Funkcijas ir aprakstītas atsevišķās tabulās (skat.
       + Ja lappušu skaits ir 0, tad parāda 1. paziņojumu. Beidz apstrādi.
     + Veic sagatavoto pieprasījumu, iegūstot lietotāja segvārdu, lietotāja konta izveidošanas laiku (lietotāja pievienošanās laiku), lietotāja attēla datnes adresi;
       + Ja pieprasījums neizdodas, parāda 2. paziņojumu. Beidz apstrādi.
-    + Katram ierakstam no rezultāta, iegūst sameklē attēla datnes adresi no attēlu tabulas pēc attēla identifikatora.
-      + Ja attēla datnes adrese neeksistē ierakstam, tad iegūst noklusētā attēla datnes adresi un pamaina ieraksta datnes adresi izvades datos uz noklusētā datnes attēla adresi.
+    + Katram ierakstam no rezultāta, iegūst atrastais attēla datnes adresi no attēlu tabulas pēc attēla identifikatora.
+      + Ja attēla datnes adrese neeksistē ierakstam, tad iegūst noklusētā attēla datnes adresi un samaina ieraksta datnes adresi izvades datos uz noklusētā datnes attēla adresi.
   ],
   [
     Izvades datu mērķis ir parādīt rezultāta pārskatu lietotāja saskarnē. Lietotāja saskarnē tiek prezentēti dati no sagatavotā saraksta.
@@ -1308,7 +1308,7 @@ Funkcijas ir aprakstītas atsevišķās tabulās (skat.
     + Lietotāja identifikators -- atbilst #link(<IIDP10>)[IIDP10].
   ],
   [
-    + Sameklē lietotāja ierakstu datubāzē, meklējot to pēc identifikatora.
+    + Meklē lietotāja ierakstu datubāzē, meklējot to pēc identifikatora.
       + Ja lietotāja ieraksts netika atrasts, parāda 2. paziņojumu. Beidz apstrādi.
     + Autorizē administratora darbību.
       + Ja darbība netika autorizēta, parāda 2 paziņojumu. Beidz apstrādi.
@@ -1390,9 +1390,9 @@ Funkcijas ir aprakstītas atsevišķās tabulās (skat.
     + Citādi saglabā vecā attēla datni, ja tāda ir.
     
     // Uniqueness check
-    + Ja tika iesniegts atšķirīgs segvārds, mēģina sameklēt datubāzē lietotājus ar ievadīto segvārdu.
+    + Ja tika iesniegts atšķirīgs segvārds, mēģina meklēt datubāzē lietotājus ar ievadīto segvārdu.
       + Ja tāds (/-i) pastāv, tad parāda 10. paziņojumu ar attiecīgo aizņemto lauku. Beidz apstrādi. Beidz apstrādi.
-    + Ja tika iesniegts atšķirīgs e-pasts, mēģina sameklēt datubāzē lietotājus ar ievadīto e-pastu.
+    + Ja tika iesniegts atšķirīgs e-pasts, mēģina meklēt datubāzē lietotājus ar ievadīto e-pastu.
       + Ja tāds (/-i) pastāv, tad parāda 10. paziņojumu ar attiecīgo aizņemto lauku. Beidz apstrādi. Beidz apstrādi.
 
     // Admin specific
@@ -1521,7 +1521,7 @@ Funkcijas ir aprakstītas atsevišķās tabulās (skat.
       + Ja neatbilst, parāda 4. paziņojumu. Beidz apstrādi.
     + Pārbauda, vai kartes derīguma termiņš ir pēc tekošā mēneša.
       + Ja tas ir pirms, parāda 5. paziņojumu. Beidz apstrādi.
-    + No datubāzes sameklē aktuālo šodienas cenu par abonementu, izmantojot tagadējo laiku.
+    + Datubāzē meklē aktuālo šodienas cenu par abonementu, izmantojot tagadējo laiku.
       + Ja cena netika atrasta, iegūst noklusējuma cenu.*/
       
     // https://stripe.com/docs/api/subscriptions/create
@@ -1642,7 +1642,7 @@ Funkcijas ir aprakstītas atsevišķās tabulās (skat.
     + Atcelšanas iemesls -- simbolu virkne.
   ],
   [
-    /*+ Sameklē datubāzē maksas abonementa ierakstu, pēc maksas apstrādātāja klienta identifikatora.
+    /*+ Datubāzē meklē maksas abonementa ierakstu, pēc maksas apstrādātāja klienta identifikatora.
       + Ja tāds neeksistē, parāda 1. paziņojumu. Beidz apstrādi.
       + Ja lietotāja idendifikators neatbilst ieraksta identifikatoram, parāda 2. paziņojumu. Beidz apstrādi. 
       */
@@ -1652,7 +1652,7 @@ Funkcijas ir aprakstītas atsevišķās tabulās (skat.
     + Sagatavo datus pieprasījumam, kas iekļauj lietotāja ārējā maksas pakalpojuma identifikatoru, maksājuma plāna identifikatoru un atcelšanas iemeslu. Pārveido tos maksājuma apstrādātāja pieprasītā formātā, izmantojot maksājumu apstrādātāja API.
     + Pieprasa abonementa atcelšanu, sazinoties ar maksājumu apstrādātāju.
       + Ja atbildē atcelšana netiek apstiprināta, parāda 1. paziņojumu. Beidz apstrādi.
-    + Sameklē lietotāja ierakstu datubāzē.
+    + Datubāzē meklē lietotāja ierakstu.
       + Izdzēš klienta identifikatoru no lietotāja ieraksta.
       
     /*+ Izmantojot maksājumu apstrādātāja klienta identifikatoru, pieprasa abonementa atcelšanu, izmantojot maksājuma apstrādātāja API.
@@ -1765,7 +1765,7 @@ Funkcijas ir aprakstītas atsevišķās tabulās (skat.
     + Ja spēlētais ir neaktīvs, izslēgts, vai kāds no atribūtiem, kas apzīmē spēles beigas spēlētājiem ir "patiess", parāda 6. paziņojumu. Beidz apstrādi.
     + Izmantojot #link(<KPR03>)[KPR03] procedūru pārbauda, vai spēlētājs pieder mafijai un ja "vai sarakste ir mafijas tērzētavā" karodziņš ir "patiess", uzstāda attiecīgo ieraksta karodziņa vērtību.
       + Ja spēlētājs nepieder mafijai, parāda 4. paziņojumi. Beidz apstrādi.
-    + Ja atbildes sarakstes identifikators ir iesniegts, sameklē atbildes sarakstes ar atbildes sarakstu identifikatoru.
+    + Ja atbildes sarakstes identifikators ir iesniegts, meklē atbildes sarakstes ar atbildes sarakstu identifikatoru.
       + Ja sarakste ierakstu neatrod, parāda 5. paziņojumu. Beidz apstrādi.
     + Sagatavoto sarakstes ierakstu.
     + Ieraksta saraksti datubāzē.
@@ -1795,7 +1795,7 @@ Funkcijas ir aprakstītas atsevišķās tabulās (skat.
     + Lietotāja identifikators -- atbilst #link(<IIDP10>)[IIDP10].
   ],
   [
-    + Sameklē datubāzē sarakstes ierakstu, izmantojot sarakstes identifikatoru.
+    + Meklē datubāzē sarakstes ierakstu, izmantojot sarakstes identifikatoru.
       + Ja tas netika atrasts, parāda 1. paziņojumu. Beidz apstrādi.
     + Pārbauda, vai lietotāja identifikators sakrīt ar sarakstes ieraksta lietotāja identifikatoru.
       + Ja tas nesakrīt, autentificē administratora darbību.
@@ -1835,7 +1835,7 @@ Funkcijas ir aprakstītas atsevišķās tabulās (skat.
       + Ja nav saistīti, veic administratora darbības autorizāciju.
       + Ja darbība nav autorizēta, parāda 2. paziņojumu. Beidz apstrādi.
       + Ja darbība ir autorizēta, izlaiž apstrādes 2. soli.
-    + Sameklē spēlētāja ierakstu un ar to saistītu spēles lomas un spēles istabas ierakstu pēc attiecīgajiem identifikatoriem.
+    + Meklē spēlētāja ierakstu un ar to saistītu spēles lomas un spēles istabas ierakstu pēc attiecīgajiem identifikatoriem.
       + Ja kāds no ierakstiem netika atrasts, parāda 2. paziņojumu.
       + Ja spēlētāja stāvoklis neatbilst aktīvam, no spēles neizslēgtam spēlētājam, parāda 3. paziņojumu. Beidz apstrādi.
       + Ja mafijas tērzēšanas karodziņš ir "patiess" un spēlētāja loma nepieder mafijai, parāda 2. paziņojumu.
@@ -1846,9 +1846,9 @@ Funkcijas ir aprakstītas atsevišķās tabulās (skat.
     + Pievieno pieprasījumam nepieciešamo nobīdi lappusei, izmantojot #link(<KPR01>)[KPR01] procedūru ar pieprasīto ierakstu skaitu.
     + Veic sagatavoto pieprasījumu, iegūstot īsziņas tekstus, sarakstes adresāta identifikatorus.
       + Ja pieprasījums neizdodas, parāda 1. paziņojumu. Beidz apstrādi.
-    + Sameklē saraksti attēlošanas nepieciešamo spēlētāju segvārdus, sameklējot attiecīgos lietotāju un spēlētāju ierakstus datubāzē, izmantojot attiecīgos spēlētāju un lietotāju identifikatorus.
-      + Ja, kāds no nepieciešamiem ierakstiem netika atrasts, aizvieto nesameklēto informāciju ar noklusētām vērtībām.
-    + Katrai sarakstei ar atbildi sameklē attiecīgo sarakstu un ar to saistītā lietotāja ierakstu, uz ko tā atbild datubāzē pēc attiecīgās sarakstes identifikatora, iegūstot sarakstes tekstus, atbildes lietotāju segvārdus un izmainīšanas karodziņus.
+    + Meklē saraksti attēlošanas nepieciešamo spēlētāju segvārdus, meklējot attiecīgos lietotāju un spēlētāju ierakstus datubāzē, izmantojot attiecīgos spēlētāju un lietotāju identifikatorus.
+      + Ja, kāds no nepieciešamiem ierakstiem netika atrasts, aizvieto neatrasto informāciju ar noklusētām vērtībām.
+    + Katrai sarakstei ar atbildi meklē attiecīgo sarakstu un ar to saistītā lietotāja ierakstu, uz ko tā atbild datubāzē pēc attiecīgās sarakstes identifikatora, iegūstot sarakstes tekstus, atbildes lietotāju segvārdus un izmainīšanas karodziņus.
       + Ja kāda sarakste netika atrasta, sarakstes tekstu un identifikatoru aizvieto ar noklusētām vērtībām.
   ],
   [
@@ -1962,7 +1962,7 @@ Funkcijas ir aprakstītas atsevišķās tabulās (skat.
       + Ja pieprasījums neizdodas, parāda 2. paziņojumu. Beidz apstrādi.
     + Katram ierakstam no rezultāta, sekojošas manipulācijas:
       + Saskaita spēlētājus, kas gaida spēles sākšanu -- spēlētāji, kuru stāvoklis atbilst "aktīvs" vai "atslēdzies".
-      + Sameklē spēles uzstādījumu pēc identifikatora.
+      + Meklē spēles uzstādījumu pēc identifikatora.
         + Ja tas netika atrasts, izņem spēles istabas vārdnīcu no saraksta.
         + Citādi pievieno spēles uzstādījuma nosaukumu vārdnīcai.
       + Ja spēles sākšanas laiks nav tukšs vai stāvoklis neatbilst neuzsāktās spēles stāvokļa kodam, izņem ārā vārdnīcu no rezultāta saraksta;
@@ -2057,9 +2057,9 @@ Funkcijas ir aprakstītas atsevišķās tabulās (skat.
       + Ja nav, parāda 6. paziņojumu. Beidz apstrādi.
     + Izmantojot #link(<KPR02>)[KPR02] procedūru pārbauda, vai spēlētājs, lietotājs un spēles istaba eksistē un ir savstarpēji saistīti.
       + Ja nav, parāda 5. paziņojumu. Beidz apstrādi.
-    + Sameklē spēles istabas ierakstu datubāzē, izmantojot spēles istabas identifikatoru.
+    + Datubāzē meklē spēles istabas ierakstu, izmantojot spēles istabas identifikatoru.
       + Ja nav, parāda 3. paziņojumu. Beidz apstrādi.
-    + Sameklē spēlētāja ierakstu, izmantojot spēlētāja identifikatoru.  
+    + Meklē spēlētāja ierakstu, izmantojot spēlētāja identifikatoru.  
       + Ja to neatrod, parāda 2. paziņojumu. Beidz apstrādi.
     + Spēlētāja stāvoklis tiek nomainīts uz "atslēdzies". Izmaiņas ieraksta datubāzē.
       + Ja ierakstīšana neizdodas, parāda 3. paziņojumu. Beidz apstrādi.
@@ -2098,7 +2098,7 @@ Funkcijas ir aprakstītas atsevišķās tabulās (skat.
       + Ja nav, parāda 4. paziņojumu. Beidz apstrādi.
     + Izmantojot #link(<KPR08>)[KPR08] procedūru, pārbauda, vai lietotājam ir aktīvs abonements.
       + Ja nav, tad parāda 2. paziņojumu. Beidz apstrādi.
-    + Sameklē spēles uzstādījumu datubāzē.
+    + Datubāzē meklē spēles uzstādījumu.
       + Ja tas netika atrasts, parāda 3. paziņojumu. Beidz apstrādi.
     + Sāk gatavot spēles istabas ierakstu.
     + Ja piekļuves kods tika iesniegts, pārbauda, vai tas atbilst prasībām. 
@@ -2143,9 +2143,9 @@ Funkcijas ir aprakstītas atsevišķās tabulās (skat.
   [
     + Pārbauda, vai visi obligātie lauki ir iesniegti.
       + Ja nav, parāda 3. paziņojumu. Beidz apstrādi.
-    + Sameklē istabas ierakstu datubāzē.
+    + Datubāzē meklē istabas ierakstu.
       + Ja neatrod, parāda 3. paziņojumu. Beidz apstrādi.
-    + Pārbauda, vai lietotājs ir istabas izveidotājs, sameklējot spēlētāja ierakstu datubāzē.
+    + Pārbauda, vai lietotājs ir istabas izveidotājs, meklējot spēlētāja ierakstu datubāzē.
       + Ja spēlētāju neatrod, parāda 3. paziņojumu. Beidz apstrādi.
       + Ja lietotājs nav istabas izveidotājs, tad parāda 1. paziņojumu. Beidz apstrādi.
     + Pārbauda, vai spēles stāvoklis atbilst nesāktās spēles stāvoklim.
@@ -2187,9 +2187,9 @@ Funkcijas ir aprakstītas atsevišķās tabulās (skat.
   [
     + Autorizē administratora darbību. 
       + Ja tā nav autorizēta, parāda 4. paziņojumu. Beidz apstrādi.
-    + Sameklē spēlētāja ierakstu datubāzē.
+    + Datubāzē meklē spēlētāja ierakstu.
       + Ja netiek atrasts, parāda 3. paziņojumu. Beidz apstrādi.
-    + Sameklē spēles istabas ierakstu datubāzē.
+    + Datubāzē meklē spēles istabas ierakstu.
       + Ja netiek atrasta, parāda 2. paziņojumu. Beidz apstrādi.
     + Pamaina spēlētāja stāvokli uz stāvokli, kas atbilst izslēgta spēlētāja stāvoklim. 
     // + Spēlētāja ierakstu izdzēš.
@@ -2216,12 +2216,12 @@ Funkcijas ir aprakstītas atsevišķās tabulās (skat.
     + Spēles istabas identifikators -- atbilst #link(<IIDP10>)[IIDP10].
   ],
   [
-    + Sameklē spēles istabu datubāzē.
+    + Datubāzē meklē spēles istabu.
       + Ja nav atrasta, parādā 1. paziņojumu. Beidz apstrādi.
     + Iegūst spēlētāju sarakstu no datubāzes, kas ir saistīti ar spēles istabu.
       + Ja neviens spēlētājs netika atrasts, parāda 3. paziņojumu. Beidz apstrādi.
     + Katram spēlētājam iegūst attiecīgā lietotāja ierakstu. 
-      + Ja kādam spēlētājam nevar sameklēt lietotāju, parāda 2. paziņojumu. Beidz apstrādi.
+      + Ja kādam spēlētājam nevar atrakst lietotāju, parāda 2. paziņojumu. Beidz apstrādi.
     + Izveido spēlētāju vārdnīcu sarakstu:
       + lietotāja segvārds;
       + stāvoklis;
@@ -2303,7 +2303,7 @@ Funkcijas ir aprakstītas atsevišķās tabulās (skat.
       + Ja nav, parāda 4. paziņojumu. Beidz apstrādi.  
     + Pārbauda lietotāja lomu un tiesības atcelt spēli.  
        + Ja lietotājs nav administrators un nav spēles izveidotājs, tad parāda 3. paziņojumu. Beidz apstrādi.  
-    + Sameklē spēles ierakstu datubāzē.  
+    + Datubāzē meklē spēles ierakstu.
        + Ja spēli neatrod, parāda 2. paziņojumu. Beidz apstrādi.  
     + Maina spēles stāvokli uz atceltu.  
     + Maina visu ar spēli saistīto spēlētāju "aktīvs" lauku uz "nepatiess".  
@@ -2357,7 +2357,7 @@ Funkcijas ir aprakstītas atsevišķās tabulās (skat.
   ],
   [
     // Pārbauda istabas un darbības eksistenci un atbilstību aktīvam stāvoklim
-    + Meklē spēles istabu datubāzē, izmantojot darbības identifikatoru.
+    + Datubāzē meklē spēles istabu, izmantojot darbības identifikatoru.
       + Ja spēles istaba netiek atrasta parāda 2. paziņojumu. Beidz apstrādi.
       + Ja spēles istabas stāvoklis neatbilst stāvoklim spēlei procesā, tad parāda 1. paziņojumu. Beidz apstrādi.
     // Pārbauda lietotāja, spēlētāja un spēles istabas atbilstību
@@ -2483,7 +2483,7 @@ Funkcijas ir aprakstītas atsevišķās tabulās (skat.
     + Sāk veidot sarakstu ar notikumu vārdnīcām.
     + Veic sagatavoto pieprasījumu, iegūstot nosaukumu, izveidošanas laiku, nakts numuru, veidu, vai ir nakts.
       + Ja pieprasījums neizdodas, parāda 4. paziņojumu. Beidz apstrādi.
-      + Ja paslēptās informācijas karodziņš ir "patiess", tad vārdnīcai pievieno atbilstošā spēlētāja, tā lomas identifikatoru un tā darbības identifikatoru, ja tas ir attiecināms, sameklējot to datubāzē.
+      + Ja paslēptās informācijas karodziņš ir "patiess", tad vārdnīcai pievieno atbilstošā spēlētāja, tā lomas identifikatoru un tā darbības identifikatoru, ja tas ir attiecināms, meklējot to datubāzē.
         + Ja pieprasījums datubāzei neizdodas, parāda 4. paziņojumu.
       + Ja notikuma redzamības spēles procesā karodziņš ir "patiess" un ja paslēptās informācijas karodziņš ir "patiess", notikumu pievieno sarakstam, citādi notikumu sarakstam nepievieno.
       + Ja notikuma veids atbilst taimera notikumam, sarakstam pievieno taimera laiku.
@@ -2542,7 +2542,7 @@ Funkcijas ir aprakstītas atsevišķās tabulās (skat.
       + Nakts numurs.
     + Iegūst spēlētāju identifikatoru sarakstu no datubāzes, kas ir saistītas ar spēles istabu.
     + Katram identifikatoram no iegūtā saraksta veic sekojošas darbības:
-      + Sameklē spēlētāju datubāzē, izmantojot spēlētāja identifikatoru.
+      + Meklē spēlētāju datubāzē, izmantojot spēlētāja identifikatoru.
         + Ja spēlētāja ieraksts netika atrasts, parāda 4. paziņojumu. Beidz apstrādi.
       + Sagatavo spēlētāja lietotāja profila attēlu:
         + Ja profila attēls nav tukšs, to uzskata par noteikto noklusēto attēlu.
@@ -2734,7 +2734,7 @@ Funkcijas ir aprakstītas atsevišķās tabulās (skat.
       + Ja nesatur, tad iegūst izmantotos neatļautos simbolus, tad parāda 7. paziņojumu ar attiecīgiem laukiem un simboliem. Beidz apstrādi.
     + Ja "vai ir pamata" karodziņš ir stāvoklī "patiess", autorizē administratora darbību.
       + Ja tā netiek autorizēta, parāda 8. paziņojumu. Beidz apstrādi.
-    + Mēģina sameklēt datubāzē spēles lomu ar ievadīto nosaukumu.
+    + Mēģina atrast datubāzē spēles lomu ar ievadīto nosaukumu.
       + Ja tāds pastāv, tad parāda 3. paziņojumu. Beidz apstrādi.
     + Ja ir ievadīts lomas darbību identifikatoru saraksts, tad katram saraksta identifikatoram izveidot saistības ierakstu starp spēles lomas un spēles darbības ierakstu, pirms tam pārbaudot darbību eksistenci datubāzē.
       + Ja kāda no darbībām neeksistē, parāda 9. paziņojumu. Beidz apstrādi.
@@ -2788,7 +2788,7 @@ Funkcijas ir aprakstītas atsevišķās tabulās (skat.
   [
     + Veic maksas lietotāja darbības autorizāciju, izmantojot #link(<KPR08>)[KPR08] procedūru, vai administratora darbības autorizāciju.
       + Ja darbība nav autorizēta, parāda 10. paziņojumu. Beidz apstrādi.
-    + Sameklē spēles lomas ierakstu datubāzē.
+    + Datubāzē meklē spēles lomas ierakstu.
       + Ja tā netiek atrasta, parāda 9. paziņojumu. Beidz apstrādi.
     + Ja ar spēles lomu saistīts lietotāja identifikators nesakrīt ar lietotāja identifikatoru, kurš izveidoja doto spēles lomu, veic administratora darbības autorizāciju.
       + Ja tā netiek autorizēta parādīt 6. paziņojumu. Beidz apstrādi.
@@ -2799,9 +2799,9 @@ Funkcijas ir aprakstītas atsevišķās tabulās (skat.
     + Pārbauda, vai nosaukums un darbības nosaukums, ja ievadīts, satur tikai pieļaujamos simbolus.
       + Ja nesatur, tad iegūst izmantotos neatļautos simbolus, tad parāda 8. paziņojumu ar attiecīgajiem laukiem un simboliem. Beidz apstrādi.
     + Veido izmainīto datu sarakstu pēc turpmāk izmainītajiem laukiem.
-    + Ja tika iesniegts atšķirīgs nosaukums, mēģina sameklēt datubāzē lomu ar ievadīto nosaukumu. Ja tāda pastāv, tad parāda 3. paziņojumu. Beidz apstrādi.
-    + Katram identifikatoram spēles lomas darbību identifikatoru sarakstā sameklē darbību datubāzē.
-      + Ja kāda no darbībām netika sameklēta, parāda 11. paziņojumu. Beidz apstrādi.
+    + Ja tika iesniegts atšķirīgs nosaukums, mēģina datubāzē atrast lomu ar ievadīto nosaukumu. Ja tāda pastāv, tad parāda 3. paziņojumu. Beidz apstrādi.
+    + Katram identifikatoram spēles lomas darbību identifikatoru sarakstā meklē darbību datubāzē.
+      + Ja kāda no darbībām netika atrasta, parāda 11. paziņojumu. Beidz apstrādi.
 
     // Image
     + Ja tika iesniegts attēls, validē attēlu ar #link(<KPR12>)[KPR12] un uzstāda pievienošanas laiku uz tagadējo laiku.
@@ -2846,7 +2846,7 @@ Funkcijas ir aprakstītas atsevišķās tabulās (skat.
   [
     + Veic maksas lietotāja darbības autorizāciju, izmantojot #link(<KPR08>)[KPR08] procedūru, vai administratora darbības autorizāciju.
       + Ja darbība nav autorizēta, parāda 1. paziņojumu. Beidz apstrādi.
-    + Sameklē spēles lomas ierakstu datubāzē.
+    + Datubāzē meklē spēles lomas ierakstu.
       + Ja tā netiek atrasta, parāda 2. paziņojumu. Beidz apstrādi.
     + Ja ar spēles lomu saistīts lietotāja identifikators nesakrīt ar lietotāja identifikatoru, kurš izveidoja doto spēles lomu, veic administratora darbības autorizāciju.
       + Ja tā netiek autorizēta parādīt 5. paziņojumu. Beidz apstrādi.
@@ -2989,10 +2989,10 @@ Funkcijas ir aprakstītas atsevišķās tabulās (skat.
       + Ja nesatur, parāda 6. paziņojumu ar attiecīgi laukiem un simboliem. Beidz apstrādi.
     + Pārbauda, vai nosaukums un apraksts nepārsniedz noteikto garumu.
       + Ja pārsniedz, parāda 2. paziņojumu ar attiecīgajiem laukiem un garumiem. Beidz apstrādi.
-    + Mēģina sameklēt datubāzē uzstādījumus ar ievadīto nosaukumu.
+    + Mēģina atrast datubāzē uzstādījumus ar ievadīto nosaukumu.
       + Ja tāds pastāv, tad parāda 3. paziņojumu. Beidz apstrādi.
     + Katrai vārdnīcai no lomu datu vārdnīcu saraksta veic sekojošas manipulācijas.
-      + Sameklē lomu datubāzē.
+      + Meklē lomu datubāzē.
         + Ja tā neeksistē, parāda 10. paziņojumu. Beidz apstrādi.
       + Ja skaits nav pozitīvs, parāda 7. paziņojumu. Beidz apstrādi.
       + Lomas skaitu pieskaita pie skaita summas.
@@ -3044,7 +3044,7 @@ Funkcijas ir aprakstītas atsevišķās tabulās (skat.
   [
     + Veic maksas lietotāja darbības autorizāciju, izmantojot #link(<KPR08>)[KPR08] procedūru, vai administratora darbības autorizāciju.
       + Ja darbība netiek autorizēta, parādīt 11. paziņojumu. Beidz apstrādi.
-    + Sameklē spēles uzstādījumu datubāzē. 
+    + Datubāzē meklē spēles uzstādījumu. 
       + Ja tas netiek atrasts. Parāda 11. paziņojumu. Beidz apstrādi.
     + Ja ar spēles uzstādījumu saistīts lietotāja identifikators nesakrīt ar lietotāja identifikatoru, veic administratora darbības autorizāciju.
       + Ja darbība nav autorizēta. Parāda 6. paziņojumu.
@@ -3055,7 +3055,7 @@ Funkcijas ir aprakstītas atsevišķās tabulās (skat.
       + Ja nesatur, tad iegūst izmantotos neatļautos simbolus, tad parāda 9. paziņojumu ar attiecīgi laukiem un simboliem. Beidz apstrādi.
     + Pārbauda, vai nosaukums un apraksts nepārsniedz noteikto garumu.
       + Ja pārsniedz, tad iegūst pārsniegto garumu parametru sarakstu un parāda 2. paziņojumu ar attiecīgajiem laukiem un garumiem. Beidz apstrādi.
-      + Ja tika iesniegts atšķirīgs nosaukums, mēģina sameklēt datubāzē uzstādījumus ar ievadīto nosaukumu.
+      + Ja tika iesniegts atšķirīgs nosaukums, mēģina datubāzē atrast uzstādījumus ar ievadīto nosaukumu.
       + Ja tāds pastāv, tad parāda 3. paziņojumu. Beidz apstrādi.
     + Iepriekš izmainītos laukus pievieno izmainīto lauku sarakstam.
     + Autorizē administratora darbību. Ja darbība ir autorizēta, veic sekojošās darbības.
@@ -3065,7 +3065,7 @@ Funkcijas ir aprakstītas atsevišķās tabulās (skat.
       + Ja datums ir nākotnē, parāda 8. paziņojumu. Beidz apstrādi.
       + Sagatavotiem datiem pievieno administratoriem specifiskās. Beidz apstrādi.
     + Katrai vārdnīcai no lomu datu vārdnīcu saraksta veic sekojošas manipulācijas.
-      + Sameklē lomu datubāzē.
+      + Meklē lomu datubāzē.
         + Ja tā neeksistē, parāda 13. paziņojumu. Beidz apstrādi.
       + Ja skaits nav pozitīvs, parāda 4. paziņojumu. Beidz apstrādi.
       + Lomas skaitu pieskaita pie skaita summas.
@@ -3109,7 +3109,7 @@ Funkcijas ir aprakstītas atsevišķās tabulās (skat.
   [
     + Veic maksas lietotāja darbības autorizāciju, izmantojot #link(<KPR08>)[KPR08] procedūru, vai administratora darbības autorizāciju.
       + Ja darbība netiek autorizēta, parādīt 1. paziņojumu. Beidz apstrādi.
-    + Sameklē spēles uzstādījumu datubāzē. 
+    + Datubāzē meklē spēles uzstādījumu.
       + Ja tas netiek atrasts. Parāda 6. paziņojumu. Beidz apstrādi.
     + Ja ar spēles uzstādījumu saistīts lietotāja identifikators nesakrīt ar lietotāja identifikatoru, veic administratora darbības autorizāciju.
       + Ja darbība nav autorizēta. Parāda 7. paziņojumu.
